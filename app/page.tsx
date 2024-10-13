@@ -1,101 +1,49 @@
-import Image from "next/image";
+import { ArrowRightIcon, GithubIcon, LinkedinIcon, LocateIcon, QuoteIcon } from 'lucide-react';
+import logo from './logo.svg';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    return (
+        <div className='mx-auto mt-5 max-w-fit rounded-lg bg-white/60 p-5 shadow-2xl lg:mt-24'>
+            <Image src={logo} width={600} alt="logo" className='mx-auto max-w-[calc(100vw-104px)]' fetchPriority='high' />
+            <div className='relative mx-auto mb-10 mt-4 w-[600px] max-w-[calc(100vw-104px)] pr-20'>
+                <QuoteIcon size={48} className='absolute right-0 top-0 text-blue-900 opacity-10' />
+                I am a senior full-stack software engineer with a passion for web development. I have experience with a variety of technologies and programming languages, and I am always looking to learn more.
+            </div>
+            <div className='mt-3 grid gap-3 md:grid-cols-3'>
+                <a
+                    href="https://github.com/liam-russell"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-gray-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-gray-500 hover:text-white'
+                >
+                    <GithubIcon size={16} />
+                    GitHub
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/liam-russell/"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-blue-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-blue-500 hover:text-white'
+                >
+                    <LinkedinIcon size={16} />
+                    LinkedIn
+                </a>
+                <a
+                    href="https://www.google.com.au/maps/place/Canberra+ACT"
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-red-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-red-500 hover:text-white'
+                >
+                    <LocateIcon size={16} />
+                    Canberra (Remote)
+                </a>
+            </div>
+            <Link href='/skills' className='mt-5 block rounded-lg bg-blue-900 p-3 text-center font-serif text-lg font-medium text-white transition-colors hover:bg-blue-800'>
+                Browse my skills and expertise
+                <ArrowRightIcon size={24} className='ml-2 inline-block' />
+            </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
