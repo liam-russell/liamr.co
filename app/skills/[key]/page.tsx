@@ -61,7 +61,7 @@ export default function SkillPage({ params: { key } }: { params: { key: string }
             <div className="mt-2 flex flex-row flex-wrap gap-2">
                 {skill.categories.map((category) => <Link
                     key={category}
-                    href={`/search?categories=${category}`}
+                    href={`/skills?categories=${category}`}
                     className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
                     prefetch={false}
                 >

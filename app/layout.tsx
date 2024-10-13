@@ -31,9 +31,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`bg-white font-sans ${nunito.variable} ${robotoSlab.variable}`}>
+        <html lang="en" className={`font-sans ${nunito.variable} ${robotoSlab.variable}`}>
             <body
-                className={`min-h-screen bg-gradient-to-tr from-sky-100/50 via-sky-100/50 to-sky-300/50 antialiased`}
+                className={`text-black min-h-screen bg-gradient-to-tr from-sky-100 via-sky-100 to-sky-300 antialiased`}
             >
                 <main className="container mx-auto flex min-h-full flex-col p-8">
                     <Analytics />
