@@ -8,7 +8,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 const getCachedSearch = unstable_cache(
     async (query: string | null, page: number, minProficiency: SkillProficiency | null, categories: SkillCategory[]) => {
-        let results = sortBy(skills, 'title', 'description');
+        let results = sortBy(
+            skills,
+            x => x.title.toLocaleLowerCase().replaceAll(/[^a-z]/g, ''),
+            x => x.description.toLocaleLowerCase().replaceAll(/[^a-z]/g, '')
+        );
 
         if (query) {
             results = searcher.search(query).map((result) => skills.find((skill) => skill.key === result.key)!);
