@@ -63,7 +63,7 @@ export default function SearchResults() {
         <div>
             <div className="divide-y divide-gray-200">
                 {data?.pages.flatMap((page) => page.results.map((skill) => (
-                    <Link key={skill.key} className="block p-5" href={`/skills/${skill.key}`}>
+                    <Link key={skill.key} className="block p-5" href={`/skills/${skill.key}`} prefetch={false}>
                         <h2 className="flex flex-row items-center font-serif text-2xl font-bold">
                             {skill.title}
                             <ProficiencyBadge proficiency={skill.proficiency} className="ml-2" />

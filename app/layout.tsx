@@ -3,6 +3,7 @@ import "./globals.css";
 import { Nunito, Roboto_Slab } from 'next/font/google'
 import Header from "@/components/header";
 import QueryClientProvider from "./query-client-provider";
+import { Analytics } from "@vercel/analytics/react"
 
 const nunito = Nunito({
     subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
                 className={`min-h-screen bg-gradient-to-tr from-sky-100/50 via-sky-100/50 to-sky-300/50 antialiased`}
             >
                 <main className="container mx-auto flex min-h-full flex-col p-8">
+                    <Analytics />
                     <Header />
                     <QueryClientProvider>
                         {children}

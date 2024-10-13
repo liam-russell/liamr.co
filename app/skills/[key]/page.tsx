@@ -63,6 +63,7 @@ export default function SkillPage({ params: { key } }: { params: { key: string }
                     key={category}
                     href={`/search?categories=${category}`}
                     className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
+                    prefetch={false}
                 >
                     {categoryTitles[category]}
                 </Link>)}
@@ -83,6 +84,7 @@ export default function SkillPage({ params: { key } }: { params: { key: string }
                         key={relatedSkillKey}
                         href={`/skills/${relatedSkillKey}`}
                         className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
+                        prefetch={false}
                     >
                         {relatedSkill?.title || relatedSkillKey}
                     </Link>
