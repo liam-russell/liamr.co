@@ -68,6 +68,14 @@ const management = [
         categories: [SkillCategory.Management],
         proficiency: SkillProficiency.Proficient,
         description: 'I have experience in creating and maintaining technical documentation.',
+    },
+    {
+        key: 'figma',
+        title: 'Figma',
+        categories: [SkillCategory.Management, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have experience in importing designs from Figma and using them to implement frontend components.',
+        link: 'https://www.figma.com/'
     }
 ] as readonly Skill[];
 
