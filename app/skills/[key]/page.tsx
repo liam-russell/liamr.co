@@ -8,9 +8,10 @@ import Link from "next/link";
 import { categoryTitles } from "@/skills/skill-categories";
 
 export async function generateMetadata({ params }: {
-    params: { key: string }
+    params: Promise<{ key: string }>
 }): Promise<Metadata> {
-    const skill = skills.find((skill) => skill.key === params.key);
+    const { key } = await params;
+    const skill = skills.find((skill) => skill.key === key);
 
     if (!skill) {
         return {
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: {
 }
 
 export default async function SkillPage({ params }: { params: Promise<{ key: string }> }) {
-    const key = (await params).key;
+    const { key } = await params;
     const skill = skills.find((skill) => skill.key === key);
 
     if (!skill) {
