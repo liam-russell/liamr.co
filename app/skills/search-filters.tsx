@@ -27,7 +27,7 @@ export function SearchFilters() {
         <div className="my-3 flex flex-col gap-2">
             <label className="block font-serif font-medium text-gray-700">Minimum proficiency:</label>
             <div className="flex flex-row flex-wrap gap-2">
-                {Object.values(SkillProficiency).filter(isNumber).map((proficiency) => <ProficiencyBadge
+                {(Object.values(SkillProficiency).filter(isNumber) as SkillProficiency[]).map((proficiency) => <ProficiencyBadge
                     key={proficiency}
                     proficiency={proficiency}
                     active={proficiency == minProficiency}

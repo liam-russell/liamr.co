@@ -16,7 +16,7 @@ export default function Home() {
                     href="https://github.com/liam-russell"
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-gray-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-gray-500 hover:text-white'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-gray-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-gray-500 hover:text-white'
                 >
                     <GithubIcon size={16} />
                     GitHub
@@ -25,7 +25,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/liam-russell/"
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-blue-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-blue-500 hover:text-white'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-blue-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-blue-500 hover:text-white'
                 >
                     <LinkedinIcon size={16} />
                     LinkedIn
@@ -34,7 +34,7 @@ export default function Home() {
                     href="https://www.google.com.au/maps/place/Canberra+ACT"
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-red-500/25 p-2 text-center backdrop-blur transition-colors hover:bg-red-500 hover:text-white'
+                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-red-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-red-500 hover:text-white'
                 >
                     <LocateIcon size={16} />
                     Canberra (Remote)

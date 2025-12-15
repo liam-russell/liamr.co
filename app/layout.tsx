@@ -33,7 +33,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`font-sans ${nunito.variable} ${robotoSlab.variable}`}>
             <body
-                className={`text-black min-h-screen bg-gradient-to-tr from-sky-100 via-sky-100 to-sky-300 antialiased`}
+                className={`text-black min-h-screen bg-linear-to-tr from-sky-100 via-sky-100 to-sky-300 antialiased`}
             >
                 <main className="container mx-auto flex min-h-full flex-col p-8">
                     <Analytics />

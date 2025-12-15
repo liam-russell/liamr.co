@@ -19,10 +19,10 @@ export default function SearchBox() {
 
     return (
         <div className="flex flex-row">
-            <div className="flex flex-row-reverse items-center gap-4 rounded-full bg-white/70 px-10 py-5 shadow-lg transition-colors has-[:focus]:bg-white">
+            <div className="flex flex-row-reverse items-center gap-4 rounded-full bg-white/70 px-10 py-5 shadow-lg transition-colors has-focus:bg-white">
                 <input
                     type="text"
-                    className="peer bg-transparent text-xl outline-none ring-0"
+                    className="peer bg-transparent text-xl outline-hidden ring-0"
                     placeholder="Search my skills..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}

@@ -13,7 +13,7 @@ export default function SearchPage() {
         <Suspense fallback=''>
             <SearchFilters />
         </Suspense>
-        <div className="overflow-hidden rounded bg-white/50 backdrop-blur">
+        <div className="overflow-hidden rounded-sm bg-white/50 backdrop-blur-sm">
             <h1 className="block bg-blue-900 p-4 font-serif font-bold uppercase text-white">My skills</h1>
             <Suspense fallback=''>
                 <SearchResults />

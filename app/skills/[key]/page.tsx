@@ -38,7 +38,7 @@ export default function SkillPage({ params: { key } }: { params: { key: string }
             {skill.title}
             <ProficiencyBadge proficiency={skill.proficiency} className="ml-5 text-2xl" />
         </h1>
-        {skill.description && <div className="relative mt-4 rounded bg-white p-5 pr-14 shadow-lg">
+        {skill.description && <div className="relative mt-4 rounded-sm bg-white p-5 pr-14 shadow-lg">
             {skill.description}
             <QuoteIcon size={48} className='absolute right-0 top-0 text-blue-900 opacity-10' />
         </div>}
@@ -94,7 +94,7 @@ export default function SkillPage({ params: { key } }: { params: { key: string }
         </div>}
         {skill.link && <a
             href={skill.link}
-            className="mt-5 block rounded bg-blue-900 p-3 text-center font-serif text-lg font-medium text-white"
+            className="mt-5 block rounded-sm bg-blue-900 p-3 text-center font-serif text-lg font-medium text-white"
             target="_blank"
             rel="noopener noreferrer"
         >
