@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: {
     };
 }
 
-export default function SkillPage({ params: { key } }: { params: { key: string } }) {
+export default async function SkillPage({ params }: { params: Promise<{ key: string }> }) {
+    const key = (await params).key;
     const skill = skills.find((skill) => skill.key === key);
 
     if (!skill) {
