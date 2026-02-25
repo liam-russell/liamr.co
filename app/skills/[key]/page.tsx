@@ -34,22 +34,22 @@ export default async function SkillPage({ params }: { params: Promise<{ key: str
         return notFound();
     }
 
-    return <div className="mt-12">
+    return <div className="mt-12 animate-fade-in">
         <BackButton />
-        <h1 className="mb-2 mt-3 flex flex-row items-center font-serif text-4xl font-semibold uppercase text-blue-900">
+        <h1 className="mb-2 mt-4 flex flex-row items-center font-serif text-4xl font-semibold tracking-tight text-foreground">
             {skill.title}
-            <ProficiencyBadge proficiency={skill.proficiency} className="ml-5 text-2xl" />
+            <ProficiencyBadge proficiency={skill.proficiency} className="ml-4 text-lg" />
         </h1>
-        {skill.description && <div className="relative mt-4 rounded-sm bg-white p-5 pr-14 shadow-lg">
+        {skill.description && <div className="glass-card relative mt-4 rounded-xl p-6 pr-14 text-muted">
             {skill.description}
-            <QuoteIcon size={48} className='absolute right-0 top-0 text-blue-900 opacity-10' />
+            <QuoteIcon size={48} className='absolute right-3 top-3 text-blue-500/10' aria-hidden='true' />
         </div>}
-        {skill.subSkills && <div className="mt-5">
-            <h2 className="font-serif text-xl font-bold text-blue-900">Focus areas</h2>
-            <div className="flex flex-row flex-wrap gap-1">
+        {skill.subSkills && <div className="mt-6">
+            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Focus areas</h2>
+            <div className="flex flex-row flex-wrap gap-2">
                 {skill.subSkills.map((subSkill) => <a
                     key={subSkill.name}
-                    className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
+                    className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-300"
                     href={subSkill.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -58,22 +58,22 @@ export default async function SkillPage({ params }: { params: Promise<{ key: str
                 </a>)}
             </div>
         </div>}
-        {skill.categories.length > 0 && <div className="mt-5">
-            <h2 className="font-serif text-xl font-bold text-blue-900">Skill categories</h2>
-            <div className="mt-2 flex flex-row flex-wrap gap-2">
+        {skill.categories.length > 0 && <div className="mt-6">
+            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Skill categories</h2>
+            <div className="flex flex-row flex-wrap gap-2">
                 {skill.categories.map((category) => <Link
                     key={category}
                     href={`/skills?categories=${category}`}
-                    className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
+                    className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-300"
                     prefetch={false}
                 >
                     {categoryTitles[category]}
                 </Link>)}
             </div>
         </div>}
-        {(skill.relatedSkillKeys?.length ?? 0) > 0 && <div className="mt-5">
-            <h2 className="font-serif text-xl font-bold text-blue-900">Related skills</h2>
-            <div className="mt-2 flex flex-row flex-wrap gap-2">
+        {(skill.relatedSkillKeys?.length ?? 0) > 0 && <div className="mt-6">
+            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Related skills</h2>
+            <div className="flex flex-row flex-wrap gap-2">
                 {skill.relatedSkillKeys!.map((relatedSkillKey) => {
                     const relatedSkill = skills.find((skill) => skill.key === relatedSkillKey);
 
@@ -85,7 +85,7 @@ export default async function SkillPage({ params }: { params: Promise<{ key: str
                     return <Link
                         key={relatedSkillKey}
                         href={`/skills/${relatedSkillKey}`}
-                        className="rounded-full border-2 border-blue-900/10 bg-white px-3 py-1 font-serif font-medium text-blue-900 transition-colors hover:bg-blue-100"
+                        className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-sky-400/30 hover:bg-sky-500/10 hover:text-sky-600 dark:hover:text-sky-300"
                         prefetch={false}
                     >
                         {relatedSkill?.title || relatedSkillKey}
@@ -96,11 +96,11 @@ export default async function SkillPage({ params }: { params: Promise<{ key: str
         </div>}
         {skill.link && <a
             href={skill.link}
-            className="mt-5 block rounded-sm bg-blue-900 p-3 text-center font-serif text-lg font-medium text-white"
+            className="group mt-6 flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-sky-500 p-3.5 font-serif text-lg font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:brightness-110"
             target="_blank"
             rel="noopener noreferrer"
         >
-            <ExternalLinkIcon size={20} className="-mt-1 mr-2 inline-block" />
+            <ExternalLinkIcon size={18} className="-mt-0.5" aria-hidden="true" />
             Learn more
         </a>}
     </div>

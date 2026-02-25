@@ -19,22 +19,21 @@ export default function SearchBox() {
 
     return (
         <div className="flex flex-row">
-            <div className="flex flex-row-reverse items-center gap-4 rounded-full bg-white/70 px-10 py-5 shadow-lg transition-colors has-focus:bg-white">
+            <div className="glass flex flex-row-reverse items-center gap-3 rounded-full px-6 py-3 transition-all has-focus:shadow-lg has-focus:shadow-blue-500/10 dark:has-focus:bg-white/10">
                 <input
-                    type="text"
-                    className="peer bg-transparent text-xl outline-hidden ring-0"
+                    type="search"
+                    aria-label="Search skills"
+                    className="peer w-44 bg-transparent text-base text-foreground outline-hidden ring-0 placeholder:text-muted transition-all focus:w-56"
                     placeholder="Search my skills..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    onFocus={handleSearch}
-                    onBlur={handleSearch}
-                    onKeyUp={(e) => {
+                    onKeyDown={(e) => {
                         if (e.key === 'Enter') {
                             handleSearch();
                         }
                     }}
                 />
-                <SearchIcon size={24} className="text-gray-400 transition-colors peer-focus:text-blue-400" />
+                <SearchIcon size={18} className="text-muted transition-colors peer-focus:text-blue-500" aria-hidden="true" />
             </div>
         </div>
     );

@@ -61,22 +61,22 @@ export default function SearchResults() {
 
     return (
         <div>
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-border">
                 {data?.pages.flatMap((page) => page.results.map((skill) => (
-                    <Link key={skill.key} className="block p-5" href={`/skills/${skill.key}`} prefetch={false}>
-                        <h2 className="flex flex-row items-center font-serif text-2xl font-bold">
+                    <Link key={skill.key} className="group block p-5 transition-colors hover:bg-surface-hover" href={`/skills/${skill.key}`} prefetch={false}>
+                        <h2 className="flex flex-row items-center font-serif text-xl font-bold text-foreground transition-colors group-hover:text-blue-500">
                             {skill.title}
-                            <ProficiencyBadge proficiency={skill.proficiency} className="ml-2" />
+                            <ProficiencyBadge proficiency={skill.proficiency} className="ml-3" />
                         </h2>
-                        <p>{skill.description}</p>
+                        <p className="mt-1 text-sm text-muted">{skill.description}</p>
                     </Link>
                 )))}
             </div>
             {status === 'pending' && (
-                <div className="block p-5 text-center italic text-gray-600">Loading...</div>
+                <div className="block p-5 text-center text-sm italic text-muted">Loading...</div>
             )}
             {status === 'success' && data.pages.flatMap((page) => page.results).length === 0 && (
-                <div className="block p-5 text-center italic text-gray-600">No matching skills found.</div>
+                <div className="block p-5 text-center text-sm italic text-muted">No matching skills found.</div>
             )}
             {hasNextPage && (
                 <div

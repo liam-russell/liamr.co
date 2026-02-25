@@ -9,12 +9,12 @@ export const metadata = {
 } satisfies Metadata;
 
 export default function SearchPage() {
-    return <div className="mt-12">
+    return <div className="mt-12 animate-fade-in">
         <Suspense fallback=''>
             <SearchFilters />
         </Suspense>
-        <div className="overflow-hidden rounded-sm bg-white/50 backdrop-blur-sm">
-            <h1 className="block bg-blue-900 p-4 font-serif font-bold uppercase text-white">My skills</h1>
+        <div className="glass-card overflow-hidden rounded-2xl">
+            <h1 className="block bg-linear-to-r from-blue-600 to-sky-500 px-6 py-4 font-serif text-lg font-bold uppercase tracking-wider text-white">My skills</h1>
             <Suspense fallback=''>
                 <SearchResults />
             </Suspense>

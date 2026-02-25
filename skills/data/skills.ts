@@ -20,12 +20,12 @@ let skills = ([
 
 skills = skills.map(skill => {
     const otherSkills = skills.filter(s => s.relatedSkillKeys?.includes(skill.key));
+    const backLinks = otherSkills.map(s => s.key);
 
-    otherSkills.forEach(s => {
-        skill.relatedSkillKeys = uniq([...(skill.relatedSkillKeys ?? []), s.key]);
-    });
-
-    return skill;
+    return {
+        ...skill,
+        relatedSkillKeys: uniq([...(skill.relatedSkillKeys ?? []), ...backLinks]),
+    };
 });
 
 export default skills;

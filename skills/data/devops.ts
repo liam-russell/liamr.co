@@ -75,10 +75,10 @@ const devops = [
         key: 'vite',
         title: 'Vite',
         link: 'https://vitejs.dev/',
-        proficiency: SkillProficiency.Familiar,
+        proficiency: SkillProficiency.Expert,
         categories: [SkillCategory.DevOps],
         description: "I have used Vite to build JavaScript/TypeScript web applications.",
-        relatedSkillKeys: ['nodejs', 'vite', 'javascript', 'vitest', 'webpack', 'react'],
+        relatedSkillKeys: ['nodejs', 'javascript', 'vitest', 'webpack', 'react'],
     },
     {
         key: 'webpack',
@@ -91,6 +91,91 @@ const devops = [
         subSkills: [
             { name: 'Babel', url: 'https://babeljs.io/' },
             { name: 'CoreJS', url: 'https://github.com/zloirock/core-js' },
+        ]
+    },
+    {
+        key: 'docker',
+        title: 'Docker',
+        link: 'https://www.docker.com/',
+        proficiency: SkillProficiency.Expert,
+        categories: [SkillCategory.DevOps, SkillCategory.Cloud],
+        description: "I have used Docker to containerise applications for development, testing, and production deployments. I have built multi-stage Dockerfiles and managed containers with Docker Compose and ECS.",
+        relatedSkillKeys: ['aws', 'cicd', 'horizontal-scaling'],
+        subSkills: [
+            { name: 'Docker Compose', url: 'https://docs.docker.com/compose/' },
+            { name: 'AWS ECS', url: 'https://aws.amazon.com/ecs/' },
+            { name: 'AWS Fargate', url: 'https://aws.amazon.com/fargate/' },
+        ]
+    },
+    {
+        key: 'accessibility-audits',
+        title: 'Accessibility Audits',
+        link: 'https://www.w3.org/WAI/test-evaluate/',
+        proficiency: SkillProficiency.Proficient,
+        categories: [SkillCategory.QA, SkillCategory.Security],
+        description: "I conduct accessibility audits against WCAG 2.2 AA standards using automated tools and manual testing. I advocate for inclusive design across all projects I lead.",
+        relatedSkillKeys: ['owasp', 'security-audits'],
+        subSkills: [
+            { name: 'WCAG 2.2', url: 'https://www.w3.org/TR/WCAG22/' },
+            { name: 'axe DevTools', url: 'https://www.deque.com/axe/' },
+            { name: 'Lighthouse', url: 'https://developer.chrome.com/docs/lighthouse/' },
+            { name: 'NVDA', url: 'https://www.nvaccess.org/' },
+        ]
+    },
+    {
+        key: 'infrastructure-as-code',
+        title: 'Infrastructure as Code',
+        link: 'https://aws.amazon.com/cdk/',
+        proficiency: SkillProficiency.Expert,
+        categories: [SkillCategory.DevOps, SkillCategory.Cloud],
+        description: "I define and manage cloud infrastructure as code using AWS CDK and CloudFormation. I favour the CDK for its type safety and ability to share constructs across teams.",
+        relatedSkillKeys: ['aws', 'serverless', 'docker', 'cicd', 'typescript'],
+        subSkills: [
+            { name: 'AWS CDK', url: 'https://aws.amazon.com/cdk/' },
+            { name: 'CloudFormation', url: 'https://aws.amazon.com/cloudformation/' },
+            { name: 'AWS SAM', url: 'https://aws.amazon.com/serverless/sam/' },
+        ]
+    },
+    {
+        key: 'github-actions',
+        title: 'GitHub Actions',
+        categories: [SkillCategory.DevOps],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have built CI/CD workflows with GitHub Actions for build, test, and deployment pipelines. My primary CI/CD experience is with Azure DevOps, but I have solid working knowledge of GitHub Actions for open-source and team projects.',
+        link: 'https://github.com/features/actions',
+        relatedSkillKeys: ['cicd', 'vc', 'docker', 'infrastructure-as-code'],
+        subSkills: [
+            { name: 'Reusable Workflows', url: 'https://docs.github.com/en/actions/using-workflows/reusing-workflows' },
+            { name: 'Matrix Builds', url: 'https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs' },
+            { name: 'GitHub Packages', url: 'https://github.com/features/packages' },
+        ]
+    },
+    {
+        key: 'feature-flags',
+        title: 'Feature Flags',
+        categories: [SkillCategory.DevOps, SkillCategory.Concepts],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I use feature flags to decouple deployment from release, enabling trunk-based development and safe progressive rollouts. I have implemented flag systems using both third-party platforms and custom solutions.',
+        link: 'https://martinfowler.com/articles/feature-toggles.html',
+        relatedSkillKeys: ['cicd', 'agile', 'microservices'],
+        subSkills: [
+            { name: 'LaunchDarkly', url: 'https://launchdarkly.com/' },
+            { name: 'AWS AppConfig', url: 'https://docs.aws.amazon.com/appconfig/' },
+            { name: 'Trunk-Based Development', url: 'https://trunkbaseddevelopment.com/' },
+        ]
+    },
+    {
+        key: 'logging',
+        title: 'Logging & Structured Logging',
+        categories: [SkillCategory.DevOps, SkillCategory.Concepts],
+        proficiency: SkillProficiency.Expert,
+        description: 'I implement structured, contextual logging across applications using correlation IDs, log levels, and centralised aggregation. I treat logs as a first-class observability signal alongside metrics and traces.',
+        link: 'https://serilog.net/',
+        relatedSkillKeys: ['monitoring', 'aws', 'docker'],
+        subSkills: [
+            { name: 'Serilog', url: 'https://serilog.net/' },
+            { name: 'AWS CloudWatch Logs', url: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/' },
+            { name: 'Seq', url: 'https://datalust.co/seq' },
         ]
     }
 ] as readonly Skill[];

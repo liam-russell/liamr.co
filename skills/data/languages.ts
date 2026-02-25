@@ -14,12 +14,21 @@ const languages = [
     },
     {
         key: 'javascript',
-        title: 'JavaScript and TypeScript',
+        title: 'JavaScript',
         categories: [SkillCategory.Frontend, SkillCategory.Backend, SkillCategory.Languages],
-        link: 'https://typescriptlang.org/',
+        link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
         proficiency: SkillProficiency.Expert,
-        description: 'I have experience with JavaScript in many contexts, preferring the more modern Typescript. I\'ve worked with JavaScript in both frontend and backend contexts.',
-        relatedSkillKeys: ['react', 'angular', 'nodejs', 'express', 'nextjs', 'bootstrap'],
+        description: 'I have deep experience with JavaScript across frontend and backend contexts, from modern ES2024+ features to legacy codebases.',
+        relatedSkillKeys: ['typescript', 'react', 'angular', 'nodejs', 'express', 'nextjs', 'bootstrap'],
+    },
+    {
+        key: 'typescript',
+        title: 'TypeScript',
+        categories: [SkillCategory.Frontend, SkillCategory.Backend, SkillCategory.Languages],
+        link: 'https://www.typescriptlang.org/',
+        proficiency: SkillProficiency.Expert,
+        description: 'TypeScript is my primary frontend language. I use strict configurations, leverage advanced type patterns, and advocate for TypeScript adoption across projects.',
+        relatedSkillKeys: ['javascript', 'react', 'nextjs', 'nodejs'],
     },
     {
         key: 'html',
@@ -82,12 +91,26 @@ const languages = [
         proficiency: SkillProficiency.Familiar,
         link: 'https://cucumber.io/',
         description: "I have used Cucumber to write BDD tests for applications.",
-        relatedSkillKeys: ['specflow', 'csharp'],
+        relatedSkillKeys: ['reqnroll', 'csharp'],
         subSkills: [
             { name: 'Gherkin', url: 'https://cucumber.io/docs/gherkin/' },
             { name: 'BDD', url: 'https://en.wikipedia.org/wiki/Behavior-driven_development' },
             { name: 'Selenium', url: 'https://www.selenium.dev/' },
             { name: 'XUnit', url: 'https://xunit.net/' }
+        ]
+    },
+    {
+        key: 'postgresql',
+        title: 'PostgreSQL',
+        categories: [SkillCategory.Databases, SkillCategory.Backend],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I have used PostgreSQL as the primary relational database for multiple production systems, leveraging features like JSONB columns, CTEs, and advanced indexing via RDS.',
+        link: 'https://www.postgresql.org/',
+        relatedSkillKeys: ['sql', 'aws', 'database-design', 'drizzle', 'entityframework'],
+        subSkills: [
+            { name: 'AWS RDS for PostgreSQL', url: 'https://aws.amazon.com/rds/postgresql/' },
+            { name: 'pgAdmin', url: 'https://www.pgadmin.org/' },
+            { name: 'PostGIS', url: 'https://postgis.net/' },
         ]
     }
 ] as readonly Skill[];

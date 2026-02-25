@@ -1,49 +1,122 @@
-import { ArrowRightIcon, GithubIcon, LinkedinIcon, LocateIcon, QuoteIcon } from 'lucide-react';
-import logo from './logo.svg';
-import Image from 'next/image';
+import { ArrowRightIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
 import Link from 'next/link';
+import LocationButton from '@/components/location-button';
+import skills from '@/skills/data/skills';
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Liam Russell',
+    url: 'https://liamr.co',
+    jobTitle: 'Technical Lead',
+    sameAs: [
+        'https://github.com/liam-russell',
+        'https://www.linkedin.com/in/liam-russell/',
+    ],
+    knowsAbout: [
+        'Software Architecture', 'Distributed Systems', 'Cloud Infrastructure',
+        'React', 'Next.js', 'TypeScript', 'C#', '.NET', 'AWS',
+    ],
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Canberra',
+        addressCountry: 'AU',
+    },
+};
 
 export default function Home() {
+    const skillCount = skills.length;
+
     return (
-        <div className='mx-auto mt-5 max-w-fit rounded-lg bg-white/60 p-5 shadow-2xl lg:mt-24'>
-            <Image src={logo} width={600} alt="logo" className='mx-auto max-w-[calc(100vw-104px)]' fetchPriority='high' />
-            <div className='relative mx-auto mb-10 mt-4 w-[600px] max-w-[calc(100vw-104px)] pr-20'>
-                <QuoteIcon size={48} className='absolute right-0 top-0 text-blue-900 opacity-10' />
-                I am a senior full-stack software engineer with a passion for web development. I have experience with a variety of technologies and programming languages, and I am always looking to learn more.
+        <div className='mx-auto mt-12 w-full max-w-2xl animate-fade-in pb-16 lg:mt-28'>
+            <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            {/* Hero section */}
+            <div className='text-center'>
+                <div className='mb-4 inline-block animate-slide-down rounded-full border border-border bg-surface px-4 py-1.5 text-sm font-medium text-muted backdrop-blur-sm'>
+                    Technical lead with full-stack expertise
+                </div>
+                <h1 className='gradient-text font-serif text-6xl font-bold tracking-tight sm:text-7xl'>
+                    Liam Russell
+                </h1>
+                <p className='mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted' style={{ animationDelay: '0.2s' }}>
+                    I lead engineering teams to ship reliable, scalable software. I architect distributed systems on AWS, build polished interfaces with React and Next.js, and write most of my code in TypeScript and C#(.NET).
+                </p>
             </div>
-            <div className='mt-3 grid gap-3 md:grid-cols-3'>
+
+            {/* Expertise tags */}
+            <div className='mt-8 flex animate-slide-up flex-wrap justify-center gap-2' role='list' aria-label='Areas of expertise' style={{ animationDelay: '0.25s' }}>
+                {[
+                    { label: 'Architecture', href: '/skills?query=architecture' },
+                    { label: 'Distributed Systems', href: '/skills?query=distributed' },
+                    { label: 'Cloud Infrastructure', href: '/skills?categories=Cloud' },
+                    { label: 'AI Integration', href: '/skills?query=LLM' },
+                    { label: 'Security', href: '/skills?categories=Security' },
+                    { label: 'Accessibility', href: '/skills?query=accessibility' },
+                ].map(({ label, href }) => (
+                    <Link key={label} href={href} role='listitem' className='rounded-full border border-border bg-surface px-3 py-1 text-xs font-medium text-muted transition-colors hover:border-blue-300/30 hover:bg-surface-hover hover:text-foreground'>
+                        {label}
+                    </Link>
+                ))}
+            </div>
+
+            {/* Quick stats */}
+            <div className='mt-8 grid animate-slide-up grid-cols-3 gap-3' style={{ animationDelay: '0.28s' }}>
+                <div className='glass rounded-xl px-4 py-3 text-center'>
+                    <div className='font-serif text-2xl font-bold text-foreground'>10+</div>
+                    <div className='text-xs text-muted'>Years experience</div>
+                </div>
+                <div className='glass rounded-xl px-4 py-3 text-center'>
+                    <div className='font-serif text-2xl font-bold text-foreground'>{skillCount}+</div>
+                    <div className='text-xs text-muted'>Technical skills</div>
+                </div>
+                <div className='glass rounded-xl px-4 py-3 text-center'>
+                    <div className='font-serif text-2xl font-bold text-foreground'>Full-stack</div>
+                    <div className='text-xs text-muted'>Front-end & back-end</div>
+                </div>
+            </div>
+
+            {/* Currently */}
+            <div className='mt-6 animate-slide-up rounded-xl border border-border bg-surface/50 px-5 py-4 text-center text-sm text-muted backdrop-blur-sm' style={{ animationDelay: '0.33s' }}>
+                <span className='mr-2 font-serif font-semibold text-foreground'>Currently:</span>
+                Exploring LLM-powered developer tooling, refining modular monolith patterns in .NET, and building with Next.js 16.
+            </div>
+
+            {/* Social links */}
+            <div className='mt-8 grid animate-slide-up gap-3 sm:grid-cols-3' style={{ animationDelay: '0.35s' }}>
                 <a
                     href="https://github.com/liam-russell"
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-gray-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-gray-500 hover:text-white'
+                    className='glass hover-lift group flex flex-row items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition-colors hover:text-foreground'
                 >
-                    <GithubIcon size={16} />
+                    <GithubIcon size={18} className='text-muted transition-colors group-hover:text-foreground' aria-hidden='true' />
                     GitHub
                 </a>
                 <a
                     href="https://www.linkedin.com/in/liam-russell/"
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-blue-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-blue-500 hover:text-white'
+                    className='glass hover-lift group flex flex-row items-center justify-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-muted transition-colors hover:text-foreground'
                 >
-                    <LinkedinIcon size={16} />
+                    <LinkedinIcon size={18} className='text-blue-400/70 transition-colors group-hover:text-blue-500' aria-hidden='true' />
                     LinkedIn
                 </a>
-                <a
-                    href="https://www.google.com.au/maps/place/Canberra+ACT"
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    className='flex flex-row items-center justify-center gap-3 rounded-lg bg-red-500/25 p-2 text-center backdrop-blur-sm transition-colors hover:bg-red-500 hover:text-white'
-                >
-                    <LocateIcon size={16} />
-                    Canberra (Remote)
-                </a>
+                <LocationButton />
             </div>
-            <Link href='/skills' className='mt-5 block rounded-lg bg-blue-900 p-3 text-center font-serif text-lg font-medium text-white transition-colors hover:bg-blue-800'>
-                Browse my skills and expertise
-                <ArrowRightIcon size={24} className='ml-2 inline-block' />
-            </Link>
+
+            {/* CTA */}
+            <div className='animate-slide-up' style={{ animationDelay: '0.4s' }}>
+                <Link
+                    href='/skills'
+                    className='group mt-6 flex items-center justify-center gap-3 rounded-xl bg-linear-to-r from-blue-600 to-sky-500 px-6 py-4 font-serif text-lg font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:brightness-110'
+                >
+                    Browse my skills and expertise
+                    <ArrowRightIcon size={20} className='transition-transform group-hover:translate-x-1' aria-hidden='true' />
+                </Link>
+            </div>
         </div>
     );
 }

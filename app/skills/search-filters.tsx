@@ -25,12 +25,13 @@ export function SearchFilters() {
 
     return <div>
         <div className="my-3 flex flex-col gap-2">
-            <label className="block font-serif font-medium text-gray-700">Minimum proficiency:</label>
-            <div className="flex flex-row flex-wrap gap-2">
+            <label className="block font-serif text-sm font-medium uppercase tracking-wider text-muted">Minimum proficiency:</label>
+            <div className="flex flex-row flex-wrap gap-2" role="group" aria-label="Filter by minimum proficiency">
                 {(Object.values(SkillProficiency).filter(isNumber) as SkillProficiency[]).map((proficiency) => <ProficiencyBadge
                     key={proficiency}
                     proficiency={proficiency}
                     active={proficiency == minProficiency}
+                    aria-pressed={proficiency == minProficiency}
                     onClick={() => {
                         if (proficiency == minProficiency) {
                             router.push(getUrl({ minProficiency: SkillProficiency.Learning }));
@@ -42,11 +43,12 @@ export function SearchFilters() {
             </div>
         </div>
         <div className="my-3 flex flex-col gap-2">
-            <label className="block font-serif font-medium text-gray-700">Skill categories:</label>
-            <div className="flex flex-row flex-wrap gap-2">
+            <label className="block font-serif text-sm font-medium uppercase tracking-wider text-muted">Skill categories:</label>
+            <div className="flex flex-row flex-wrap gap-2" role="group" aria-label="Filter by skill category">
                 {Object.values(SkillCategory).filter(isString).map((category) => <button
                     key={category}
-                    className={`rounded-full border-2 px-2 py-1 font-serif text-sm font-medium transition-colors ${categories.includes(category) ? 'border-blue-200 bg-blue-800 text-white' : 'border-gray-300 bg-white text-gray-700'}`}
+                    aria-pressed={categories.includes(category)}
+                    className={`rounded-full border px-3 py-1.5 font-serif text-sm font-medium transition-all ${categories.includes(category) ? 'border-blue-400/40 bg-blue-500/20 text-blue-700 shadow-md shadow-blue-500/10 dark:text-blue-200' : 'border-border bg-surface text-muted hover:border-blue-300/30 hover:bg-surface-hover hover:text-foreground'}`}
                     onClick={() => {
                         if (categories.includes(category)) {
                             router.push(getUrl({ categories: categories.filter(c => c != category) }));

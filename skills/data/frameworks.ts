@@ -138,17 +138,24 @@ const frameworks = [
     },
     {
         key: 'eslint',
-        title: 'ESLint',
+        title: 'Linting & Code Quality',
         categories: [SkillCategory.Frontend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Expert,
-        description: 'I advocate for using ESLint to enforce code quality and consistency in JavaScript projects.',
+        description: 'I configure and maintain ESLint, Prettier, and other static analysis tools to enforce code quality and consistency across projects.',
+        link: 'https://eslint.org/',
+        relatedSkillKeys: ['javascript', 'sast'],
+        subSkills: [
+            { name: 'ESLint', url: 'https://eslint.org/' },
+            { name: 'Prettier', url: 'https://prettier.io/' },
+            { name: 'StyleLint', url: 'https://stylelint.io/' },
+        ]
     },
     {
         key: 'jquery',
         title: 'jQuery',
         categories: [SkillCategory.Frontend, SkillCategory.Frameworks],
-        proficiency: SkillProficiency.Proficient,
-        description: 'I have maintained and contributed to several jQuery-based projects.',
+        proficiency: SkillProficiency.Expert,
+        description: 'Legacy experience — I have maintained and contributed to several jQuery-based projects in earlier roles.',
         link: 'https://jquery.com/',
         relatedSkillKeys: ['javascript'],
         subSkills: [
@@ -168,10 +175,38 @@ const frameworks = [
         key: 'webforms',
         title: 'ASP.NET Web Forms',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
-        proficiency: SkillProficiency.Proficient,
-        description: 'I have maintained and contributed to several legacy ASP.NET Web Forms projects.',
+        proficiency: SkillProficiency.Familiar,
+        description: 'Legacy experience — I have maintained and extended several ASP.NET Web Forms applications during migration to modern frameworks.',
         link: 'https://dotnet.microsoft.com/apps/aspnet/web-forms',
         relatedSkillKeys: ['csharp', 'sql', 'mvc', 'webapi'],
+    },
+    {
+        key: 'litellm',
+        title: 'LiteLLM',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have used LiteLLM as a unified proxy layer across multiple LLM providers, enabling consistent API interfaces, cost tracking, and provider fallback in production systems.',
+        link: 'https://docs.litellm.ai/',
+        relatedSkillKeys: ['llm-integration', 'aws-bedrock', 'api-design'],
+        subSkills: [
+            { name: 'Provider Routing', url: 'https://docs.litellm.ai/docs/routing' },
+            { name: 'Cost Tracking', url: 'https://docs.litellm.ai/docs/budget_manager' },
+            { name: 'OpenAI-compatible Proxy', url: 'https://docs.litellm.ai/docs/proxy/quick_start' },
+        ]
+    },
+    {
+        key: 'dotnet-aspire',
+        title: '.NET Aspire',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks, SkillCategory.DevOps],
+        proficiency: SkillProficiency.Expert,
+        description: 'I am exploring .NET Aspire for orchestrating cloud-native distributed applications. Its opinionated approach to service defaults, telemetry, and local development experience aligns well with how I build modular .NET systems.',
+        link: 'https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview',
+        relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'opentelemetry', 'microservices', 'modular-monolith'],
+        subSkills: [
+            { name: 'App Host', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview' },
+            { name: 'Service Defaults', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults' },
+            { name: 'Aspire Dashboard', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard/overview' },
+        ]
     }
 ] as readonly Skill[];
 
