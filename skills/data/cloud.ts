@@ -78,6 +78,15 @@ const cloud = [
         relatedSkillKeys: ['react', 'html', 'css', 'javascript', 'serverless']
     },
     {
+        key: 'sst',
+        title: 'SST',
+        categories: [SkillCategory.Cloud, SkillCategory.DevOps, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have used SST (Serverless Stack) to deploy Next.js applications to AWS, taking advantage of its infrastructure-as-code approach built on Pulumi and native AWS services.',
+        link: 'https://sst.dev/',
+        relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'iac']
+    },
+    {
         key: 'aws-bedrock',
         title: 'AWS Bedrock',
         categories: [SkillCategory.Cloud, SkillCategory.Backend],

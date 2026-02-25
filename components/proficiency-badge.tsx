@@ -20,7 +20,7 @@ export default function ProficiencyBadge({ proficiency, active = false, onClick,
         <button
             type='button'
             className={cn(
-                `inline-block rounded-full transition-colors border-2 px-2 py-1 text-xs font-medium font-serif`,
+                `inline-block cursor-pointer rounded-full transition-colors border-2 px-2 py-1 text-xs font-medium font-serif`,
                 active ? activeClassNames[proficiency] : classNames[proficiency],
                 className
             )}

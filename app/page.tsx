@@ -25,7 +25,7 @@ const jsonLd = {
 };
 
 export default function Home() {
-    const skillCount = skills.length;
+    const skillCount = Math.floor(skills.length / 10) * 10;
 
     return (
         <div className='mx-auto mt-12 w-full max-w-2xl animate-fade-in pb-16 lg:mt-28'>

@@ -4,6 +4,15 @@ import type { Skill } from "../types";
 
 const frameworks = [
     {
+        key: 'astro',
+        title: 'Astro',
+        categories: [SkillCategory.Frontend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Expert,
+        description: 'I use Astro to build content-driven websites with its island architecture, shipping minimal JavaScript to the client while integrating components from React and other frameworks.',
+        link: 'https://astro.build/',
+        relatedSkillKeys: ['react', 'javascript', 'html', 'css', 'netlify', 'vercel'],
+    },
+    {
         key: 'nextjs',
         title: 'Next.js',
         categories: [SkillCategory.Frontend, SkillCategory.Backend, SkillCategory.Frameworks],

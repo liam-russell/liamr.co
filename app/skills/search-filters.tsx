@@ -48,7 +48,7 @@ export function SearchFilters() {
                 {Object.values(SkillCategory).filter(isString).map((category) => <button
                     key={category}
                     aria-pressed={categories.includes(category)}
-                    className={`rounded-full border px-3 py-1.5 font-serif text-sm font-medium transition-all ${categories.includes(category) ? 'border-blue-400/40 bg-blue-500/20 text-blue-700 shadow-md shadow-blue-500/10 dark:text-blue-200' : 'border-border bg-surface text-muted hover:border-blue-300/30 hover:bg-surface-hover hover:text-foreground'}`}
+                    className={`cursor-pointer rounded-full border px-3 py-1.5 font-serif text-sm font-medium transition-all ${categories.includes(category) ? 'border-blue-400/40 bg-blue-500/20 text-blue-700 shadow-md shadow-blue-500/10 dark:text-blue-200' : 'border-border bg-surface text-muted hover:border-blue-300/30 hover:bg-surface-hover hover:text-foreground'}`}
                     onClick={() => {
                         if (categories.includes(category)) {
                             router.push(getUrl({ categories: categories.filter(c => c != category) }));
