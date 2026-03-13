@@ -72,6 +72,15 @@ const devops = [
         ]
     },
     {
+        key: 'turborepo',
+        title: 'Turborepo',
+        link: 'https://turbo.build/',
+        proficiency: SkillProficiency.Proficient,
+        categories: [SkillCategory.DevOps],
+        description: "I use Turborepo to manage monorepo builds, caching, and task orchestration across multi-package TypeScript projects with npm workspaces.",
+        relatedSkillKeys: ['nodejs', 'cicd', 'vite', 'nextjs'],
+    },
+    {
         key: 'vite',
         title: 'Vite',
         link: 'https://vitejs.dev/',

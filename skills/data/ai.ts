@@ -61,6 +61,19 @@ const ai = [
         ]
     },
     {
+        key: 'vercel-ai-sdk',
+        title: 'Vercel AI SDK',
+        categories: [SkillCategory.AI, SkillCategory.Frontend, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I use the Vercel AI SDK to build AI-powered features in Next.js applications, including streaming chat interfaces and structured generation with provider-agnostic model integration.",
+        link: 'https://sdk.vercel.ai/',
+        relatedSkillKeys: ['gemini-api', 'nextjs', 'react', 'prompt-engineering'],
+        subSkills: [
+            { name: 'AI SDK React', url: 'https://sdk.vercel.ai/docs/reference/ai-sdk-ui' },
+            { name: 'AI SDK Google Provider', url: 'https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai' },
+        ]
+    },
+    {
         key: 'gemini-api',
         title: 'Gemini API',
         categories: [SkillCategory.AI, SkillCategory.Backend],

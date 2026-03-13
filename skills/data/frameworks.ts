@@ -43,7 +43,10 @@ const frameworks = [
             { name: 'React Testing Library', url: 'https://testing-library.com/docs/react-testing-library/intro/' },
             { name: 'Jest', url: 'https://jestjs.io/' },
             { name: 'Storybook', url: 'https://storybook.js.org/' },
-            { name: 'Framer Motion', url: 'https://www.framer.com/motion/' }
+            { name: 'Motion', url: 'https://motion.dev/' },
+            { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
+            { name: 'React Hook Form', url: 'https://react-hook-form.com/' },
+            { name: 'React Compiler', url: 'https://react.dev/learn/react-compiler' },
         ]
     },
     {
