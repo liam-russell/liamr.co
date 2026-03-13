@@ -168,7 +168,21 @@ const concepts = [
         categories: [SkillCategory.Concepts, SkillCategory.Security],
         proficiency: SkillProficiency.Expert,
         description: "I have used OAuth 2 for authentication and authorisation in multiple projects and have maintained an OAuth2 server platform.",
-        relatedSkillKeys: ['openid-connect'],
+        relatedSkillKeys: ['openid-connect', 'saml'],
+    },
+    {
+        key: 'saml',
+        title: 'SAML 2.0',
+        categories: [SkillCategory.Concepts, SkillCategory.Security],
+        proficiency: SkillProficiency.Expert,
+        description: "I have deep experience with SAML 2.0 as a Service Provider, integrating with dozens of university identity providers. I understand the protocol well — assertion parsing, metadata exchange, attribute mapping, and debugging signature validation issues across varied IdP implementations.",
+        link: 'https://en.wikipedia.org/wiki/SAML_2.0',
+        relatedSkillKeys: ['openid-connect', 'oauth', 'authentication', 'security-best-practices'],
+        subSkills: [
+            { name: 'SAML Service Provider', url: 'https://en.wikipedia.org/wiki/Service_provider_(SAML)' },
+            { name: 'SAML Identity Provider', url: 'https://en.wikipedia.org/wiki/Identity_provider_(SAML)' },
+            { name: 'SAML Metadata', url: 'https://en.wikipedia.org/wiki/SAML_metadata' },
+        ]
     },
     {
         key: 'openapi',
@@ -240,11 +254,20 @@ const concepts = [
         relatedSkillKeys: ['aws', 'javascript', 'csharp'],
         link: 'https://en.wikipedia.org/wiki/Large_language_model',
         subSkills: [
-            { name: 'OpenAI API', url: 'https://platform.openai.com/' },
+            { name: 'OpenAI SDK (via LiteLLM)', url: 'https://platform.openai.com/' },
             { name: 'AWS Bedrock', url: 'https://aws.amazon.com/bedrock/' },
             { name: 'Anthropic Claude', url: 'https://www.anthropic.com/' },
             { name: 'Prompt Engineering', url: 'https://en.wikipedia.org/wiki/Prompt_engineering' },
         ]
+    },
+    {
+        key: 'clean-architecture',
+        title: 'Clean Architecture',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend],
+        proficiency: SkillProficiency.Expert,
+        description: "I naturally separate infrastructure from business logic, structuring projects with clear boundaries between domain, application, and infrastructure layers. Every project I build follows these principles — keeping core logic framework-agnostic and independently testable.",
+        link: 'https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html',
+        relatedSkillKeys: ['oop', 'dependency-injection', 'modular-monolith', 'domain-driven-design'],
     },
     {
         key: 'modular-monolith',
@@ -279,6 +302,7 @@ const concepts = [
         relatedSkillKeys: ['aws', 'cicd', 'docker'],
         link: 'https://en.wikipedia.org/wiki/Observability_(software)',
         subSkills: [
+            { name: 'Sentry', url: 'https://sentry.io/' },
             { name: 'AWS CloudWatch', url: 'https://aws.amazon.com/cloudwatch/' },
             { name: 'AWS X-Ray', url: 'https://aws.amazon.com/xray/' },
             { name: 'Structured Logging', url: 'https://serilog.net/' },

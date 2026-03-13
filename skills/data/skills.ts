@@ -1,5 +1,6 @@
 import { uniq } from "lodash-es";
 import type { Skill } from "../types";
+import ai from "./ai";
 import cloud from "./cloud";
 import concepts from "./concepts";
 import devops from "./devops";
@@ -15,7 +16,8 @@ let skills = ([
     ...management,
     ...devops,
     ...qa,
-    ...concepts
+    ...concepts,
+    ...ai
 ] as readonly Skill[]);
 
 skills = skills.map(skill => {

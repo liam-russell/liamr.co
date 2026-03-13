@@ -35,6 +35,11 @@ const frameworks = [
             { name: 'MobX', url: 'https://mobx.js.org/README.html' },
             { name: 'React Router', url: 'https://reactrouter.com/' },
             { name: 'React Query', url: 'https://react-query.tanstack.com/' },
+            { name: 'React Flow', url: 'https://reactflow.dev/' },
+            { name: 'react-beautiful-dnd', url: 'https://github.com/atlassian/react-beautiful-dnd' },
+            { name: 'dnd kit', url: 'https://dndkit.com/' },
+            { name: 'react-archer', url: 'https://github.com/pierpo/react-archer' },
+            { name: 'HeroUI', url: 'https://www.heroui.com/' },
             { name: 'React Testing Library', url: 'https://testing-library.com/docs/react-testing-library/intro/' },
             { name: 'Jest', url: 'https://jestjs.io/' },
             { name: 'Storybook', url: 'https://storybook.js.org/' },
@@ -93,6 +98,7 @@ const frameworks = [
         subSkills: [
             { name: 'NPM', url: 'https://www.npmjs.com/' },
             { name: 'Yarn', url: 'https://yarnpkg.com/' },
+            { name: 'Verdaccio', url: 'https://verdaccio.org/' },
             { name: 'Webpack', url: 'https://webpack.js.org/' },
             { name: 'Babel', url: 'https://babeljs.io/' },
             { name: 'Vite', url: 'https://vitejs.dev/' },
@@ -210,7 +216,7 @@ const frameworks = [
     {
         key: 'litellm',
         title: 'LiteLLM',
-        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        categories: [SkillCategory.AI, SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Proficient,
         description: 'I have used LiteLLM as a unified proxy layer across multiple LLM providers, enabling consistent API interfaces, cost tracking, and provider fallback in production systems.',
         link: 'https://docs.litellm.ai/',

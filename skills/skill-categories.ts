@@ -11,6 +11,7 @@ export enum SkillCategory {
     Security = 'Security',
     QA = 'QA',
     Concepts = 'Concepts',
+    AI = 'AI',
 }
 
 export const categoryTitles = {
@@ -26,6 +27,7 @@ export const categoryTitles = {
     [SkillCategory.Security]: "Security and compliance",
     [SkillCategory.QA]: "Quality assurance",
     [SkillCategory.Concepts]: "Concepts",
+    [SkillCategory.AI]: "AI & machine learning",
 } as const
 
 export const allCategories = Object.values(SkillCategory) as readonly SkillCategory[]
