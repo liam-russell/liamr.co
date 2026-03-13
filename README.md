@@ -39,4 +39,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## License
 
-[MIT](LICENSE)
+[AGPL-3.0](LICENSE)
