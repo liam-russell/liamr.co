@@ -89,7 +89,7 @@ const frameworks = [
         proficiency: SkillProficiency.Expert,
         description: 'I have used NodeJS for building full stack apps, scripting deployment tools, compiling frontend code and used NPM extensively.',
         link: 'https://nodejs.org/',
-        relatedSkillKeys: ['javascript', 'express', 'nextjs'],
+        relatedSkillKeys: ['javascript', 'express', 'nextjs', 'trpc', 'ts-rest'],
         subSkills: [
             { name: 'NPM', url: 'https://www.npmjs.com/' },
             { name: 'Yarn', url: 'https://yarnpkg.com/' },
@@ -107,6 +107,24 @@ const frameworks = [
         description: 'I have used ExpressJS to build RESTful APIs in JavaScript.',
         link: 'https://expressjs.com/',
         relatedSkillKeys: ['nodejs', 'javascript'],
+    },
+    {
+        key: 'trpc',
+        title: 'tRPC',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have used tRPC to build end-to-end type-safe APIs in TypeScript, eliminating the need for code generation or manual type definitions between client and server.',
+        link: 'https://trpc.io/',
+        relatedSkillKeys: ['typescript', 'nodejs', 'nextjs', 'zod', 'react'],
+    },
+    {
+        key: 'ts-rest',
+        title: 'ts-rest',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I have used ts-rest to build type-safe REST APIs with shared contracts between client and server in TypeScript projects.',
+        link: 'https://ts-rest.com/',
+        relatedSkillKeys: ['typescript', 'nodejs', 'nextjs', 'zod', 'rest'],
     },
     {
         key: 'bootstrap',

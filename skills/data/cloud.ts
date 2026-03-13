@@ -87,6 +87,21 @@ const cloud = [
         relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'iac']
     },
     {
+        key: 'azure',
+        title: 'Microsoft Azure',
+        categories: [SkillCategory.Cloud, SkillCategory.DevOps],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I have extensive experience with Azure DevOps for CI/CD pipelines, build agents, and Git hosting. ' +
+            'I have used Azure container services for a prototype .NET deployment platform. My primary cloud experience is AWS, but the concepts transfer directly.',
+        link: 'https://azure.microsoft.com/',
+        relatedSkillKeys: ['aws', 'cicd', 'docker', 'csharp'],
+        subSkills: [
+            { name: 'Azure DevOps', url: 'https://dev.azure.com/' },
+            { name: 'Azure Pipelines', url: 'https://azure.microsoft.com/en-au/products/devops/pipelines' },
+            { name: 'Azure Container Apps', url: 'https://azure.microsoft.com/en-au/products/container-apps' },
+        ]
+    },
+    {
         key: 'aws-bedrock',
         title: 'AWS Bedrock',
         categories: [SkillCategory.Cloud, SkillCategory.Backend],

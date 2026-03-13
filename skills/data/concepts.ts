@@ -135,7 +135,17 @@ const concepts = [
             { name: 'FluentValidation', url: 'https://fluentvalidation.net/' },
             { name: 'Data Annotations', url: 'https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-5.0' },
             { name: 'Zod', url: 'https://zod.dev/' }
-        ]
+        ],
+        relatedSkillKeys: ['zod'],
+    },
+    {
+        key: 'zod',
+        title: 'Zod',
+        categories: [SkillCategory.Concepts, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Expert,
+        description: 'I use Zod extensively for runtime schema validation and type inference in TypeScript applications. It is my go-to for API input validation, form validation, and ensuring type safety at runtime boundaries.',
+        link: 'https://zod.dev/',
+        relatedSkillKeys: ['typescript', 'validation', 'trpc', 'ts-rest', 'nextjs'],
     },
     {
         key: 'openid-connect',

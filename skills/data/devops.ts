@@ -169,11 +169,12 @@ const devops = [
         title: 'Logging & Structured Logging',
         categories: [SkillCategory.DevOps, SkillCategory.Concepts],
         proficiency: SkillProficiency.Expert,
-        description: 'I implement structured, contextual logging across applications using correlation IDs, log levels, and centralised aggregation. I treat logs as a first-class observability signal alongside metrics and traces.',
+        description: 'I implement structured, contextual logging and observability across applications using correlation IDs, log levels, and centralised aggregation. I have used OpenTelemetry via .NET Aspire for distributed tracing and metrics. I treat logs as a first-class observability signal alongside metrics and traces.',
         link: 'https://serilog.net/',
         relatedSkillKeys: ['monitoring', 'aws', 'docker'],
         subSkills: [
             { name: 'Serilog', url: 'https://serilog.net/' },
+            { name: 'OpenTelemetry', url: 'https://opentelemetry.io/' },
             { name: 'AWS CloudWatch Logs', url: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/' },
             { name: 'Seq', url: 'https://datalust.co/seq' },
         ]

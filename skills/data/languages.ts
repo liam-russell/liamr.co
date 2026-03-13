@@ -62,18 +62,20 @@ const languages = [
         categories: [SkillCategory.Databases, SkillCategory.Languages],
         proficiency: SkillProficiency.Expert,
         link: 'https://en.wikipedia.org/wiki/SQL',
-        description: "I've created many complex reports with Microsoft T-SQL and have additionally utilised" +
-            " it extensively within an application development context. I am familiar with common ORM's" +
-            " such as Entity Framework. I have some experience with other database systems such" +
-            " as PostgreSQL, MySQL, SQLite and AWS DynamoDB.",
+        description: "I have a decade of deep SQL Server experience across schema design, performance tuning, indexing strategies," +
+            " fragmentation maintenance, statistics management, query optimisation and rewrites, complex reporting," +
+            " and ORM integration with Entity Framework. I regularly investigate and resolve production performance" +
+            " issues. I also have experience with PostgreSQL (via Aurora Serverless), MySQL, SQLite, and DynamoDB.",
         relatedSkillKeys: ['aws'],
         subSkills: [
+            { name: 'SQL Server', url: 'https://www.microsoft.com/en-au/sql-server' },
             { name: 'T-SQL', url: 'https://en.wikipedia.org/wiki/Transact-SQL' },
             { name: 'Entity Framework', url: 'https://docs.microsoft.com/en-us/ef/' },
-            { name: 'MySQL', url: 'https://www.mysql.com/' },
             { name: 'PostgreSQL', url: 'https://www.postgresql.org/' },
+            { name: 'MySQL', url: 'https://www.mysql.com/' },
             { name: 'SQLite', url: 'https://www.sqlite.org/index.html' },
-            { name: 'DynamoDB', url: 'https://aws.amazon.com/dynamodb/' }
+            { name: 'DynamoDB', url: 'https://aws.amazon.com/dynamodb/' },
+            { name: 'Drizzle ORM', url: 'https://orm.drizzle.team/' }
         ]
     },
     {
