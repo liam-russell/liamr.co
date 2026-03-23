@@ -1,6 +1,8 @@
 'use client';
 
 import ProficiencyBadge from "@/components/proficiency-badge";
+import SkillIcon from "@/components/skill-icon";
+import type { SkillIconData } from "@/skills/icons";
 import { SkillCategory } from "@/skills/skill-categories";
 import { SkillProficiency } from "@/skills/skill-proficiency";
 import { Skill } from "@/skills/types";
@@ -40,7 +42,7 @@ export default function SearchResults() {
                 categories
             }));
             return (await res.json()) as {
-                results: Skill[];
+                results: (Skill & { icon: SkillIconData })[];
                 totalPages: number;
                 currentPage: number
             };
@@ -65,6 +67,7 @@ export default function SearchResults() {
                 {data?.pages.flatMap((page) => page.results.map((skill) => (
                     <Link key={skill.key} className="group block p-5 transition-colors hover:bg-surface-hover" href={`/skills/${skill.key}`} prefetch={false}>
                         <h2 className="flex flex-row items-center font-serif text-xl font-bold text-foreground transition-colors group-hover:text-blue-500">
+                            <SkillIcon icon={skill.icon} size={22} className="mr-2.5" />
                             {skill.title}
                             <ProficiencyBadge proficiency={skill.proficiency} className="ml-3" />
                         </h2>

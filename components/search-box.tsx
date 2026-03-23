@@ -1,7 +1,7 @@
 'use client'
 import { SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const getUrl = (query?: string) => {
     if (!query) return '/skills';
@@ -12,10 +12,18 @@ export default function SearchBox() {
     const searchParams = useSearchParams();
     const [search, setSearch] = useState(searchParams.get('query') ?? '');
     const router = useRouter();
+    const isFirstRender = useRef(true);
 
-    const handleSearch = useCallback(() => {
-        router.push(getUrl(search));
-    }, [router, search]);
+    useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false;
+            return;
+        }
+        const timer = setTimeout(() => {
+            router.push(getUrl(search));
+        }, 300);
+        return () => clearTimeout(timer);
+    }, [search, router]);
 
     return (
         <div className="flex flex-row">
@@ -27,11 +35,6 @@ export default function SearchBox() {
                     placeholder="Search my skills..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                            handleSearch();
-                        }
-                    }}
                 />
                 <SearchIcon size={18} className="text-muted transition-colors peer-focus:text-blue-500" aria-hidden="true" />
             </div>

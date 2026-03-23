@@ -414,6 +414,7 @@ const concepts = [
             { name: 'RBAC', url: 'https://en.wikipedia.org/wiki/Role-based_access_control' },
             { name: 'Policy-Based Auth', url: 'https://learn.microsoft.com/en-us/aspnet/core/security/authorization/policies' },
             { name: 'AWS Cognito', url: 'https://aws.amazon.com/cognito/' },
+            { name: 'Better Auth', url: 'https://www.better-auth.com/' },
             { name: 'JWT', url: 'https://jwt.io/' },
         ]
     },
@@ -443,6 +444,27 @@ const concepts = [
             { name: 'API Gateway Throttling', url: 'https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html' },
             { name: '.NET Rate Limiting', url: 'https://learn.microsoft.com/en-us/aspnet/core/performance/rate-limit' },
             { name: 'Token Bucket Algorithm', url: 'https://en.wikipedia.org/wiki/Token_bucket' },
+        ]
+    },
+    {
+        key: 'cqrs',
+        title: 'CQRS (Command Query Responsibility Segregation)',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I apply CQRS to separate read and write models in systems where query and command concerns diverge. This pairs naturally with event-driven architecture and domain-driven design to keep each side independently optimised.',
+        link: 'https://learn.microsoft.com/en-us/azure/architecture/patterns/cqrs',
+        relatedSkillKeys: ['domain-driven-design', 'event-driven-architecture', 'microservices', 'modular-monolith'],
+    },
+    {
+        key: 'webhooks',
+        title: 'Webhooks',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I design and consume webhook integrations for event-driven communication between services, handling signature verification, retry logic, and idempotency.',
+        link: 'https://en.wikipedia.org/wiki/Webhook',
+        relatedSkillKeys: ['event-driven-architecture', 'api-design', 'resilience'],
+        subSkills: [
+            { name: 'Hookdeck', url: 'https://hookdeck.com/' },
         ]
     }
 ] as readonly Skill[];

@@ -1,4 +1,5 @@
 import skills from "@/skills/data/skills";
+import { getSkillIcon } from "@/skills/icons";
 import searcher from "@/skills/searcher";
 import { SkillCategory } from "@/skills/skill-categories";
 import { SkillProficiency } from "@/skills/skill-proficiency";
@@ -10,8 +11,8 @@ const getCachedSearch = unstable_cache(
     async (query: string | null, page: number, minProficiency: SkillProficiency | null, categories: SkillCategory[]) => {
         let results = sortBy(
             skills,
+            x => -x.proficiency,
             x => x.title.toLocaleLowerCase().replaceAll(/[^a-z]/g, ''),
-            x => x.description.toLocaleLowerCase().replaceAll(/[^a-z]/g, '')
         );
 
         if (query) {
@@ -30,7 +31,10 @@ const getCachedSearch = unstable_cache(
         const pageResults = results.slice((page - 1) * 10, page * 10);
 
         return {
-            results: pageResults,
+            results: pageResults.map(skill => ({
+                ...skill,
+                icon: getSkillIcon(skill.key, skill.title),
+            })),
             totalPages,
             currentPage: page,
         };
@@ -42,10 +46,10 @@ const getCachedSearch = unstable_cache(
 )
 
 export const GET = async (req: NextRequest) => {
-    const query = req.nextUrl.searchParams.get('query');
+    const query = req.nextUrl.searchParams.get('query') || null;
     const page = parseInt(req.nextUrl.searchParams.get('page') ?? '1', 10);
-    const minProficiency = (req.nextUrl.searchParams.get('minProficiency') as SkillProficiency | null);
-    const categories = req.nextUrl.searchParams.getAll('categories') as SkillCategory[];
+    const minProficiency = (req.nextUrl.searchParams.get('minProficiency') || null) as SkillProficiency | null;
+    const categories = req.nextUrl.searchParams.getAll('categories').filter(Boolean) as SkillCategory[];
 
     return NextResponse.json(await getCachedSearch(query, page, minProficiency, categories));
 };

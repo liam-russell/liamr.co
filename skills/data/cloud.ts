@@ -172,6 +172,24 @@ const cloud = [
             { name: 'AWS Parameter Store', url: 'https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html' },
             { name: 'Azure Key Vault', url: 'https://azure.microsoft.com/en-au/products/key-vault' },
         ]
+    },
+    {
+        key: 'elasticsearch',
+        title: 'Elasticsearch',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Learning,
+        description: 'I have used Elasticsearch for full-text search across documents and structured data in production applications.',
+        link: 'https://www.elastic.co/elasticsearch',
+        relatedSkillKeys: ['aws', 'database-design'],
+    },
+    {
+        key: 'resend',
+        title: 'Resend',
+        categories: [SkillCategory.Cloud, SkillCategory.Backend],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I use Resend for transactional email delivery in TypeScript applications, taking advantage of its React-based email templating and developer-friendly API.',
+        link: 'https://resend.com/',
+        relatedSkillKeys: ['react', 'typescript', 'nodejs'],
     }
 ] as readonly Skill[];
 

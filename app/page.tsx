@@ -1,6 +1,7 @@
 import { ArrowRightIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
 import Link from 'next/link';
 import LocationButton from '@/components/location-button';
+import SkillsGraphLoader from '@/components/skills-graph-loader';
 import skills from '@/skills/data/skills';
 
 const jsonLd = {
@@ -25,10 +26,11 @@ const jsonLd = {
 };
 
 export default function Home() {
-    const skillCount = Math.floor(skills.length / 10) * 10;
+    const totalSkills = skills.length + skills.reduce((sum, s) => sum + (s.subSkills?.length ?? 0), 0);
+    const skillCount = Math.floor(totalSkills / 10) * 10;
 
     return (
-        <div className='mx-auto mt-12 w-full max-w-2xl animate-fade-in pb-16 lg:mt-28'>
+        <div className='mx-auto mt-12 w-full max-w-4xl animate-fade-in pb-16 lg:mt-28'>
             <script
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -84,8 +86,17 @@ export default function Home() {
                 Exploring LLM-powered developer tooling, refining modular monolith patterns in .NET, and building with Next.js 16.
             </div>
 
+            {/* Skills Graph */}
+            <div className='mt-8 animate-slide-up overflow-hidden rounded-2xl glass-card shadow-md' style={{ animationDelay: '0.35s' }}>
+                <div className='flex items-center gap-2 px-5 pt-4'>
+                    <span className='text-lg font-semibold tracking-tight text-foreground font-serif'>Skill Cloud</span>
+                    <span className='text-xs text-muted'>&middot; {skills.length + skills.reduce((n, s) => n + (s.subSkills?.length ?? 0), 0)} skills</span>
+                </div>
+                <SkillsGraphLoader skills={[...skills]} />
+            </div>
+
             {/* Social links */}
-            <div className='mt-8 grid animate-slide-up gap-3 sm:grid-cols-3' style={{ animationDelay: '0.35s' }}>
+            <div className='mt-8 grid animate-slide-up gap-3 sm:grid-cols-3' style={{ animationDelay: '0.38s' }}>
                 <a
                     href="https://github.com/liam-russell"
                     target='_blank'
@@ -108,7 +119,7 @@ export default function Home() {
             </div>
 
             {/* CTA */}
-            <div className='animate-slide-up' style={{ animationDelay: '0.4s' }}>
+            <div className='animate-slide-up' style={{ animationDelay: '0.43s' }}>
                 <Link
                     href='/skills'
                     className='group mt-6 flex items-center justify-center gap-3 rounded-xl bg-linear-to-r from-blue-600 to-sky-500 px-6 py-4 font-serif text-lg font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:brightness-110'

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Nunito, Roboto_Slab } from 'next/font/google'
 import Header from "@/components/header";
@@ -18,6 +18,13 @@ const robotoSlab = Roboto_Slab({
     display: 'swap',
     variable: '--font-roboto-slab',
 });
+
+export const viewport: Viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    themeColor: '#3b82f6',
+    colorScheme: 'dark light',
+};
 
 export const metadata: Metadata = {
     title: {
@@ -48,6 +55,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className={`font-sans ${nunito.variable} ${robotoSlab.variable}`}>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+            </head>
             <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-300">
                 {/* Skip to content link for keyboard users */}
                 <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-blue-600 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg">

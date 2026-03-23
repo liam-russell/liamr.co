@@ -137,12 +137,13 @@ const devops = [
         link: 'https://aws.amazon.com/cdk/',
         proficiency: SkillProficiency.Expert,
         categories: [SkillCategory.DevOps, SkillCategory.Cloud],
-        description: "I define and manage cloud infrastructure as code using AWS CDK and CloudFormation. I favour the CDK for its type safety and ability to share constructs across teams.",
-        relatedSkillKeys: ['aws', 'serverless', 'docker', 'cicd', 'typescript'],
+        description: "I define and manage cloud infrastructure as code using AWS CDK, CloudFormation, and Pulumi. I favour the CDK for its type safety and ability to share constructs across teams.",
+        relatedSkillKeys: ['aws', 'serverless', 'docker', 'cicd', 'typescript', 'dotnet-aspire'],
         subSkills: [
             { name: 'AWS CDK', url: 'https://aws.amazon.com/cdk/' },
             { name: 'CloudFormation', url: 'https://aws.amazon.com/cloudformation/' },
             { name: 'AWS SAM', url: 'https://aws.amazon.com/serverless/sam/' },
+            { name: 'Pulumi', url: 'https://www.pulumi.com/' },
         ]
     },
     {
@@ -180,7 +181,7 @@ const devops = [
         proficiency: SkillProficiency.Expert,
         description: 'I implement structured, contextual logging and observability across applications using correlation IDs, log levels, and centralised aggregation. I have used OpenTelemetry via .NET Aspire for distributed tracing and metrics. I treat logs as a first-class observability signal alongside metrics and traces.',
         link: 'https://serilog.net/',
-        relatedSkillKeys: ['monitoring', 'aws', 'docker'],
+        relatedSkillKeys: ['monitoring', 'aws', 'docker', 'dotnet-aspire'],
         subSkills: [
             { name: 'Serilog', url: 'https://serilog.net/' },
             { name: 'OpenTelemetry', url: 'https://opentelemetry.io/' },

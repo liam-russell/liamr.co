@@ -1,5 +1,7 @@
 import ProficiencyBadge from "@/components/proficiency-badge";
+import SkillIcon from "@/components/skill-icon";
 import skills from "@/skills/data/skills";
+import { getSkillIcon } from "@/skills/icons";
 import { ExternalLinkIcon, QuoteIcon } from "lucide-react";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -34,9 +36,12 @@ export default async function SkillPage({ params }: { params: Promise<{ key: str
         return notFound();
     }
 
+    const icon = getSkillIcon(skill.key, skill.title);
+
     return <div className="mt-12 animate-fade-in">
         <BackButton />
         <h1 className="mb-2 mt-4 flex flex-row items-center font-serif text-4xl font-semibold tracking-tight text-foreground">
+            <SkillIcon icon={icon} size={36} className="mr-3" />
             {skill.title}
             <ProficiencyBadge proficiency={skill.proficiency} className="ml-4 text-lg" />
         </h1>

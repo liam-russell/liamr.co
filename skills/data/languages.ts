@@ -54,7 +54,7 @@ const languages = [
             { name: 'Flexbox', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout' },
             { name: 'CSS Variables', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' }
         ],
-        relatedSkillKeys: ['react', 'angular', 'bootstrap', 'html', 'javascript', 'nextjs'],
+        relatedSkillKeys: ['react', 'angular', 'bootstrap', 'tailwindcss', 'html', 'javascript', 'nextjs'],
     },
     {
         key: 'sql',
@@ -105,7 +105,7 @@ const languages = [
         key: 'postgresql',
         title: 'PostgreSQL',
         categories: [SkillCategory.Databases, SkillCategory.Backend],
-        proficiency: SkillProficiency.Familiar,
+        proficiency: SkillProficiency.Proficient,
         description: 'I have used PostgreSQL as the primary relational database for multiple production systems, leveraging features like JSONB columns, CTEs, and advanced indexing via RDS.',
         link: 'https://www.postgresql.org/',
         relatedSkillKeys: ['sql', 'aws', 'database-design', 'drizzle', 'entityframework'],

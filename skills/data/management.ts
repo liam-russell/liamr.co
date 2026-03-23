@@ -34,7 +34,7 @@ const management = [
         key: 'scoping',
         title: 'Scoping & Estimation',
         categories: [SkillCategory.Management],
-        proficiency: SkillProficiency.Proficient,
+        proficiency: SkillProficiency.Expert,
         description: 'I break down ambiguous requirements into deliverable work items, produce effort estimates, and identify technical risks early. I have scoped projects ranging from small features to multi-quarter platform migrations.',
         relatedSkillKeys: ['agile', 'roadmapping', 'team-management'],
     },
@@ -74,7 +74,7 @@ const management = [
         title: 'Figma',
         categories: [SkillCategory.Management, SkillCategory.Frontend],
         proficiency: SkillProficiency.Proficient,
-        description: 'I have experience in importing designs from Figma and using them to implement frontend components.',
+        description: 'I implement designs from Figma and build design systems in code. I am also developing a Figma plugin and use Figma MCP servers for AI-powered design-to-code workflows.',
         link: 'https://www.figma.com/'
     },
     {
@@ -82,12 +82,13 @@ const management = [
         title: 'Security Audits & Compliance Documentation',
         categories: [SkillCategory.Security, SkillCategory.Management],
         proficiency: SkillProficiency.Proficient,
-        description: 'I have led security audits, produced compliance documentation, and implemented remediation plans aligned with frameworks such as the Essential Eight and OWASP ASVS.',
+        description: 'I have led security audits, produced compliance documentation, and implemented remediation plans aligned with frameworks such as the Essential Eight and OWASP ASVS. I have also participated in SOC 2 audit processes and evidence gathering.',
         relatedSkillKeys: ['owasp', 'security-best-practices', 'accessibility-audits', 'sast', 'qualys'],
         subSkills: [
             { name: 'Essential Eight', url: 'https://www.cyber.gov.au/resources-business-and-government/essential-cyber-security/essential-eight' },
             { name: 'OWASP ASVS', url: 'https://owasp.org/www-project-application-security-verification-standard/' },
             { name: 'ISO 27001', url: 'https://www.iso.org/standard/27001' },
+            { name: 'SOC 2', url: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
         ]
     },
     {

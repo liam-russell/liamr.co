@@ -95,7 +95,7 @@ const frameworks = [
         title: 'Node.js',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Expert,
-        description: 'I have used NodeJS for building full stack apps, scripting deployment tools, compiling frontend code and used NPM extensively.',
+        description: 'I use Node.js across the full stack: building APIs with tRPC and ts-rest, scripting tooling, managing monorepo builds, and configuring bundlers from Webpack through Parcel to Vite. I have deployed my own NPM registry via Verdaccio and use npm workspaces for multi-package projects.',
         link: 'https://nodejs.org/',
         relatedSkillKeys: ['javascript', 'express', 'nextjs', 'trpc', 'ts-rest'],
         subSkills: [
@@ -203,7 +203,7 @@ const frameworks = [
         title: 'Tailwind CSS',
         categories: [SkillCategory.Frontend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Expert,
-        description: 'I have used Tailwind CSS to build many responsive websites and web applications.',
+        description: 'Tailwind CSS is my go-to styling approach for new projects. I use it extensively for building responsive, utility-first interfaces and component libraries across both production applications and side projects.',
         link: 'https://tailwindcss.com/',
         relatedSkillKeys: ['css'],
     },
@@ -235,7 +235,7 @@ const frameworks = [
         title: '.NET Aspire',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks, SkillCategory.DevOps],
         proficiency: SkillProficiency.Expert,
-        description: 'I am exploring .NET Aspire for orchestrating cloud-native distributed applications. Its opinionated approach to service defaults, telemetry, and local development experience aligns well with how I build modular .NET systems.',
+        description: 'I use .NET Aspire to orchestrate cloud-native distributed applications in development and production. Its opinionated approach to service defaults, telemetry, and local development experience aligns well with how I build modular .NET systems.',
         link: 'https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview',
         relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'opentelemetry', 'microservices', 'modular-monolith'],
         subSkills: [
