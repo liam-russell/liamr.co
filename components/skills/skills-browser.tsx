@@ -441,7 +441,7 @@ export default function SkillsBrowser({ data }: { data: BrowserData }) {
                         ref={searchRef}
                         type="search"
                         aria-label="Search skills"
-                        placeholder="Search skills, tools and techniques"
+                        placeholder={mobile ? 'Search skills and tools' : 'Search skills, tools and techniques'}
                         value={q}
                         onChange={e => flip({ q: e.target.value }, 320)}
                         autoComplete="off"

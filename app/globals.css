@@ -340,6 +340,12 @@
   text-overflow: ellipsis;
 }
 
+/* When a sub-skill matched, the sub-skill label gives up space before the skill name does. */
+.chip:has(.chip-sub) .chip-label {
+  flex-shrink: 0;
+  max-width: 65%;
+}
+
 .chip[data-p="2"],
 .chip[data-p="3"] {
   color: var(--fg);
@@ -367,6 +373,9 @@
 }
 
 .chip-sub {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: 2px;
   font-family: var(--font-mono);
   font-size: 11px;

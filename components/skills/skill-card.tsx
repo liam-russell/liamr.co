@@ -160,7 +160,7 @@ export default function SkillCard({ ref, skill, skillsByKey, svgs, mobile, enter
                                 </ViewTransition>
                                 <div className="min-w-0 flex-1">
                                     <ViewTransition name="skill-title">
-                                        <h2 id="skill-card-title" className="m-0 font-serif text-[26px] font-semibold leading-[1.1] tracking-[-0.02em]">{skill.title}</h2>
+                                        <h2 id="skill-card-title" className="m-0 hyphens-auto wrap-anywhere font-serif text-[26px] font-semibold leading-[1.1] tracking-[-0.02em]">{skill.title}</h2>
                                     </ViewTransition>
                                     <div className="mt-1.5 flex flex-wrap items-center gap-2">
                                         <span className="rounded-full border px-[9px] py-0.5 font-serif text-xs font-semibold" style={proficiencyPillStyle(skill.proficiency)}>

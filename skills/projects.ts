@@ -13,7 +13,7 @@ export const projects: readonly Project[] = [
         host: 'snapbook.ing',
         skillKeys: [
             'typescript', 'react', 'nextjs', 'cloudflare', 'infrastructure-as-code', 'turborepo',
-            'better-auth', 'authentication', 'postgresql', 'kysely', 'effect', 'stripe',
+            'better-auth', 'authentication', 'postgresql', 'kysely', 'stripe',
             'multi-tenancy', 'i18n', 'pdf-generation', 'geospatial', 'transactional-email',
             'llm-integration', 'design-systems', 'tailwindcss', 'playwright', 'vitest',
         ],

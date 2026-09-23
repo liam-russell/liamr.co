@@ -65,7 +65,7 @@ export default async function SkillPage({ params }: Params) {
                         </ViewTransition>
                         <div className="min-w-0 flex-1">
                             <ViewTransition name="skill-title">
-                                <h1 className="m-0 font-serif text-[clamp(30px,4.4vw,48px)] font-semibold leading-[1.05] tracking-[-0.025em]">{skill.title}</h1>
+                                <h1 className="m-0 hyphens-auto wrap-anywhere font-serif text-[clamp(30px,4.4vw,48px)] font-semibold leading-[1.05] tracking-[-0.025em]">{skill.title}</h1>
                             </ViewTransition>
                             <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
                                 <span className="rounded-full border px-2.5 py-[3px] font-serif text-[13px] font-semibold" style={proficiencyPillStyle(skill.proficiency)}>
