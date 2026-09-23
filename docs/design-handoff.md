@@ -92,43 +92,6 @@ Each lens maps to a set of categories and skills (we'll wire the mapping during 
 
 ---
 
-## Appendix: skills to add to the data (from the resume)
+## Note on data
 
-These appear in Liam's resume but are missing from the site's skills data. Add them during implementation, as new skills or as sub-skills of existing ones. Not needed for the design, but they'll make the browser richer.
-
-**New skills**
-- **Terraform** (IaC) · **Alchemy** (IaC for Cloudflare)
-- **Fastify** (Node APIs) · **oRPC**
-- **Cloudflare** (Workers, DNS, edge hosting)
-- **Data platform / analytics:** DuckDB, Apache Parquet data lake on S3, AWS Batch transforms, Snowflake (evaluated)
-- **Better Auth** as its own skill: OAuth/OIDC issuer, passkeys (WebAuthn), MFA, device authorisation flow
-- **Device licensing and attestation:** AWS KMS-signed JWTs, TPM 2.0, proof-of-possession
-- **Software distribution:** launcher with binary-delta patching, code and manifest signing, malware scanning
-- **Game backend services:** Epic Online Services (PlayFab and GameLift evaluated) · **Unreal Engine SDK integration**
-- **Tauri** · **Svelte / SvelteKit** · **Rust** (learning)
-- **Kysely** (type-safe SQL) · **Effect** (TypeScript) · **Supabase**
-- **Stripe** (payments)
-- **Internationalisation:** next-intl, Crowdin
-- **PDF and print output:** PDFKit, paged.js
-- **Python** (working knowledge)
-- **Architecture Decision Records**
-- **Design systems and component libraries**
-- **Third-party system integrations**
-- **Technical evaluation:** build-vs-buy, vendor bake-offs
-- **Release management** · **Incident response** · **Interviewing and hiring**
-- **Figma plugin development**
-
-**New sub-skills on existing skills**
-- AWS: Aurora Serverless, KMS, Batch
-- PostgreSQL: Aurora Serverless v2, Kysely
-- Infrastructure as Code: Terraform, Alchemy
-- Next.js: React Server Components, Turbopack
-- React: SWR, Puck editor, Mapbox GL, React Flow (exists), dnd kit (exists)
-- CSS: CSS Modules
-- Node.js: pnpm
-- MCP: authoring custom MCP servers
-- SAST: Semgrep, Gitleaks, Microsoft SAST
-- Security audits: SBOM reporting, dependency audits, pen-test remediation, TX-RAMP evidence
-- Clean Architecture: hexagonal (ports and adapters)
-- Unit testing: TDD, code coverage reporting
-- Performance: code splitting
+The skills data has already been updated with the missing skills from Liam's resume (Terraform, Fastify, Cloudflare, DuckDB, Better Auth, device licensing and more), so design for about 175 skills plus their sub-skills.
