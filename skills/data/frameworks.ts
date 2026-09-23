@@ -341,7 +341,7 @@ const frameworks = [
         proficiency: SkillProficiency.Familiar,
         description: "I design platform SDKs for Unreal Engine games, so game clients can use auth, licensing and online services through a clean C++ interface.",
         link: 'https://www.unrealengine.com/',
-        relatedSkillKeys: ['epic-online-services', 'api-design'],
+        relatedSkillKeys: ['api-design'],
     },
 ] as readonly Skill[];
 

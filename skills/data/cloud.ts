@@ -249,20 +249,6 @@ const cloud = [
         link: 'https://stripe.com/',
         relatedSkillKeys: ['webhooks', 'api-design'],
     },
-    {
-        key: 'epic-online-services',
-        title: 'Epic Online Services',
-        categories: [SkillCategory.Cloud, SkillCategory.Backend],
-        proficiency: SkillProficiency.Familiar,
-        description: "I've integrated Epic Online Services for game matchmaking and presence, chosen after a documented bake-off against PlayFab and GameLift, and kept behind a single adapter so it can be swapped out.",
-        link: 'https://dev.epicgames.com/en-US/services',
-        relatedSkillKeys: ['unreal-engine', 'technical-evaluation', 'clean-architecture'],
-        subSkills: [
-            { name: 'Matchmaking & Presence', url: 'https://dev.epicgames.com/docs/game-services' },
-            { name: 'PlayFab (evaluated)', url: 'https://playfab.com/' },
-            { name: 'Amazon GameLift (evaluated)', url: 'https://aws.amazon.com/gamelift/' },
-        ]
-    },
 ] as readonly Skill[];
 
 export default cloud;
