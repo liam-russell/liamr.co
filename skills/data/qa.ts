@@ -68,6 +68,10 @@ const qa = [
         title: 'Unit Testing',
         categories: [SkillCategory.QA],
         proficiency: SkillProficiency.Expert,
+        subSkills: [
+            { name: 'Test-Driven Development', url: 'https://martinfowler.com/bliki/TestDrivenDevelopment.html' },
+            { name: 'Code Coverage Reporting', url: 'https://istanbul.js.org/' },
+        ],
         description: 'I have written many unit tests for applications in various languages and frameworks.',
         relatedSkillKeys: ['jest', 'xunit', 'vitest', 'integration-testing'],
         link: 'https://en.wikipedia.org/wiki/Unit_testing'

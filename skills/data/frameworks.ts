@@ -17,6 +17,11 @@ const frameworks = [
         title: 'Next.js',
         categories: [SkillCategory.Frontend, SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Expert,
+        subSkills: [
+            { name: 'App Router', url: 'https://nextjs.org/docs/app' },
+            { name: 'React Server Components', url: 'https://react.dev/reference/rsc/server-components' },
+            { name: 'Turbopack', url: 'https://nextjs.org/docs/app/api-reference/turbopack' },
+        ],
         description: 'I have used Next.js to build multiple applications, including this one. I am familiar with both server-side rendering and static site generation and the benefits they bring.',
         link: 'https://nextjs.org/',
         relatedSkillKeys: ['react', 'drizzle', 'vercel', 'netlify', 'javascript', 'css', 'html', 'aws', 'serverless'],
@@ -47,6 +52,9 @@ const frameworks = [
             { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
             { name: 'React Hook Form', url: 'https://react-hook-form.com/' },
             { name: 'React Compiler', url: 'https://react.dev/learn/react-compiler' },
+            { name: 'SWR', url: 'https://swr.vercel.app/' },
+            { name: 'Puck Visual Editor', url: 'https://puckeditor.com/' },
+            { name: 'Mapbox GL', url: 'https://docs.mapbox.com/mapbox-gl-js/' },
         ]
     },
     {
@@ -105,7 +113,8 @@ const frameworks = [
             { name: 'Webpack', url: 'https://webpack.js.org/' },
             { name: 'Babel', url: 'https://babeljs.io/' },
             { name: 'Vite', url: 'https://vitejs.dev/' },
-            { name: 'Bun', url: 'https://bun.sh/' }
+            { name: 'Bun', url: 'https://bun.sh/' },
+            { name: 'pnpm', url: 'https://pnpm.io/' },
         ]
     },
     {
@@ -122,6 +131,9 @@ const frameworks = [
         title: 'tRPC',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Proficient,
+        subSkills: [
+            { name: 'oRPC', url: 'https://orpc.unnoq.com/' },
+        ],
         description: 'I have used tRPC to build end-to-end type-safe APIs in TypeScript, eliminating the need for code generation or manual type definitions between client and server.',
         link: 'https://trpc.io/',
         relatedSkillKeys: ['typescript', 'nodejs', 'nextjs', 'zod', 'react'],
@@ -237,13 +249,100 @@ const frameworks = [
         proficiency: SkillProficiency.Expert,
         description: 'I use .NET Aspire to orchestrate cloud-native distributed applications in development and production. Its opinionated approach to service defaults, telemetry, and local development experience aligns well with how I build modular .NET systems.',
         link: 'https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview',
-        relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'opentelemetry', 'microservices', 'modular-monolith'],
+        relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'logging', 'microservices', 'modular-monolith'],
         subSkills: [
             { name: 'App Host', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview' },
             { name: 'Service Defaults', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults' },
             { name: 'Aspire Dashboard', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard/overview' },
         ]
-    }
+    },
+    {
+        key: 'fastify',
+        title: 'Fastify',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: "I build TypeScript services on Fastify with OpenAPI contracts, so front ends get generated, fully typed clients and live sessions run over WebSockets.",
+        link: 'https://fastify.dev/',
+        relatedSkillKeys: ['nodejs', 'typescript', 'openapi', 'websockets', 'zod'],
+    },
+    {
+        key: 'better-auth',
+        title: 'Better Auth',
+        categories: [SkillCategory.Backend, SkillCategory.Security, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: "I run Better Auth as a full OAuth 2 / OpenID Connect issuer: passkeys, MFA, device flows for game clients and TVs, and third-party services authenticating against it.",
+        link: 'https://www.better-auth.com/',
+        relatedSkillKeys: ['authentication', 'oauth', 'openid-connect', 'typescript'],
+        subSkills: [
+            { name: 'OIDC Provider', url: 'https://www.better-auth.com/docs/plugins/oidc-provider' },
+            { name: 'Passkeys', url: 'https://www.better-auth.com/docs/plugins/passkey' },
+            { name: 'Device Authorization', url: 'https://www.better-auth.com/docs/plugins/device-authorization' },
+        ]
+    },
+    {
+        key: 'kysely',
+        title: 'Kysely',
+        categories: [SkillCategory.Backend, SkillCategory.Databases, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: "I use Kysely for type-safe SQL over Postgres with generated types. It's close to raw SQL, so there are no surprises in what hits the database.",
+        link: 'https://kysely.dev/',
+        relatedSkillKeys: ['postgresql', 'typescript', 'sql', 'drizzle'],
+    },
+    {
+        key: 'effect',
+        title: 'Effect',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Familiar,
+        description: "I use Effect for typed errors, dependency injection and resilient workflows in TypeScript backends.",
+        link: 'https://effect.website/',
+        relatedSkillKeys: ['typescript', 'resilience', 'dependency-injection'],
+    },
+    {
+        key: 'design-systems',
+        title: 'Design Systems & Component Libraries',
+        categories: [SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I build component libraries and design systems with designers, from a branded Bootstrap derivative to Tailwind and Radix-based kits, documented and tested in Storybook.",
+        relatedSkillKeys: ['react', 'tailwindcss', 'figma', 'bootstrap', 'accessibility-audits'],
+        subSkills: [
+            { name: 'Storybook', url: 'https://storybook.js.org/' },
+            { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
+            { name: 'HeroUI', url: 'https://www.heroui.com/' },
+        ]
+    },
+    {
+        key: 'i18n',
+        title: 'Internationalisation (i18n)',
+        categories: [SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I build apps ready for multiple languages from day one, with translation workflows that don't block releases.",
+        relatedSkillKeys: ['nextjs', 'react'],
+        subSkills: [
+            { name: 'next-intl', url: 'https://next-intl.dev/' },
+            { name: 'Crowdin', url: 'https://crowdin.com/' },
+        ]
+    },
+    {
+        key: 'pdf-generation',
+        title: 'PDF & Print Output',
+        categories: [SkillCategory.Backend, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I generate print-ready PDFs, tickets and badges from code, from server-side PDF rendering to paged CSS layouts and SVG generation.",
+        relatedSkillKeys: ['css', 'html'],
+        subSkills: [
+            { name: 'PDFKit', url: 'https://pdfkit.org/' },
+            { name: 'paged.js', url: 'https://pagedjs.org/' },
+        ]
+    },
+    {
+        key: 'unreal-engine',
+        title: 'Unreal Engine SDK Integration',
+        categories: [SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Familiar,
+        description: "I design platform SDKs for Unreal Engine games, so game clients can use auth, licensing and online services through a clean C++ interface.",
+        link: 'https://www.unrealengine.com/',
+        relatedSkillKeys: ['epic-online-services', 'api-design'],
+    },
 ] as readonly Skill[];
 
 export default frameworks;

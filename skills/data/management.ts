@@ -74,6 +74,9 @@ const management = [
         title: 'Figma',
         categories: [SkillCategory.Management, SkillCategory.Frontend],
         proficiency: SkillProficiency.Proficient,
+        subSkills: [
+            { name: 'Figma Plugin API', url: 'https://www.figma.com/plugin-docs/' },
+        ],
         description: 'I implement designs from Figma and build design systems in code. I am also developing a Figma plugin and use Figma MCP servers for AI-powered design-to-code workflows.',
         link: 'https://www.figma.com/'
     },
@@ -89,6 +92,10 @@ const management = [
             { name: 'OWASP ASVS', url: 'https://owasp.org/www-project-application-security-verification-standard/' },
             { name: 'ISO 27001', url: 'https://www.iso.org/standard/27001' },
             { name: 'SOC 2', url: 'https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2' },
+            { name: 'SBOM Reporting', url: 'https://www.cisa.gov/sbom' },
+            { name: 'Dependency Audits', url: 'https://docs.npmjs.com/cli/commands/npm-audit' },
+            { name: 'Penetration Test Remediation', url: 'https://owasp.org/www-project-web-security-testing-guide/' },
+            { name: 'TX-RAMP', url: 'https://dir.texas.gov/txramp' },
         ]
     },
     {
@@ -98,7 +105,23 @@ const management = [
         proficiency: SkillProficiency.Expert,
         description: 'I mentor junior and mid-level engineers through regular 1:1s, pairing sessions, and thorough code reviews. I focus on raising the bar across the team rather than gatekeeping.',
         relatedSkillKeys: ['team-management', 'agile', 'documentation'],
-    }
+    },
+    {
+        key: 'technical-evaluation',
+        title: 'Technical Evaluation & Build-vs-Buy',
+        categories: [SkillCategory.Management],
+        proficiency: SkillProficiency.Proficient,
+        description: "I run documented bake-offs between vendors and approaches, weighing cost, lock-in and fit, then confine the winner behind an adapter so the decision stays reversible.",
+        relatedSkillKeys: ['architecture-decision-records', 'scoping', 'roadmapping'],
+    },
+    {
+        key: 'hiring',
+        title: 'Interviewing & Hiring',
+        categories: [SkillCategory.Management],
+        proficiency: SkillProficiency.Proficient,
+        description: "I take part in hiring engineers, from designing practical interviews to assessing candidates fairly and helping new starters get productive quickly.",
+        relatedSkillKeys: ['team-management', 'mentoring'],
+    },
 ] as readonly Skill[];
 
 export default management;

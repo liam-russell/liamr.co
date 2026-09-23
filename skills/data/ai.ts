@@ -30,6 +30,7 @@ const ai = [
             { name: 'Playwright MCP', url: 'https://github.com/microsoft/playwright-mcp' },
             { name: 'Figma MCP', url: 'https://github.com/nichochar/figma-mcp' },
             { name: 'PostgreSQL MCP', url: 'https://github.com/modelcontextprotocol/servers' },
+            { name: 'Custom MCP Server Authoring', url: 'https://modelcontextprotocol.io/docs/develop/build-server' },
         ]
     },
     {

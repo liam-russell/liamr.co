@@ -49,6 +49,20 @@ import {
     siLetsencrypt,
     siMarkdown,
     siGithubcopilot,
+    siTerraform,
+    siFastify,
+    siCloudflare,
+    siDuckdb,
+    siApacheparquet,
+    siSupabase,
+    siStripe,
+    siPython,
+    siEpicgames,
+    siUnrealengine,
+    siBetterauth,
+    siEffect,
+    siStorybook,
+    siWebauthn,
 } from 'simple-icons';
 import { deviconSvgs } from './devicon-svgs';
 
@@ -153,6 +167,22 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     // AI
     'gemini-api': si(siGooglegemini),
     'vercel-ai-sdk': si(siVercel),
+
+    // Platform & data
+    'terraform': si(siTerraform),
+    'fastify': si(siFastify),
+    'cloudflare': si(siCloudflare),
+    'duckdb': si(siDuckdb),
+    'data-lake': si(siApacheparquet),
+    'supabase': si(siSupabase),
+    'stripe': si(siStripe),
+    'python': si(siPython),
+    'epic-online-services': si(siEpicgames),
+    'unreal-engine': si(siUnrealengine),
+    'better-auth': si(siBetterauth),
+    'effect': si(siEffect),
+    'design-systems': si(siStorybook),
+    'device-licensing': si(siWebauthn),
 };
 
 const fallbackColors = [

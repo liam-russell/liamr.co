@@ -52,7 +52,8 @@ const languages = [
             { name: 'AutoPrefixer', url: 'https://autoprefixer.github.io/' },
             { name: 'CSS Grid', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout' },
             { name: 'Flexbox', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout' },
-            { name: 'CSS Variables', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' }
+            { name: 'CSS Variables', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' },
+            { name: 'CSS Modules', url: 'https://github.com/css-modules/css-modules' },
         ],
         relatedSkillKeys: ['react', 'angular', 'bootstrap', 'tailwindcss', 'html', 'javascript', 'nextjs'],
     },
@@ -113,8 +114,18 @@ const languages = [
             { name: 'AWS RDS for PostgreSQL', url: 'https://aws.amazon.com/rds/postgresql/' },
             { name: 'pgAdmin', url: 'https://www.pgadmin.org/' },
             { name: 'PostGIS', url: 'https://postgis.net/' },
+            { name: 'Aurora Serverless v2 PostgreSQL', url: 'https://aws.amazon.com/rds/aurora/serverless/' },
+            { name: 'Kysely', url: 'https://kysely.dev/' },
         ]
-    }
+    },
+    {
+        key: 'python',
+        title: 'Python',
+        categories: [SkillCategory.Languages],
+        proficiency: SkillProficiency.Familiar,
+        description: "I have a working knowledge of Python for scripting, data wrangling and tooling.",
+        link: 'https://www.python.org/',
+    },
 ] as readonly Skill[];
 
 export default languages;

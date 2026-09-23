@@ -57,6 +57,9 @@ const cloud = [
             { name: 'Bedrock - Managed LLM Platform', url: 'https://aws.amazon.com/bedrock/' },
             { name: 'Route 53 - DNS Service', url: 'https://aws.amazon.com/route53/' },
             { name: 'CloudFront - CDN', url: 'https://aws.amazon.com/cloudfront/' },
+            { name: 'Aurora Serverless v2', url: 'https://aws.amazon.com/rds/aurora/serverless/' },
+            { name: 'KMS - Key Management Service', url: 'https://aws.amazon.com/kms/' },
+            { name: 'Batch - Scheduled Compute Jobs', url: 'https://aws.amazon.com/batch/' },
         ]
     },
     {
@@ -84,7 +87,7 @@ const cloud = [
         proficiency: SkillProficiency.Proficient,
         description: 'I have used SST (Serverless Stack) to deploy Next.js applications to AWS, taking advantage of its infrastructure-as-code approach built on Pulumi and native AWS services.',
         link: 'https://sst.dev/',
-        relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'iac']
+        relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'infrastructure-as-code']
     },
     {
         key: 'azure',
@@ -190,7 +193,76 @@ const cloud = [
         description: 'I use Resend for transactional email delivery in TypeScript applications, taking advantage of its React-based email templating and developer-friendly API.',
         link: 'https://resend.com/',
         relatedSkillKeys: ['react', 'typescript', 'nodejs'],
-    }
+    },
+    {
+        key: 'cloudflare',
+        title: 'Cloudflare',
+        categories: [SkillCategory.Cloud, SkillCategory.Servers],
+        proficiency: SkillProficiency.Proficient,
+        description: "I deploy full-stack apps to Cloudflare Workers and run DNS and edge caching through Cloudflare. I like the edge model: fast cold starts, global by default, and infrastructure that stays cheap as it scales.",
+        link: 'https://www.cloudflare.com/',
+        relatedSkillKeys: ['serverless', 'infrastructure-as-code', 'dns-networking', 'nextjs', 'caching'],
+        subSkills: [
+            { name: 'Workers', url: 'https://workers.cloudflare.com/' },
+            { name: 'DNS', url: 'https://www.cloudflare.com/application-services/products/dns/' },
+            { name: 'Custom Hostnames (SSL for SaaS)', url: 'https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/' },
+        ]
+    },
+    {
+        key: 'duckdb',
+        title: 'DuckDB',
+        categories: [SkillCategory.Databases],
+        proficiency: SkillProficiency.Proficient,
+        description: "I use DuckDB as an analytics engine over Parquet files in S3. It gives warehouse-style SQL without the warehouse bill, and I chose it over Snowflake after evaluating both.",
+        link: 'https://duckdb.org/',
+        relatedSkillKeys: ['data-lake', 'sql', 'aws'],
+    },
+    {
+        key: 'data-lake',
+        title: 'Data Lakes & Analytics Pipelines',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I design data platforms that land events in an S3 Parquet lake, transform them in scheduled batch jobs, and serve the results from Postgres. The goal is cheap, queryable history without running a warehouse.",
+        relatedSkillKeys: ['duckdb', 'aws', 'postgresql', 'event-driven-architecture'],
+        subSkills: [
+            { name: 'Apache Parquet', url: 'https://parquet.apache.org/' },
+            { name: 'AWS Batch', url: 'https://aws.amazon.com/batch/' },
+            { name: 'Amazon S3', url: 'https://aws.amazon.com/s3/' },
+            { name: 'Snowflake (evaluated)', url: 'https://www.snowflake.com/' },
+        ]
+    },
+    {
+        key: 'supabase',
+        title: 'Supabase',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Familiar,
+        description: "I've built with Supabase and know it well, including Row Level Security and its auth. For my own projects I now prefer plain Postgres with a type-safe query layer, which keeps architectural choices open.",
+        link: 'https://supabase.com/',
+        relatedSkillKeys: ['postgresql', 'authentication'],
+    },
+    {
+        key: 'stripe',
+        title: 'Stripe',
+        categories: [SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I integrate Stripe for payments in multi-tenant products: checkout, webhooks, and keeping billing state in sync with the app.",
+        link: 'https://stripe.com/',
+        relatedSkillKeys: ['webhooks', 'api-design'],
+    },
+    {
+        key: 'epic-online-services',
+        title: 'Epic Online Services',
+        categories: [SkillCategory.Cloud, SkillCategory.Backend],
+        proficiency: SkillProficiency.Familiar,
+        description: "I've integrated Epic Online Services for game matchmaking and presence, chosen after a documented bake-off against PlayFab and GameLift, and kept behind a single adapter so it can be swapped out.",
+        link: 'https://dev.epicgames.com/en-US/services',
+        relatedSkillKeys: ['unreal-engine', 'technical-evaluation', 'clean-architecture'],
+        subSkills: [
+            { name: 'Matchmaking & Presence', url: 'https://dev.epicgames.com/docs/game-services' },
+            { name: 'PlayFab (evaluated)', url: 'https://playfab.com/' },
+            { name: 'Amazon GameLift (evaluated)', url: 'https://aws.amazon.com/gamelift/' },
+        ]
+    },
 ] as readonly Skill[];
 
 export default cloud;

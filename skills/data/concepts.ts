@@ -62,6 +62,10 @@ const concepts = [
         description: "I have a strong understanding of cryptographic principles and current best practices.",
         relatedSkillKeys: ['owasp'],
         proficiency: SkillProficiency.Proficient,
+        subSkills: [
+            { name: 'AWS KMS Signing', url: 'https://aws.amazon.com/kms/' },
+            { name: 'TPM 2.0', url: 'https://trustedcomputinggroup.org/resource/tpm-library-specification/' },
+        ],
     },
     {
         key: 'websockets',
@@ -265,6 +269,9 @@ const concepts = [
         title: 'Clean Architecture',
         categories: [SkillCategory.Concepts, SkillCategory.Backend],
         proficiency: SkillProficiency.Expert,
+        subSkills: [
+            { name: 'Hexagonal Architecture (Ports & Adapters)', url: 'https://alistair.cockburn.us/hexagonal-architecture/' },
+        ],
         description: "I naturally separate infrastructure from business logic, structuring projects with clear boundaries between domain, application, and infrastructure layers. Every project I build follows these principles — keeping core logic framework-agnostic and independently testable.",
         link: 'https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html',
         relatedSkillKeys: ['oop', 'dependency-injection', 'modular-monolith', 'domain-driven-design'],
@@ -335,6 +342,7 @@ const concepts = [
             { name: 'Core Web Vitals', url: 'https://web.dev/vitals/' },
             { name: 'Lighthouse', url: 'https://developer.chrome.com/docs/lighthouse/' },
             { name: 'Bundle Analysis', url: 'https://www.npmjs.com/package/webpack-bundle-analyzer' },
+            { name: 'Code Splitting', url: 'https://react.dev/reference/react/lazy' },
         ]
     },
     {
@@ -416,6 +424,9 @@ const concepts = [
             { name: 'AWS Cognito', url: 'https://aws.amazon.com/cognito/' },
             { name: 'Better Auth', url: 'https://www.better-auth.com/' },
             { name: 'JWT', url: 'https://jwt.io/' },
+            { name: 'Passkeys (WebAuthn)', url: 'https://passkeys.dev/' },
+            { name: 'Multi-Factor Authentication', url: 'https://owasp.org/www-community/Multi_Factor_Authentication' },
+            { name: 'OAuth Device Authorization Grant', url: 'https://datatracker.ietf.org/doc/html/rfc8628' },
         ]
     },
     {
@@ -466,7 +477,37 @@ const concepts = [
         subSkills: [
             { name: 'Hookdeck', url: 'https://hookdeck.com/' },
         ]
-    }
+    },
+    {
+        key: 'architecture-decision-records',
+        title: 'Architecture Decision Records',
+        categories: [SkillCategory.Concepts, SkillCategory.Management],
+        proficiency: SkillProficiency.Expert,
+        description: "I record architecture as a living set of decision records, each one a plan in its own right. Code, including AI-generated code, is held to them rather than silently drifting away.",
+        link: 'https://adr.github.io/',
+        relatedSkillKeys: ['documentation', 'clean-architecture', 'ai-assisted-development'],
+    },
+    {
+        key: 'device-licensing',
+        title: 'Device Licensing & Attestation',
+        categories: [SkillCategory.Security, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I've designed hardware-bound licensing: KMS-signed JWTs tied to TPM 2.0 keys with proof-of-possession, transfer quotas and peppered hardware anchors, so licences are hard to copy but fair to move.",
+        relatedSkillKeys: ['crypto', 'authentication', 'aws'],
+        subSkills: [
+            { name: 'TPM 2.0', url: 'https://trustedcomputinggroup.org/resource/tpm-library-specification/' },
+            { name: 'AWS KMS', url: 'https://aws.amazon.com/kms/' },
+            { name: 'Proof-of-Possession (DPoP)', url: 'https://datatracker.ietf.org/doc/html/rfc9449' },
+        ]
+    },
+    {
+        key: 'third-party-integrations',
+        title: 'Third-Party Integrations',
+        categories: [SkillCategory.Backend, SkillCategory.Concepts],
+        proficiency: SkillProficiency.Expert,
+        description: "I build integrations with external systems that translate their data into ours and keep working when they don't: retries, idempotency, monitoring, and working directly with partner teams.",
+        relatedSkillKeys: ['webhooks', 'resilience', 'api-design', 'saml'],
+    },
 ] as readonly Skill[];
 
 export default concepts;
