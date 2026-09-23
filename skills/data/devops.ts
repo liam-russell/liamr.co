@@ -219,7 +219,7 @@ const devops = [
         key: 'software-distribution',
         title: 'Software Distribution & Signing',
         categories: [SkillCategory.DevOps, SkillCategory.Security],
-        proficiency: SkillProficiency.Familiar,
+        proficiency: SkillProficiency.Proficient,
         description: "I've built desktop software delivery: a launcher with binary-delta patching, signed builds and manifests, and malware scanning in the release pipeline.",
         relatedSkillKeys: ['cicd', 'crypto', 'release-management'],
         subSkills: [
@@ -231,7 +231,7 @@ const devops = [
         key: 'release-management',
         title: 'Release Management',
         categories: [SkillCategory.DevOps, SkillCategory.Management],
-        proficiency: SkillProficiency.Proficient,
+        proficiency: SkillProficiency.Expert,
         description: "I run release processes end to end: versioning, release notes, staged rollouts and rollback plans. I push for small, frequent releases over big quarterly drops.",
         relatedSkillKeys: ['cicd', 'feature-flags', 'vc'],
     },

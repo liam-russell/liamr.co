@@ -59,7 +59,6 @@ import {
     siPython,
     siUnrealengine,
     siBetterauth,
-    siEffect,
     siStorybook,
     siWebauthn,
     siElectron,
@@ -182,7 +181,6 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'python': si(siPython),
     'unreal-engine': si(siUnrealengine),
     'better-auth': si(siBetterauth),
-    'effect': si(siEffect),
     'design-systems': si(siStorybook),
     'device-licensing': si(siWebauthn),
 };
