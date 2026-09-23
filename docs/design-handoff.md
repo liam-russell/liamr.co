@@ -6,113 +6,129 @@ A brief for Claude Design. Paste this whole file in as the prompt. Once the desi
 
 ## The ask
 
-Make liamr.co **look nicer and feel more personal**.
+liamr.co is a **skill browser** for Liam Russell, Technical Lead. Keep it that way, and make it **slick, simple and a joy to explore**. The skills experience is the product. Everything else is a light frame around it.
 
-Right now it's a tidy but impersonal page: a name, a blurb, some stat tiles, a 3D skill cloud and links. It should feel like a real person's corner of the internet: warm, crafted, a bit of personality, still clearly a technical lead.
+Design goals:
+- **Interesting, not busy.** One strong idea, executed beautifully, beats ten features
+- **Motion with purpose.** Animation should explain what changed (filtering, focusing, opening), not decorate
+- **Fast and tactile.** Instant response to typing, hovering and keyboard; nothing waits on a physics simulation
 
-Not the goal: a CV. Don't list jobs, employers, job titles or dates.
+Not wanted: a photo, a CV, job history, employer names, job titles or dates.
 
-## Keep
+## What's wrong today
 
-- Name and title: **Liam Russell, Technical Lead**, Canberra, Australia (remote)
-- Fonts: Roboto Slab (display) + Nunito (body)
-- The blue → sky accent, dark-first with a proper light theme
-- The searchable skills directory (`/skills`, `/skills/[key]`), restyled to match
-- GitHub, LinkedIn and the Canberra map modal
+- The homepage centrepiece is a **3D force-graph skill cloud**. It's hard to use (you have to orbit to find anything), it zooms oddly after load while the physics settle, and it's heavy (three.js). Remove it.
+- The rest is generic: a tagline chip, stat tiles, a stale "Currently:" line, then links. It doesn't feel designed.
+- The `/skills` search page and `/skills/[key]` detail pages work, but look like a different, plainer site.
 
-## Change
+## Structure
 
-- **Replace the 3D skill cloud.** It's hard to use, zooms oddly after page load while the physics settle, and pulls in three.js. Replace it with something 2D, calm and scannable: skill chips grouped by category, where hovering one gently highlights related skills. Instant to load, keyboard-friendly, fine on mobile.
-- **Drop the generic bits:** the "Technical lead with full-stack expertise" chip, the stat tiles and the stale "Currently:" line.
-- **Add "Open to opportunities":** a small green-dot status pill in the hero that links to a friendly contact section at the bottom.
+One homepage where the browser *is* the page, plus the existing detail route:
 
-## What I do (the heart of the page)
+1. **Header strip:** "Liam Russell · Technical Lead · Canberra (remote)", a green-dot **Open to opportunities** pill, GitHub, LinkedIn and email. Compact, not a hero.
+2. **One line of intent**, big and confident: e.g. "I design systems, lead the people building them, and write a lot of the code myself."
+3. **The skills browser** (most of the page; see below)
+4. **Side projects:** a small row of 3 cards (snapbook.ing, SproutGit, Shutter Share), each lighting up its skills in the browser on hover
+5. **Footer:** contact, the Canberra map modal (exists already), theme toggle
 
-This is the section that sells. Give it real presence: big confident headings, short punchy copy, a strong layout (e.g. a bento grid of capability cards, each with an icon or tiny illustration and a handful of tech chips). Write it with **gusto and clarity**: specific, energetic, first person, no buzzword soup. Describe what I can do, never where I did it.
+`/skills/[key]` stays (it's good for SEO and sharing) but should feel like the browser zoomed into one skill. `/skills` can simply become the homepage browser with its URL state.
 
-Draft copy (tighten or riff, but keep the energy and the specifics):
+## The skills browser (the main event)
 
-**Headline:** "I design systems, lead the people building them, and write a lot of the code myself."
+Data available per skill: title, description, categories (13), proficiency (Learning / Familiar / Proficient / Expert), brand icon and colour, sub-skills, related skills, optional link. About 150 skills plus sub-skills.
 
-1. **Architecture that holds up.** I design distributed, event-driven systems that scale sideways without falling over, and I write the decisions down so the codebase stays honest to them. Modular monoliths when simple wins, services and queues when it doesn't.
-   *Chips:* AWS, Lambda, SQS/SNS, ECS/Fargate, DynamoDB, Postgres, event-driven, decision records
+### Core interaction ideas (pick a direction, show it off)
 
-2. **Platforms from the ground up.** Auth, identity, data, infrastructure: the unglamorous foundations everything else stands on. I've built OAuth/OIDC issuers with passkeys, MFA and device flows, hardware-bound licensing with signed tokens, and data lakes that answer questions cheaply. All of it defined as code.
-   *Chips:* OAuth/OIDC, Better Auth, passkeys, KMS, Terraform, CDK, DuckDB, Parquet, Cloudflare
+- **Search first.** A large, always-visible input ("Search 300+ skills…", `/` to focus, ⌘K from anywhere). Results filter as you type with no lag.
+- **Lenses, not just categories.** A row of capability lenses that filter the field with a one-line pitch each (copy below). Switching lenses should animate: chips glide to their new positions (FLIP / View Transitions), leaving chips fade and shrink, arriving ones settle in.
+- **Proficiency you can feel.** Encode Expert → Learning visually (size, weight, fill ring or glow intensity), with a sort/segment toggle. At a glance you should see where the depth is.
+- **Focus mode.** Hover or keyboard-focus a skill: it lifts and takes its brand colour, related skills stay lit with thin animated connector lines, everything else dims. It's the useful part of the old graph, in 2D and instant.
+- **Open in place.** Click a skill and it expands into a detail card (description, proficiency, sub-skills fanning out as chips, related skills, link), with a shared-element transition into `/skills/[key]`. Back reverses the animation.
+- **Keyboard all the way.** Arrow keys move between chips, Enter opens, Esc closes, and focus rings are part of the design.
+- **Live counts.** "42 skills" ticks as filters change; empty states are friendly and suggest nearby searches.
+- **Mobile.** Lenses become a swipeable tab bar; the detail opens as a bottom sheet.
 
-3. **Interfaces people enjoy.** Polished, fast, accessible front ends, from live drag-and-drop boards with WebSocket updates to pipeline visualisations and visual page builders. I care how it feels, not just whether it works.
-   *Chips:* React, Next.js, TypeScript, Tailwind, React Server Components, Storybook, Playwright
+### Lenses (copy with gusto; tighten freely)
 
-4. **Full stack, both ecosystems.** Equally at home in TypeScript and C#/.NET. Typed APIs end to end, from OpenAPI contracts to generated clients, so the front end and back end can't quietly drift apart.
-   *Chips:* TypeScript, C#/.NET, Fastify, ASP.NET, OpenAPI, tRPC, Zod
+1. **Architecture that holds up.** Distributed, event-driven systems that scale sideways without falling over, with decisions written down so the code stays honest to them.
+2. **Platforms from the ground up.** Auth, identity, data and infrastructure: the unglamorous foundations everything else stands on, all defined as code.
+3. **Interfaces people enjoy.** Fast, accessible, polished front ends, from live drag-and-drop boards to visual page builders.
+4. **Full stack, both ecosystems.** TypeScript and C#/.NET, with typed APIs end to end so front and back can't quietly drift apart.
+5. **AI, used properly.** Agents, MCP, AI code review and LLM features, with guardrails and human judgement around them.
+6. **Modernising the old stuff.** Dragging decades-old codebases into the present without stopping the product.
+7. **Security and accessibility, built in.** OWASP-minded design, audit evidence, pen-test fixes and WCAG 2.2 AA work, not bolted on at the end.
+8. **Leading teams that ship.** Technical direction, mentoring, code review standards and turning fuzzy ideas into shippable work.
 
-5. **AI, used properly.** I build with AI every day: agents with tools and subagents, MCP integrations, and AI code review wired into pull requests. The trick is putting guardrails and human judgement around it, so it makes teams faster without making the code worse.
-   *Chips:* Claude Code, agents, MCP, Vercel AI SDK, LLM integration, AI code review
+Each lens maps to a set of categories and skills (we'll wire the mapping during implementation).
 
-6. **Modernising the old stuff.** I've taken decades-old codebases and dragged them into the present: new frameworks, new tooling, new hosting, without stopping the product. Modern stacks are safer, nicer to work in, and far better for AI-assisted development.
-   *Chips:* legacy migration, React adoption, Vite, .NET upgrades, cloud migration
+## Look and motion
 
-7. **Security and accessibility, built in.** Not bolted on at the end. OWASP-minded design, secret rotation, audit evidence, pen-test remediation, and WCAG 2.2 AA audit work with real screen-reader and keyboard testing.
-   *Chips:* OWASP, SOC 2 evidence, SAST, WCAG 2.2, ARIA
-
-8. **Leading teams that ship.** I set technical direction, mentor engineers, raise the bar on code review, testing and CI/CD, and turn fuzzy product ideas into scoped, shippable work. Comfortable leading across time zones with clear, async handoffs.
-   *Chips:* technical leadership, mentoring, roadmaps, CI/CD, developer experience
-
-**Closing line under the grid:** "If it needs designing, building, securing and shipping, I'm happy to own all of it."
-
-Each card should link to the matching filtered view in `/skills` (e.g. `/skills?categories=AI`). The 2D skills section further down is the deep dive; this section is the pitch.
-
-## Make it personal
-
-Material to draw from (use what fits, rewrite freely, first person, plain and warm):
-
-- **Voice.** Short and human, not a buzzword list. For example: "I'm Liam. I lead engineering teams and still love building things myself: the architecture, the platform underneath, and the interface on top."
-- **A photo or avatar spot** in the hero. Design it with a placeholder; Liam will supply the image.
-- **How I got here.** Started on a support desk, fixing the bugs customers reported, and never stopped building. Studied digital media, and before that sound production (a nice human detail).
-- **Things I'm building on the side:**
-  - **snapbook.ing** (https://snapbook.ing): a booking platform for small businesses
-  - **SproutGit** (https://sproutgit.dev): a Git desktop app built around worktrees, for people and AI agents working side by side (with a friend)
-  - **Shutter Share** (https://shuttershare.com.au): my own small business
-- **What I care about** (a few short lines, not a wall):
-  - Clear thinking and honest communication
-  - Shipping working software over debating abstractions
-  - Security and accessibility as first-class, not afterthoughts
-  - Developer experience: clone it, run it, understand it
-  - Using AI thoughtfully to build better, not just faster
-- **Now** (a small, live-feeling block): what I'm tinkering with, what I'm learning, maybe what I'm listening to. Design it so it's easy to update.
-
-## Look and feel
-
-- **Mood:** calm, crafted, a little playful. A well-lit studio, not a neon arcade. Keep the dot grid and soft glows, but quieter.
-- **Layout:** one well-paced homepage: hero (photo, name, one-liner, status pill) → what I do → about → side projects → what I care about → skills → contact.
-- **Type:** bigger, more confident display type. Consider a mono accent (e.g. JetBrains Mono) for small labels and chips.
-- **A few delightful moments** (pick some, not all):
-  - A gentle gradient sweep on the name
-  - Cards with a soft glow that follows the cursor
-  - Sections that ease in as you scroll
-  - A ⌘K command palette for the existing search
-  - A pulsing "live" dot on the Now block and the status pill
-  - A small hand-drawn or SVG flourish that feels like Liam, not a template
-- **Respect `prefers-reduced-motion`** for all of it.
+- **Mood:** calm, precise, quietly playful. Dark-first with a proper light theme. A well-lit studio, not a neon arcade.
+- **Keep:** Roboto Slab (display) + Nunito (body), the blue → sky accent, and the per-category colours already in the code. Consider a mono accent for counts, labels and keyboard hints.
+- **Background:** keep a dot grid, but let it respond, e.g. dots near the pointer or the focused skill brighten slightly.
+- **Motion palette:** one easing family, 150–250ms for UI and 350–500ms for layout moves, spring-like settles on chips. Stagger reveals on first load, subtly.
+- **Nice touches (optional):** cursor-tracking glow on cards, count-up numbers, a gradient sweep on the name once on load, skill icons that tint to their brand colour on hover.
+- **Respect `prefers-reduced-motion`:** swap moves for fades.
 
 ## Constraints
 
-- Next.js 16 App Router, React 19, Tailwind CSS 4 (tokens in `app/globals.css`), lucide-react and simple-icons
-- No three.js on the homepage; prefer CSS/SVG with light JS
-- Light and dark both first-class; a manual theme toggle would be nice
-- WCAG 2.2 AA, fast (mostly server-rendered), responsive from 360px up
+- Next.js 16 App Router, React 19, Tailwind CSS 4 (tokens in `app/globals.css`), lucide-react + simple-icons
+- **No three.js.** CSS/SVG + the View Transitions API first; a small library like Motion is fine if it earns its place
+- WCAG 2.2 AA, fully keyboard-operable, responsive from 360px, mostly server-rendered, filter state in the URL
 
 ## Don't
 
-- Name or describe specific jobs, employers, clients or their products
-- Offer a downloadable CV
-- Include a phone number
+- Include a photo, CV download or phone number
+- Mention specific jobs, employers, clients, their products, job titles or dates
 - Imply open-source contributions
 
 ## Deliverables
 
-- Homepage: desktop and mobile, dark and light
-- The "What I do" capability grid (the centrepiece)
-- The 2D skills section replacing the 3D cloud
-- Restyled `/skills` list and `/skills/[key]` detail
+- Homepage with the skills browser: desktop + mobile, dark + light
+- States: idle, typing/filtered, lens switched, skill focused (related lit), skill opened, empty results
+- `/skills/[key]` detail page matching the opened-card state
+- A motion spec for the key transitions (filter, focus, open/close)
 - A small token sheet: colours, type scale, spacing, radii, shadows, motion
+
+---
+
+## Appendix: skills to add to the data (from the resume)
+
+These appear in Liam's resume but are missing from the site's skills data. Add them during implementation, as new skills or as sub-skills of existing ones. Not needed for the design, but they'll make the browser richer.
+
+**New skills**
+- **Terraform** (IaC) · **Alchemy** (IaC for Cloudflare)
+- **Fastify** (Node APIs) · **oRPC**
+- **Cloudflare** (Workers, DNS, edge hosting)
+- **Data platform / analytics:** DuckDB, Apache Parquet data lake on S3, AWS Batch transforms, Snowflake (evaluated)
+- **Better Auth** as its own skill: OAuth/OIDC issuer, passkeys (WebAuthn), MFA, device authorisation flow
+- **Device licensing and attestation:** AWS KMS-signed JWTs, TPM 2.0, proof-of-possession
+- **Software distribution:** launcher with binary-delta patching, code and manifest signing, malware scanning
+- **Game backend services:** Epic Online Services (PlayFab and GameLift evaluated) · **Unreal Engine SDK integration**
+- **Tauri** · **Svelte / SvelteKit** · **Rust** (learning)
+- **Kysely** (type-safe SQL) · **Effect** (TypeScript) · **Supabase**
+- **Stripe** (payments)
+- **Internationalisation:** next-intl, Crowdin
+- **PDF and print output:** PDFKit, paged.js
+- **Python** (working knowledge)
+- **Architecture Decision Records**
+- **Design systems and component libraries**
+- **Third-party system integrations**
+- **Technical evaluation:** build-vs-buy, vendor bake-offs
+- **Release management** · **Incident response** · **Interviewing and hiring**
+- **Figma plugin development**
+
+**New sub-skills on existing skills**
+- AWS: Aurora Serverless, KMS, Batch
+- PostgreSQL: Aurora Serverless v2, Kysely
+- Infrastructure as Code: Terraform, Alchemy
+- Next.js: React Server Components, Turbopack
+- React: SWR, Puck editor, Mapbox GL, React Flow (exists), dnd kit (exists)
+- CSS: CSS Modules
+- Node.js: pnpm
+- MCP: authoring custom MCP servers
+- SAST: Semgrep, Gitleaks, Microsoft SAST
+- Security audits: SBOM reporting, dependency audits, pen-test remediation, TX-RAMP evidence
+- Clean Architecture: hexagonal (ports and adapters)
+- Unit testing: TDD, code coverage reporting
+- Performance: code splitting
