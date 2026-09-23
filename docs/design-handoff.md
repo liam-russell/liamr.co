@@ -23,7 +23,7 @@ Drop or replace:
 
 | Site says | Reality (resume, Sep 2026) |
 |---|---|
-| "Currently: exploring LLM-powered developer tooling, modular monolith patterns in .NET, Next.js 16" | Leading a two-person team building a real-time multiplayer golf-sim platform in a TypeScript monorepo, and shipping side projects (snapbook.ing, SproutGit) |
+| "Currently: exploring LLM-powered developer tooling, modular monolith patterns in .NET, Next.js 16" | Leading a two-person team building a real-time multiplayer sports-simulation platform in a TypeScript monorepo, and shipping side projects (snapbook.ing, SproutGit) |
 | Pitch leans on C#/.NET + AWS | Now mostly TypeScript platform work: Fastify, Next.js, Better Auth, Terraform, DuckDB, Cloudflare, Vercel. .NET is still a strength but no longer the headline |
 | No projects, no experience, no story | Resume has a strong 11-year arc and several shippable projects (below) |
 | Skills data | Missing: Terraform, Fastify, DuckDB, Parquet/data lake, Cloudflare Workers, Tauri, Svelte, Kysely, Stripe, passkeys/WebAuthn, KMS/TPM device attestation, Epic Online Services, Unreal SDK, Alchemy IaC |
@@ -34,37 +34,40 @@ Drop or replace:
 
 ### Positioning (hero)
 - **Name:** Liam Russell
-- **Role:** Technical Lead, Canberra, Australia (remote). Keep "Technical Lead" as the headline title everywhere (hero, meta, JSON-LD). The Beacon Games job title only appears in the career timeline
+- **Role:** Technical Lead, Canberra, Australia (remote). Keep "Technical Lead" as the headline title everywhere (hero, meta, JSON-LD). Never name current or past employers or their products (see §8)
 - **One-liner options** (pick or riff):
   - "Technical lead who still ships: architecture, platforms and the interfaces on top."
   - "Technical lead. 10+ years of shipping software people depend on."
+- **Availability:** open to new opportunities. Show it as a small status pill in the hero (e.g. a green dot + "Open to opportunities") that links to the contact section, and repeat it in the contact footer
 - **Supporting line:** Architect of distributed systems on AWS and the edge, TypeScript and C#/.NET, and polished React/Next.js front ends. Lead teams, write decision records, and use AI to build faster without lowering the bar.
 
 ### Now (a live-feeling "currently" block)
-- Leading platform at **Beacon Games (Pureplay)**, a real-time multiplayer golf simulator
+- Leading the platform team for a real-time multiplayer sports simulator
 - Building **snapbook.ing**, a booking platform for small businesses, solo
 - Building **SproutGit**, a worktree-first Git desktop app for humans + AI agents, with a friend
 
 ### Headline numbers (replace the old stat tiles)
 - **10+** years shipping software (since 2015)
-- **7 apps · 20 services · 46 packages**: the Pureplay platform, built by two engineers in under four months
-- **25-year-old** SaaS codebase modernised (CareerHub)
+- **7 apps · 20 services · 46 packages**: the multiplayer sim platform, built by two engineers in under four months
+- **25-year-old** SaaS codebase modernised
 - **{N}+ skills** (computed, as now)
 
 ### Career arc (timeline, a good story: support desk → technical lead)
-1. **Technical Support Analyst**, Symplicity / CareerHub · 2015–2017. Debugged the product, fixed recurring issues directly in the codebase, ran demos for universities
-2. **Full Stack Engineer**, Symplicity · 2017–2021. C#/.NET, React, TypeScript, serverless on AWS, Docker/ECS, CI/CD; worked async across UK, US, Brazil and Spain
-3. **Senior Software Engineer**, Symplicity · 2021–2025. Event-driven microservices on AWS (Lambda, SQS/SNS, DynamoDB), led front end of key features, championed security and IaC (CDK)
-4. **Technical Lead**, Symplicity · 2025–2026. Architecture across CareerHub (SaaS used by universities globally), modernisation to modern .NET + React, LLM R&D, mentoring
-5. **Lead Platform Engineer**, Beacon Games · 2026–now. Platform behind Pureplay (see Selected work)
+Label employers generically only: "Global higher-ed SaaS company" (2015–2026) and "Games studio" (2026–now). No company or product names, no logos.
+
+1. **Technical Support Analyst**, higher-ed SaaS · 2015–2017. Debugged the product, fixed recurring issues directly in the codebase, ran demos for universities
+2. **Full Stack Engineer**, higher-ed SaaS · 2017–2021. C#/.NET, React, TypeScript, serverless on AWS, Docker/ECS, CI/CD; worked async across UK, US, Brazil and Spain
+3. **Senior Software Engineer**, higher-ed SaaS · 2021–2025. Event-driven microservices on AWS (Lambda, SQS/SNS, DynamoDB), led front end of key features, championed security and IaC (CDK)
+4. **Technical Lead**, higher-ed SaaS · 2025–2026. Architecture across a SaaS platform used by universities globally, modernisation to modern .NET + React, LLM R&D, mentoring
+5. **Technical Lead, Platform**, games studio · 2026–now. Platform behind a multiplayer sports simulator (see Selected work)
 
 ### Selected work (cards, each needs: name, one-liner, 3–5 tech chips, "what I did", optional link)
-- **Pureplay Platform** (Beacon Games): Turborepo monorepo of 7 apps, 20 services, 46 packages and an Unreal Engine SDK. Better Auth as sole OAuth/OIDC issuer (passkeys, MFA, device flow); device licensing via KMS-signed JWTs bound to TPM 2.0 keys; DuckDB over an S3 Parquet lake after dropping Snowflake; Epic Online Services chosen after a documented bake-off vs PlayFab/GameLift; Terraform across ECS, Aurora, Batch, Cloudflare, Vercel. Architecture governed by decision records; AI-built code held to them. *(Confirm what can be said publicly, see §8.)*
+- **Multiplayer Sim Platform** (current role, unnamed): Turborepo monorepo of 7 apps, 20 services, 46 packages and an Unreal Engine SDK. Better Auth as sole OAuth/OIDC issuer (passkeys, MFA, device flow); device licensing via KMS-signed JWTs bound to TPM 2.0 keys; DuckDB over an S3 Parquet lake after dropping Snowflake; Epic Online Services chosen after a documented bake-off vs PlayFab/GameLift; Terraform across ECS, Aurora, Batch, Cloudflare, Vercel. Architecture governed by decision records; AI-built code held to them.
 - **snapbook.ing** ↗ https://snapbook.ing: Multi-tenant booking/event platform, built solo. 7 apps + 22 packages on Cloudflare Workers, RSC, Better Auth, Kysely/Postgres, Stripe, Puck visual page builder, i18n, AI website generation.
 - **SproutGit** ↗ https://sproutgit.dev: Cross-platform Git desktop app (Tauri v2 + Rust + SvelteKit) built around worktrees so multiple devs or AI agents can work in one repo without collisions. Early preview releases live.
-- **Deployment Tool + Hub Monorepo** (Symplicity): Solo-architected. Hub is an event-driven modular platform (.NET 10, Aspire, Rebus, Fargate/Lambda, Aurora Postgres); the Deployment Tool inside it provisions CareerHub instances to Fargate + RDS via CDK, with live React Flow pipeline visualisation. The org's first AI-developed app.
-- **Talent ATS** (Symplicity) ↗ https://www.symplicity.com/anz/higher-ed/solutions/talent-module: Solo-built applicant tracking system. Live drag-and-drop kanban over API Gateway WebSockets + DynamoDB Streams, resume search via Elasticsearch, full audit log.
-- **AI Code Review pipeline** (Symplicity): Webhook-triggered reviewer on Azure DevOps (Kiro CLI) that comments on specific diff lines and takes chat commands in PR threads.
+- **Deployment Tool + Hub Monorepo** (previous role): Solo-architected. Hub is an event-driven modular platform (.NET 10, Aspire, Rebus, Fargate/Lambda, Aurora Postgres); the Deployment Tool inside it provisions per-customer SaaS instances to Fargate + RDS via CDK, with live React Flow pipeline visualisation. The org's first AI-developed app.
+- **Applicant Tracking System** (previous role, no link): Solo-built applicant tracking system. Live drag-and-drop kanban over API Gateway WebSockets + DynamoDB Streams, resume search via Elasticsearch, full audit log.
+- **AI Code Review pipeline** (previous role): Webhook-triggered reviewer on Azure DevOps (Kiro CLI) that comments on specific diff lines and takes chat commands in PR threads.
 - Also: Check-in (Next.js RSC + .NET, QR ticketing), introducing React to a legacy jQuery/AngularJS/WebForms codebase, Shutter Share (Astro marketing site) ↗ https://shuttershare.com.au
 
 ### How I work (principles, short cards or a list)
@@ -88,11 +91,11 @@ Drop or replace:
 1. Hero: name, role, one-liner, primary CTAs (Selected work · Get in touch), availability/location chip
 2. Now: 3 compact "currently building" items with a subtle live indicator
 3. Numbers strip
-4. Selected work: 3 featured cards (Pureplay, snapbook.ing, SproutGit) and a compact row for the rest
+4. Selected work: 3 featured cards (Multiplayer Sim Platform, snapbook.ing, SproutGit) and a compact row for the rest
 5. Career timeline
 6. Stack: the replacement for the 3D cloud (see §5), linking into `/skills`
 7. How I work
-8. Contact footer
+8. Contact footer with the "Open to opportunities" status and a clear email CTA
 
 **Skills (`/skills`, `/skills/[key]`)**: restyle to match; keep search, filters and URLs. Skill detail pages could show "Used in" (links to projects that use the skill).
 
@@ -107,7 +110,7 @@ Pick one, or show two for comparison. It needs to load instantly, be keyboard-na
 - **A. Filterable stack grid (bento):** categories as tiles (AI, Frontend, Backend, Cloud, Data, DevOps, Security…), skills as icon chips sized/weighted by proficiency. Hover or focus a chip to highlight related skills across tiles with a soft glow. Click to open `/skills/[key]`.
 - **B. 2D constellation, static layout:** a precomputed (not live-simulated) node map in SVG. Categories as anchors, skills orbiting, related-skill lines appear on hover. No camera, no zoom, no physics settling on load.
 - **C. Proficiency rings / radar:** one row per category with Expert → Learning bands, skills placed as icons. Very scannable, shows depth rather than just breadth.
-- **D. "Stack by project":** pick a project (Pureplay / snapbook / SproutGit) and the stack view lights up the skills it used. Ties skills to proof.
+- **D. "Stack by project":** pick a project (Sim Platform / snapbook / SproutGit) and the stack view lights up the skills it used. Ties skills to proof.
 
 My lean: **A with the "related skills" glow, plus D's project filter.**
 
@@ -146,15 +149,18 @@ My lean: **A with the "related skills" glow, plus D's project filter.**
 
 **Don't:**
 - Imply open-source contributions (there aren't any public ones)
-- Claim CareerHub is fully WCAG compliant; say "led WCAG 2.2 AA audit work"
-- Describe CareerHub as multi-tenant (it's single-tenant per university)
+- Name any current or past employer, their products, or use their logos. Use generic labels ("games studio", "higher-ed SaaS company")
+- Claim the previous SaaS product is fully WCAG compliant; say "led WCAG 2.2 AA audit work"
+- Offer a downloadable CV
 - Put a phone number, job-search motivations or salary anything on the site
 
-**Open questions for Liam:**
-1. How much of Pureplay / Beacon Games can be named and detailed publicly? (Fallback: "a real-time multiplayer sports-sim platform")
-2. Show an "open to opportunities" signal, or not?
-3. Add a downloadable CV (PDF from the resume repo)?
-4. Want `/work/[slug]` case studies now, or later?
+**Decided:**
+- Employers stay unnamed
+- Show "Open to opportunities"
+- No downloadable CV
+
+**Still open:**
+- Want `/work/[slug]` case studies now, or later?
 
 ---
 
