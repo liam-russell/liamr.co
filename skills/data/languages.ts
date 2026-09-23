@@ -122,8 +122,8 @@ const languages = [
         key: 'python',
         title: 'Python',
         categories: [SkillCategory.Languages],
-        proficiency: SkillProficiency.Familiar,
-        description: "I have a working knowledge of Python for scripting, data wrangling and tooling.",
+        proficiency: SkillProficiency.Learning,
+        description: "I'm learning Python and use it for scripting, data wrangling and tooling.",
         link: 'https://www.python.org/',
     },
 ] as readonly Skill[];
