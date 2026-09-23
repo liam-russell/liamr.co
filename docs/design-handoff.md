@@ -26,6 +26,42 @@ Not the goal: a CV. Don't list jobs, employers, job titles or dates.
 - **Drop the generic bits:** the "Technical lead with full-stack expertise" chip, the stat tiles and the stale "Currently:" line.
 - **Add "Open to opportunities":** a small green-dot status pill in the hero that links to a friendly contact section at the bottom.
 
+## What I do (the heart of the page)
+
+This is the section that sells. Give it real presence: big confident headings, short punchy copy, a strong layout (e.g. a bento grid of capability cards, each with an icon or tiny illustration and a handful of tech chips). Write it with **gusto and clarity**: specific, energetic, first person, no buzzword soup. Describe what I can do, never where I did it.
+
+Draft copy (tighten or riff, but keep the energy and the specifics):
+
+**Headline:** "I design systems, lead the people building them, and write a lot of the code myself."
+
+1. **Architecture that holds up.** I design distributed, event-driven systems that scale sideways without falling over, and I write the decisions down so the codebase stays honest to them. Modular monoliths when simple wins, services and queues when it doesn't.
+   *Chips:* AWS, Lambda, SQS/SNS, ECS/Fargate, DynamoDB, Postgres, event-driven, decision records
+
+2. **Platforms from the ground up.** Auth, identity, data, infrastructure: the unglamorous foundations everything else stands on. I've built OAuth/OIDC issuers with passkeys, MFA and device flows, hardware-bound licensing with signed tokens, and data lakes that answer questions cheaply. All of it defined as code.
+   *Chips:* OAuth/OIDC, Better Auth, passkeys, KMS, Terraform, CDK, DuckDB, Parquet, Cloudflare
+
+3. **Interfaces people enjoy.** Polished, fast, accessible front ends, from live drag-and-drop boards with WebSocket updates to pipeline visualisations and visual page builders. I care how it feels, not just whether it works.
+   *Chips:* React, Next.js, TypeScript, Tailwind, React Server Components, Storybook, Playwright
+
+4. **Full stack, both ecosystems.** Equally at home in TypeScript and C#/.NET. Typed APIs end to end, from OpenAPI contracts to generated clients, so the front end and back end can't quietly drift apart.
+   *Chips:* TypeScript, C#/.NET, Fastify, ASP.NET, OpenAPI, tRPC, Zod
+
+5. **AI, used properly.** I build with AI every day: agents with tools and subagents, MCP integrations, and AI code review wired into pull requests. The trick is putting guardrails and human judgement around it, so it makes teams faster without making the code worse.
+   *Chips:* Claude Code, agents, MCP, Vercel AI SDK, LLM integration, AI code review
+
+6. **Modernising the old stuff.** I've taken decades-old codebases and dragged them into the present: new frameworks, new tooling, new hosting, without stopping the product. Modern stacks are safer, nicer to work in, and far better for AI-assisted development.
+   *Chips:* legacy migration, React adoption, Vite, .NET upgrades, cloud migration
+
+7. **Security and accessibility, built in.** Not bolted on at the end. OWASP-minded design, secret rotation, audit evidence, pen-test remediation, and WCAG 2.2 AA audit work with real screen-reader and keyboard testing.
+   *Chips:* OWASP, SOC 2 evidence, SAST, WCAG 2.2, ARIA
+
+8. **Leading teams that ship.** I set technical direction, mentor engineers, raise the bar on code review, testing and CI/CD, and turn fuzzy product ideas into scoped, shippable work. Comfortable leading across time zones with clear, async handoffs.
+   *Chips:* technical leadership, mentoring, roadmaps, CI/CD, developer experience
+
+**Closing line under the grid:** "If it needs designing, building, securing and shipping, I'm happy to own all of it."
+
+Each card should link to the matching filtered view in `/skills` (e.g. `/skills?categories=AI`). The 2D skills section further down is the deep dive; this section is the pitch.
+
 ## Make it personal
 
 Material to draw from (use what fits, rewrite freely, first person, plain and warm):
@@ -48,7 +84,7 @@ Material to draw from (use what fits, rewrite freely, first person, plain and wa
 ## Look and feel
 
 - **Mood:** calm, crafted, a little playful. A well-lit studio, not a neon arcade. Keep the dot grid and soft glows, but quieter.
-- **Layout:** one well-paced homepage: hero (photo, name, one-liner, status pill) → about → side projects → what I care about → skills → contact.
+- **Layout:** one well-paced homepage: hero (photo, name, one-liner, status pill) → what I do → about → side projects → what I care about → skills → contact.
 - **Type:** bigger, more confident display type. Consider a mono accent (e.g. JetBrains Mono) for small labels and chips.
 - **A few delightful moments** (pick some, not all):
   - A gentle gradient sweep on the name
@@ -76,6 +112,7 @@ Material to draw from (use what fits, rewrite freely, first person, plain and wa
 ## Deliverables
 
 - Homepage: desktop and mobile, dark and light
+- The "What I do" capability grid (the centrepiece)
 - The 2D skills section replacing the 3D cloud
 - Restyled `/skills` list and `/skills/[key]` detail
 - A small token sheet: colours, type scale, spacing, radii, shadows, motion
