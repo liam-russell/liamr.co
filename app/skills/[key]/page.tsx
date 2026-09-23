@@ -1,25 +1,27 @@
-import ProficiencyBadge from "@/components/proficiency-badge";
-import SkillIcon from "@/components/skill-icon";
-import skills from "@/skills/data/skills";
-import { getSkillIcon } from "@/skills/icons";
-import { ExternalLinkIcon, QuoteIcon } from "lucide-react";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
-import BackButton from "./back-button";
+import { ArrowLeftIcon, ExternalLinkIcon } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
-import { categoryTitles } from "@/skills/skill-categories";
+import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
+import FanIn from "@/components/skills/fan-in";
+import HomeLink from "@/components/skills/home-link";
+import { RingIcon, SkillGlyph, skillColorVars } from "@/components/skills/ring-icon";
+import { areaById } from "@/skills/areas";
+import { browserData, browserSkillByKey } from "@/skills/browser-data";
+import { hostOf } from "@/lib/host";
+import { proficiencyLabel, proficiencyPillStyle } from "@/skills/proficiency-style";
 
-export async function generateMetadata({ params }: {
-    params: Promise<{ key: string }>
-}): Promise<Metadata> {
+type Params = { params: Promise<{ key: string }> };
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
     const { key } = await params;
-    const skill = skills.find((skill) => skill.key === key);
+    const skill = browserSkillByKey[key];
 
     if (!skill) {
         return {
             title: "Skill not found",
             description: "The skill you are looking for does not exist",
-        }
+        };
     }
 
     return {
@@ -28,91 +30,118 @@ export async function generateMetadata({ params }: {
     };
 }
 
-export default async function SkillPage({ params }: { params: Promise<{ key: string }> }) {
-    const { key } = await params;
-    const skill = skills.find((skill) => skill.key === key);
-
-    if (!skill) {
-        return notFound();
-    }
-
-    const icon = getSkillIcon(skill.key, skill.title);
-
-    return <div className="mt-12 animate-fade-in">
-        <BackButton />
-        <h1 className="mb-2 mt-4 flex flex-row items-center font-serif text-4xl font-semibold tracking-tight text-foreground">
-            <SkillIcon icon={icon} size={36} className="mr-3" />
-            {skill.title}
-            <ProficiencyBadge proficiency={skill.proficiency} className="ml-4 text-lg" />
-        </h1>
-        {skill.description && <div className="glass-card relative mt-4 rounded-xl p-6 pr-14 text-muted">
-            {skill.description}
-            <QuoteIcon size={48} className='absolute right-3 top-3 text-blue-500/10' aria-hidden='true' />
-        </div>}
-        {skill.subSkills && <div className="mt-6">
-            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Focus areas</h2>
-            <div className="flex flex-row flex-wrap gap-2">
-                {skill.subSkills.map((subSkill) => <a
-                    key={subSkill.name}
-                    className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-300"
-                    href={subSkill.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {subSkill.name}
-                </a>)}
-            </div>
-        </div>}
-        {skill.categories.length > 0 && <div className="mt-6">
-            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Skill categories</h2>
-            <div className="flex flex-row flex-wrap gap-2">
-                {skill.categories.map((category) => <Link
-                    key={category}
-                    href={`/skills?categories=${category}`}
-                    className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-blue-400/30 hover:bg-blue-500/10 hover:text-blue-600 dark:hover:text-blue-300"
-                    prefetch={false}
-                >
-                    {categoryTitles[category]}
-                </Link>)}
-            </div>
-        </div>}
-        {(skill.relatedSkillKeys?.length ?? 0) > 0 && <div className="mt-6">
-            <h2 className="mb-2 font-serif text-sm font-bold uppercase tracking-wider text-muted">Related skills</h2>
-            <div className="flex flex-row flex-wrap gap-2">
-                {skill.relatedSkillKeys!.map((relatedSkillKey) => {
-                    const relatedSkill = skills.find((skill) => skill.key === relatedSkillKey);
-
-                    if (!relatedSkill) {
-                        console.warn(`Related skill ${relatedSkillKey} not found`);
-                        return null;
-                    }
-
-                    return <Link
-                        key={relatedSkillKey}
-                        href={`/skills/${relatedSkillKey}`}
-                        className="hover-lift rounded-lg border border-border bg-surface px-3 py-1.5 font-serif text-sm font-medium text-muted transition-colors hover:border-sky-400/30 hover:bg-sky-500/10 hover:text-sky-600 dark:hover:text-sky-300"
-                        prefetch={false}
-                    >
-                        {relatedSkill?.title || relatedSkillKey}
-                    </Link>
-                }
-                )}
-            </div>
-        </div>}
-        {skill.link && <a
-            href={skill.link}
-            className="group mt-6 flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-600 to-sky-500 p-3.5 font-serif text-lg font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:brightness-110"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            <ExternalLinkIcon size={18} className="-mt-0.5" aria-hidden="true" />
-            Learn more
-        </a>}
-    </div>
+export function generateStaticParams() {
+    return browserData.skills.map(skill => ({ key: skill.key }));
 }
 
-export async function generateStaticParams() {
-    return skills.map((skill) => ({
-        key: skill.key,
-    }))
+export default async function SkillPage({ params }: Params) {
+    const { key } = await params;
+    const skill = browserSkillByKey[key];
+    if (!skill) notFound();
+
+    const { svgs } = browserData;
+    const area = areaById[skill.area];
+    const related = skill.related.map(k => browserSkillByKey[k]).filter(Boolean);
+    const host = hostOf(skill.link);
+
+    return (
+        <div className="mt-9">
+            <HomeLink
+                open={skill.key}
+                className="inline-flex items-center gap-2 rounded-full border border-(--glass-border) bg-(--glass) py-2 pl-2.5 pr-3.5 text-sm font-semibold text-muted transition-colors hover:text-foreground"
+            >
+                <ArrowLeftIcon size={16} aria-hidden="true" />
+                All skills
+            </HomeLink>
+
+            <ViewTransition name="skill-card">
+                <article
+                    style={skillColorVars(skill)}
+                    className="sk mt-4 rounded-3xl border border-(--glass-border) bg-panel p-[clamp(22px,4vw,40px)] shadow-(--card-shadow)"
+                >
+                    <div className="flex flex-wrap items-center gap-[18px]">
+                        <ViewTransition name="skill-icon">
+                            <div className="lit"><RingIcon skill={skill} size={76} svgs={svgs} /></div>
+                        </ViewTransition>
+                        <div className="min-w-0 flex-1">
+                            <ViewTransition name="skill-title">
+                                <h1 className="m-0 font-serif text-[clamp(30px,4.4vw,48px)] font-semibold leading-[1.05] tracking-[-0.025em]">{skill.title}</h1>
+                            </ViewTransition>
+                            <div className="mt-2.5 flex flex-wrap items-center gap-2.5">
+                                <span className="rounded-full border px-2.5 py-[3px] font-serif text-[13px] font-semibold" style={proficiencyPillStyle(skill.proficiency)}>
+                                    {proficiencyLabel(skill.proficiency)}
+                                </span>
+                                <div aria-hidden="true" className="flex gap-[3px]">
+                                    {[0, 1, 2, 3].map(i => (
+                                        <span
+                                            key={i}
+                                            className="h-[5px] w-[22px] rounded-[3px]"
+                                            style={{ background: i <= skill.proficiency ? `var(--p${skill.proficiency})` : 'var(--ring-track)' }}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-7 flex flex-wrap gap-x-12 gap-y-8">
+                        <div className="min-w-0 flex-[1_1_440px]">
+                            <p className="m-0 text-pretty text-lg leading-[1.65] text-foreground/90">{skill.description}</p>
+                            {skill.subSkills.length > 0 && <>
+                                <h2 className="eyebrow mb-2.5 mt-[30px]">Focus areas · {skill.subSkills.length}</h2>
+                                <FanIn animateKey={skill.key} className="flex flex-wrap gap-2">
+                                    {skill.subSkills.map(s => (
+                                        <a key={s.name} href={s.url} target="_blank" rel="noopener noreferrer" className="mini-chip rounded-[10px] px-3 py-[7px] text-sm hover:-translate-y-px">
+                                            {s.name}
+                                        </a>
+                                    ))}
+                                </FanIn>
+                            </>}
+                        </div>
+
+                        <aside className="flex min-w-0 flex-[1_1_260px] flex-col gap-[26px]">
+                            <div>
+                                <h2 className="eyebrow mb-2.5">Area</h2>
+                                <HomeLink area={skill.area} className="flex items-center gap-2.5 text-[15px] font-semibold text-foreground transition-colors hover:text-[#60a5fa]">
+                                    <span aria-hidden="true" className="size-2 rounded-full" style={{ background: area.color }} />
+                                    {area.title}
+                                </HomeLink>
+                            </div>
+
+                            {related.length > 0 && (
+                                <div>
+                                    <h2 className="eyebrow mb-2.5">Related</h2>
+                                    <div className="flex flex-wrap gap-1.5">
+                                        {related.map(r => (
+                                            <Link
+                                                key={r.key}
+                                                href={`/skills/${r.key}`}
+                                                style={skillColorVars(r)}
+                                                className="sk lit mini-chip gap-[7px] rounded-full py-[5px] pl-[7px] pr-2.5 text-[13px] hover:border-[#3b82f6]!"
+                                            >
+                                                <SkillGlyph skill={r} size={14} svgs={svgs} />
+                                                {r.title}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {skill.link && (
+                                <a
+                                    href={skill.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn-gradient flex items-center justify-center gap-2 rounded-xl p-3.5 font-serif text-base font-semibold"
+                                >
+                                    <ExternalLinkIcon size={16} aria-hidden="true" />
+                                    Learn more · {host}
+                                </a>
+                            )}
+                        </aside>
+                    </div>
+                </article>
+            </ViewTransition>
+        </div>
+    );
 }

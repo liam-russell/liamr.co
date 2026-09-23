@@ -1,158 +1,509 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surface-hover: var(--surface-hover);
-  --color-border: var(--border-color);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
   --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-surface-hover: var(--surface-hover);
+  --color-chip: var(--chip);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
 
-  --font-sans: var(--font-nunito);
-  --font-serif: var(--font-roboto-slab);
+  --font-sans: var(--font-nunito), system-ui, sans-serif;
+  --font-serif: var(--font-roboto-slab), Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --animate-fade-in: fade-in 0.6s ease-out both;
-  --animate-slide-up: slide-up 0.5s ease-out both;
-  --animate-slide-down: slide-down 0.4s ease-out both;
-  --animate-scale-in: scale-in 0.4s ease-out both;
-  --animate-glow: glow 4s ease-in-out infinite alternate;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-grid-fade: grid-fade 4s ease-in-out infinite alternate;
+  --ease-out-soft: cubic-bezier(.2, .8, .2, 1);
+  --ease-settle: cubic-bezier(.34, 1.3, .64, 1);
 }
 
+/* ---------- Tokens ---------- */
+
+/* Dark is the default; light applies when chosen, or when the OS prefers it and nothing was chosen. */
+:root {
+  --bg: #050a18;
+  --fg: #e2e8f0;
+  --muted: #94a3b8;
+  --surface-hover: rgba(255, 255, 255, .08);
+  --border: rgba(255, 255, 255, .08);
+  --border-strong: rgba(255, 255, 255, .13);
+  --glass: rgba(255, 255, 255, .04);
+  --glass-strong: rgba(255, 255, 255, .07);
+  --glass-border: rgba(255, 255, 255, .07);
+  --card: rgba(10, 16, 32, .72);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, .3), inset 0 1px 0 rgba(255, 255, 255, .03);
+  --hover-shadow: 0 12px 40px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, .08);
+  --grid: rgba(59, 130, 246, .09);
+  --grid-hi: rgba(125, 176, 255, .55);
+  --chip: #0f1421;
+  --panel: #0b1122;
+  --ring: #38bdf8;
+  --ring-track: rgba(255, 255, 255, .12);
+  --scrim: rgba(2, 6, 16, .6);
+  --icon-filter: grayscale(1) brightness(1.7) opacity(.7);
+  --green-fg: #86efac;
+  --p0: #fcd34d;
+  --p1: #86efac;
+  --p2: #93c5fd;
+  --p3: #7dd3fc;
+  --glow1: .15;
+  --glow2: .1;
+  --dim-filter: grayscale(1) brightness(.5);
+  --ease: cubic-bezier(.2, .8, .2, 1);
+  --settle: cubic-bezier(.34, 1.3, .64, 1);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme=dark]) {
+    --bg: #f8fafc;
+    --fg: #0f172a;
+    --muted: #64748b;
+    --surface-hover: rgba(15, 23, 42, .05);
+    --border: #e2e8f0;
+    --border-strong: #d3dbe6;
+    --glass: rgba(255, 255, 255, .6);
+    --glass-strong: rgba(255, 255, 255, .85);
+    --glass-border: rgba(0, 0, 0, .06);
+    --card: rgba(255, 255, 255, .74);
+    --card-shadow: 0 4px 24px rgba(0, 0, 0, .06), inset 0 1px 0 rgba(255, 255, 255, .8);
+    --hover-shadow: 0 12px 40px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .04);
+    --grid: rgba(59, 130, 246, .14);
+    --grid-hi: rgba(37, 99, 235, .5);
+    --chip: #ffffff;
+    --panel: #ffffff;
+    --ring: #0ea5e9;
+    --ring-track: rgba(15, 23, 42, .12);
+    --scrim: rgba(15, 23, 42, .25);
+    --icon-filter: grayscale(1) opacity(.55);
+    --green-fg: #15803d;
+    --p0: #b45309;
+    --p1: #15803d;
+    --p2: #1d4ed8;
+    --p3: #0369a1;
+    --glow1: .12;
+    --glow2: .08;
+    --dim-filter: grayscale(1) contrast(.35) brightness(1.45);
+    color-scheme: light;
+  }
+
+  :root:not([data-theme=dark]) .sk {
+    --c: var(--cl);
+  }
+}
+
+:root[data-theme=light] {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --muted: #64748b;
+  --surface-hover: rgba(15, 23, 42, .05);
+  --border: #e2e8f0;
+  --border-strong: #d3dbe6;
+  --glass: rgba(255, 255, 255, .6);
+  --glass-strong: rgba(255, 255, 255, .85);
+  --glass-border: rgba(0, 0, 0, .06);
+  --card: rgba(255, 255, 255, .74);
+  --card-shadow: 0 4px 24px rgba(0, 0, 0, .06), inset 0 1px 0 rgba(255, 255, 255, .8);
+  --hover-shadow: 0 12px 40px rgba(0, 0, 0, .1), 0 0 0 1px rgba(0, 0, 0, .04);
+  --grid: rgba(59, 130, 246, .14);
+  --grid-hi: rgba(37, 99, 235, .5);
+  --chip: #ffffff;
+  --panel: #ffffff;
+  --ring: #0ea5e9;
+  --ring-track: rgba(15, 23, 42, .12);
+  --scrim: rgba(15, 23, 42, .25);
+  --icon-filter: grayscale(1) opacity(.55);
+  --green-fg: #15803d;
+  --p0: #b45309;
+  --p1: #15803d;
+  --p2: #1d4ed8;
+  --p3: #0369a1;
+  --glow1: .12;
+  --glow2: .08;
+  --dim-filter: grayscale(1) contrast(.35) brightness(1.45);
+  color-scheme: light;
+}
+
+/* Per-skill brand colour: --cd in dark, --cl in light. */
+.sk {
+  --c: var(--cd);
+}
+
+:root[data-theme=light] .sk {
+  --c: var(--cl);
+}
+
+/* Theme-dependent visibility (used by the theme toggle icon, avoids a hydration flash). */
+.show-light {
+  display: none;
+}
+
+:root[data-theme=light] .show-light {
+  display: block;
+}
+
+:root[data-theme=light] .show-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme=dark]) .show-light {
+    display: block;
+  }
+
+  :root:not([data-theme=dark]) .show-dark {
+    display: none;
+  }
+}
+
+/* ---------- Base ---------- */
+
 @layer base {
+  html,
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    transition: background-color .3s;
+  }
 
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-border, currentcolor);
+    border-color: var(--border, currentcolor);
   }
 
-  /* Accessible focus ring for all interactive elements */
   :focus-visible {
     outline: 2px solid #3b82f6;
     outline-offset: 2px;
-    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, .35);
+    color: #fff;
+  }
+
+  input::placeholder {
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  input[type=search]::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  button {
+    cursor: pointer;
   }
 }
 
-@utility text-balance {
-  text-wrap: balance;
+/* ---------- Background ---------- */
+
+.bg-dots {
+  background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-@utility glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px) saturate(180%);
+.bg-spotlight {
+  background-image: radial-gradient(var(--grid-hi) 1.3px, transparent 1.3px);
+  background-size: 32px 32px;
+  -webkit-mask-image: radial-gradient(220px circle at var(--px, 50%) var(--py, -30%), #000 0%, transparent 70%);
+  mask-image: radial-gradient(220px circle at var(--px, 50%) var(--py, -30%), #000 0%, transparent 70%);
+}
+
+/* ---------- Shared pieces ---------- */
+
+.glass-bar {
+  background: var(--glass-strong);
   border: 1px solid var(--glass-border);
-}
-
-@utility glass-strong {
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(24px) saturate(200%);
-  border: 1px solid var(--glass-border-strong);
-}
-
-@utility glass-card {
-  background: var(--glass-bg);
+  box-shadow: var(--card-shadow);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   backdrop-filter: blur(20px) saturate(180%);
+}
+
+.icon-btn {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  color: var(--muted);
+  transition: color .18s, background-color .18s;
+}
+
+.icon-btn:hover {
+  color: var(--fg);
+  background: var(--surface-hover);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2.4s ease-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  color: #fff;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, .2);
+  transition: filter .18s;
+}
+
+.btn-gradient:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- Area cards ---------- */
+
+.area-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 20px 16px;
+  border-radius: 20px;
+  background: var(--card);
   border: 1px solid var(--glass-border);
   box-shadow: var(--card-shadow);
 }
 
-@utility gradient-text {
-  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 40%, #0ea5e9 100%);
-  background-clip: text;
+/* The blur sits on a pseudo-element so the card itself never becomes a stacking context:
+   connector lines must paint above card backgrounds but below chips. */
+.area-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+}
+
+/* ---------- Chips ---------- */
+
+.chip {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  height: 34px;
+  align-items: center;
+  gap: 7px;
+  padding: 0 13px 0 6px;
+  border-radius: 999px;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: color-mix(in srgb, var(--fg) 70%, var(--muted));
+  background: var(--chip);
+  border: 1px solid var(--border-strong);
+  transition: filter 180ms, background-color 180ms, border-color 180ms, box-shadow 220ms, transform 220ms var(--ease);
+}
+
+.chip {
+  max-width: 100%;
+}
+
+.chip-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip[data-p="2"],
+.chip[data-p="3"] {
+  color: var(--fg);
+}
+
+.chip[data-p="3"] {
+  font-weight: 600;
+}
+
+.chip[data-s=focus] {
+  z-index: 4;
+  background: color-mix(in srgb, var(--c) 16%, var(--chip));
+  border-color: color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow: 0 12px 28px -12px color-mix(in srgb, var(--c) 80%, transparent), 0 0 0 3px color-mix(in srgb, var(--c) 18%, transparent);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.chip[data-s=lit] {
+  background: color-mix(in srgb, var(--c) 8%, var(--chip));
+  border-color: color-mix(in srgb, var(--c) 45%, var(--border-strong));
+}
+
+.chip[data-s=dim] {
+  filter: var(--dim-filter);
+}
+
+.chip-sub {
+  margin-left: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+@media (max-width: 639px) {
+  .chip {
+    height: 32px;
+    font-size: 13.5px;
+  }
+}
+
+/* Plain chip used for related skills, suggestions and sub-skill links. */
+.mini-chip {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-strong);
+  background: var(--chip);
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--fg);
+  transition: border-color .18s, transform .18s, translate .18s, color .18s;
+}
+
+.mini-chip:hover {
+  border-color: color-mix(in srgb, var(--c, #3b82f6) 60%, transparent);
+}
+
+/* ---------- Proficiency ring + icon ---------- */
+
+.ring-arc {
+  stroke: var(--ring);
+  stroke-opacity: .75;
+  transition: stroke .18s;
+}
+
+.ic-path {
+  fill: var(--muted);
+  transition: fill .18s;
+}
+
+.ic-svg {
+  filter: var(--icon-filter);
+  transition: filter .18s;
+}
+
+.ic-dot {
+  background: var(--border-strong);
+  transition: background-color .18s;
+}
+
+:is(.lit, .chip[data-s=focus], .chip[data-s=lit]) .ring-arc {
+  stroke: var(--c);
+  stroke-opacity: 1;
+}
+
+:is(.lit, .chip[data-s=focus], .chip[data-s=lit]) .ic-path {
+  fill: var(--c);
+}
+
+:is(.lit, .chip[data-s=focus], .chip[data-s=lit]) .ic-svg {
+  filter: none;
+}
+
+:is(.lit, .chip[data-s=focus], .chip[data-s=lit]) .ic-dot {
+  background: var(--c);
+}
+
+.legend-ring {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: conic-gradient(var(--ring) var(--f), var(--ring-track) 0);
+  -webkit-mask: radial-gradient(circle, transparent 3.6px, #000 4.2px);
+  mask: radial-gradient(circle, transparent 3.6px, #000 4.2px);
+}
+
+/* ---------- Connectors ---------- */
+
+.connector {
+  stroke-dasharray: 1 1;
+  animation: draw 340ms var(--ease) both;
+}
+
+.connector-end {
+  animation: fade-in 160ms ease-out both;
+}
+
+/* ---------- Project cards ---------- */
+
+.project-card {
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), rgba(59, 130, 246, .10), transparent 70%), var(--card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--card-shadow);
+  transition: transform .3s var(--ease), box-shadow .3s, border-color .3s;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+  border-color: rgba(59, 130, 246, .3);
+}
+
+/* ---------- First-load motion ---------- */
+
+[data-reveal] {
+  animation: reveal 500ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+.browser:not(.revealed) .chip {
+  animation: chip-in 420ms var(--ease) both;
+  animation-delay: calc(260ms + min(var(--ci, 0) * 6ms, 500ms));
+}
+
+.name-sweep {
+  background-image: linear-gradient(100deg, currentColor 40%, #3b82f6 47%, #0ea5e9 53%, currentColor 60%);
+  background-size: 260% 100%;
+  background-position: 0% 0;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: sweep 1400ms cubic-bezier(.4, 0, .2, 1) both;
 }
 
-@utility hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ---------- Skill card dialog ---------- */
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--hover-shadow);
-  }
+.skill-dialog {
+  background: var(--panel);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .5), 0 0 0 1px color-mix(in srgb, var(--c) 25%, transparent);
 }
 
-/* ---- Light mode (default) ---- */
-@layer utilities {
-  :root {
-    --background: #f8fafc;
-    --foreground: #0f172a;
-    --surface: rgba(255, 255, 255, 0.7);
-    --surface-hover: rgba(255, 255, 255, 0.9);
-    --border-color: #e2e8f0;
-    --muted: #64748b;
-
-    --glass-bg: rgba(255, 255, 255, 0.6);
-    --glass-bg-strong: rgba(255, 255, 255, 0.8);
-    --glass-border: rgba(0, 0, 0, 0.06);
-    --glass-border-strong: rgba(0, 0, 0, 0.1);
-
-    --card-shadow:
-      0 4px 24px rgba(0, 0, 0, 0.06),
-      inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-    --hover-shadow:
-      0 12px 40px rgba(0, 0, 0, 0.1),
-      0 0 0 1px rgba(0, 0, 0, 0.04);
-
-    --grid-color: rgba(59, 130, 246, 0.06);
-    --glow-opacity-1: 0.12;
-    --glow-opacity-2: 0.08;
-  }
-
-  /* ---- Dark mode ---- */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #050a18;
-      --foreground: #e2e8f0;
-      --surface: rgba(255, 255, 255, 0.04);
-      --surface-hover: rgba(255, 255, 255, 0.08);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --muted: #94a3b8;
-
-      --glass-bg: rgba(255, 255, 255, 0.04);
-      --glass-bg-strong: rgba(255, 255, 255, 0.08);
-      --glass-border: rgba(255, 255, 255, 0.06);
-      --glass-border-strong: rgba(255, 255, 255, 0.1);
-
-      --card-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.03);
-
-      --hover-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-
-      --grid-color: rgba(59, 130, 246, 0.04);
-      --glow-opacity-1: 0.15;
-      --glow-opacity-2: 0.1;
-    }
-  }
-}
-
-/* ---- View Transition styles ---- */
-@layer base {
-  ::view-transition-old(root) {
-    animation: fade-out 0.2s ease-out;
-  }
-
-  ::view-transition-new(root) {
-    animation: fade-in 0.3s ease-out;
-  }
-
-  ::view-transition-old(page-content) {
-    animation: slide-out-down 0.2s ease-out;
-  }
-
-  ::view-transition-new(page-content) {
-    animation: slide-up 0.3s ease-out;
-  }
-}
+/* ---------- Keyframes ---------- */
 
 @keyframes fade-in {
   from {
@@ -164,125 +515,111 @@
   }
 }
 
-@keyframes fade-out {
+@keyframes draw {
   from {
-    opacity: 1;
+    stroke-dashoffset: 1;
   }
 
   to {
-    opacity: 0;
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, .55);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-down {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
+  70% {
+    box-shadow: 0 0 0 7px rgba(34, 197, 94, 0);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-out-down {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-}
-
-@keyframes scale-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes glow {
-  from {
-    opacity: var(--glow-opacity-2);
-  }
-
-  to {
-    opacity: var(--glow-opacity-1);
-  }
-}
-
-@keyframes float {
-
-  0%,
   100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
 }
 
-@keyframes grid-fade {
+@keyframes reveal {
   from {
-    opacity: 0.3;
+    opacity: 0;
+    transform: translateY(10px);
   }
 
   to {
-    opacity: 0.7;
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Smooth scrollbar */
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar {
-    width: 8px;
+@keyframes chip-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(.96);
   }
 
-  ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.02);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Selection color */
-::selection {
-  background: rgba(59, 130, 246, 0.3);
-  color: #fff;
+@keyframes sweep {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0% 0;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background: rgba(59, 130, 246, 0.4);
-    color: #fff;
+/* ---------- View transitions (skill card ⇄ full page) ---------- */
+
+::view-transition-group(skill-card),
+::view-transition-group(skill-icon),
+::view-transition-group(skill-title) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(.2, .8, .2, 1);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 220ms;
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  .browser:not(.revealed) .chip {
+    animation: fade-in 200ms ease-out both;
+    animation-delay: 0ms;
+  }
+
+  .name-sweep {
+    animation: none;
+  }
+
+  .status-dot {
+    animation: none;
+  }
+
+  .connector {
+    animation: fade-in 180ms ease-out both;
+  }
+
+  .chip[data-s=focus] {
+    transform: none;
+  }
+
+  .project-card:hover,
+  .project-card:focus-visible {
+    transform: none;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 150ms !important;
   }
 }

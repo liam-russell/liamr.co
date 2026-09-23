@@ -14,8 +14,7 @@ function generateLlmsTxt(): string {
 
     lines.push('## Pages');
     lines.push('');
-    lines.push(`- [Home](${BASE_URL}/): Overview, expertise areas, and interactive skills graph`);
-    lines.push(`- [Skills](${BASE_URL}/skills): Searchable and filterable list of all technical skills`);
+    lines.push(`- [Home](${BASE_URL}/): Searchable skills browser, grouped by area, with side projects`);
     lines.push('');
 
     // Group skills by category

@@ -1,10 +1,8 @@
 import { defineConfig, globalIgnores } from 'eslint/config'
 import nextVitals from 'eslint-config-next/core-web-vitals'
-import pluginQuery from '@tanstack/eslint-plugin-query'
 
 const eslintConfig = defineConfig([
     ...nextVitals,
-    ...pluginQuery.configs['flat/recommended'],
     // Override default ignores of eslint-config-next.
     globalIgnores([
         // Default ignores of eslint-config-next:
