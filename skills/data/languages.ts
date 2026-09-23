@@ -113,6 +113,21 @@ const languages = [
             { name: 'AWS RDS for PostgreSQL', url: 'https://aws.amazon.com/rds/postgresql/' },
             { name: 'pgAdmin', url: 'https://www.pgadmin.org/' },
             { name: 'PostGIS', url: 'https://postgis.net/' },
+            { name: 'Neon', url: 'https://neon.tech/' },
+            { name: 'Amazon Aurora Serverless v2', url: 'https://aws.amazon.com/rds/aurora/serverless/' }
+        ]
+    },
+    {
+        key: 'cplusplus',
+        title: 'C++',
+        categories: [SkillCategory.Languages, SkillCategory.Backend],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I have written C++ for Node.js native addons (N-API) and built a TypeScript-to-C++ generator that emits typed Unreal Engine client SDKs from OpenAPI specs, so I understand its build and linkage model well enough to keep generated code safe under unity builds.',
+        link: 'https://isocpp.org/',
+        relatedSkillKeys: ['typescript', 'nodejs', 'openapi'],
+        subSkills: [
+            { name: 'Node-API (N-API)', url: 'https://nodejs.org/api/n-api.html' },
+            { name: 'Unreal Engine', url: 'https://www.unrealengine.com/' },
         ]
     }
 ] as readonly Skill[];

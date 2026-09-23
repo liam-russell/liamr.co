@@ -62,6 +62,11 @@ const concepts = [
         description: "I have a strong understanding of cryptographic principles and current best practices.",
         relatedSkillKeys: ['owasp'],
         proficiency: SkillProficiency.Proficient,
+        subSkills: [
+            { name: 'JOSE (jose)', url: 'https://github.com/panva/jose' },
+            { name: 'AWS KMS signing', url: 'https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html' },
+            { name: 'TPM 2.0 device keys', url: 'https://trustedcomputinggroup.org/resource/tpm-library-specification/' }
+        ]
     },
     {
         key: 'websockets',
@@ -74,6 +79,7 @@ const concepts = [
         subSkills: [
             { name: 'SignalR', url: 'https://dotnet.microsoft.com/apps/aspnet/signalr' },
             { name: 'AWS API Gateway', url: 'https://aws.amazon.com/api-gateway/' },
+            { name: 'ws', url: 'https://github.com/websockets/ws' }
         ]
     },
     {
@@ -195,7 +201,9 @@ const concepts = [
         subSkills: [
             { name: 'Swagger UI', url: 'https://swagger.io/tools/swagger-ui/' },
             { name: 'ReDoc', url: 'https://redoc.ly/' },
-            { name: 'NSwag', url: 'https://github.com/RicoSuter/NSwag' }
+            { name: 'NSwag', url: 'https://github.com/RicoSuter/NSwag' },
+            { name: 'Scalar', url: 'https://scalar.com/' },
+            { name: 'openapi-typescript', url: 'https://openapi-ts.dev/' }
         ]
     },
     {
@@ -391,6 +399,8 @@ const concepts = [
             { name: 'EF Core Migrations', url: 'https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/' },
             { name: 'Drizzle Migrations', url: 'https://orm.drizzle.team/docs/migrations' },
             { name: 'Expand-Contract Pattern', url: 'https://openpracticelibrary.com/practice/expand-and-contract-pattern/' },
+            { name: 'node-pg-migrate', url: 'https://salsita.github.io/node-pg-migrate/' },
+            { name: 'pgroll', url: 'https://github.com/xataio/pgroll' }
         ]
     },
     {
@@ -416,6 +426,9 @@ const concepts = [
             { name: 'AWS Cognito', url: 'https://aws.amazon.com/cognito/' },
             { name: 'Better Auth', url: 'https://www.better-auth.com/' },
             { name: 'JWT', url: 'https://jwt.io/' },
+            { name: 'Passkeys (WebAuthn)', url: 'https://webauthn.guide/' },
+            { name: 'TOTP MFA', url: 'https://en.wikipedia.org/wiki/Time-based_one-time_password' },
+            { name: 'iron-session', url: 'https://github.com/vvo/iron-session' }
         ]
     },
     {
@@ -465,6 +478,92 @@ const concepts = [
         relatedSkillKeys: ['event-driven-architecture', 'api-design', 'resilience'],
         subSkills: [
             { name: 'Hookdeck', url: 'https://hookdeck.com/' },
+        ]
+    },
+    {
+        key: 'multi-tenancy',
+        title: 'Multi-Tenancy',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend, SkillCategory.Security],
+        proficiency: SkillProficiency.Expert,
+        description: 'I design multi-tenant SaaS platforms where organisation isolation is built into the schema, the API layer and the routing from day one, including per-tenant subdomains and cross-tenant platform administration kept behind its own audited boundary.',
+        link: 'https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview',
+        relatedSkillKeys: ['authentication', 'database-design', 'security-best-practices', 'orpc'],
+        subSkills: [
+            { name: 'Tenant-scoped RBAC', url: 'https://en.wikipedia.org/wiki/Role-based_access_control' },
+            { name: 'Host-based routing', url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host' },
+        ]
+    },
+    {
+        key: 'financial-ledgers',
+        title: 'Financial Ledgers',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend, SkillCategory.Security],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I build append-only, hash-chained ledgers with double-entry accounting and integer-cents arithmetic, treating money and royalty records as accounting rather than analytics, and reconciling them against Stripe.',
+        link: 'https://en.wikipedia.org/wiki/Double-entry_bookkeeping',
+        relatedSkillKeys: ['stripe', 'database-design', 'crypto', 'postgresql'],
+        subSkills: [
+            { name: 'Double-Entry Bookkeeping', url: 'https://en.wikipedia.org/wiki/Double-entry_bookkeeping' },
+            { name: 'Hash Chains', url: 'https://en.wikipedia.org/wiki/Hash_chain' },
+        ]
+    },
+    {
+        key: 'internationalisation',
+        title: 'Internationalisation (i18n)',
+        categories: [SkillCategory.Concepts, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I build internationalised applications with message catalogues, ICU pluralisation, locale-aware dates, money and phone numbers, and generated regional spelling variants so copy is only ever edited in one place.',
+        link: 'https://developer.mozilla.org/en-US/docs/Glossary/Internationalization',
+        relatedSkillKeys: ['nextjs', 'react', 'typescript'],
+        subSkills: [
+            { name: 'next-intl', url: 'https://next-intl.dev/' },
+            { name: 'ICU MessageFormat', url: 'https://unicode-org.github.io/icu/userguide/format_parse/messages/' },
+            { name: 'Luxon', url: 'https://moment.github.io/luxon/' },
+            { name: 'libphonenumber-js', url: 'https://github.com/catamphetamine/libphonenumber-js' },
+        ]
+    },
+    {
+        key: 'design-systems',
+        title: 'Design Systems & Design Tokens',
+        categories: [SkillCategory.Concepts, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I build component libraries on design tokens, generating Tailwind themes from a single token source and layering accessible primitives so every product surface shares one visual and interaction language, including dark mode.',
+        link: 'https://www.designtokens.org/',
+        relatedSkillKeys: ['tailwindcss', 'react', 'storybook', 'figma', 'accessibility-audits'],
+        subSkills: [
+            { name: 'Style Dictionary', url: 'https://styledictionary.com/' },
+            { name: 'Base UI', url: 'https://base-ui.com/' },
+            { name: 'Floating UI', url: 'https://floating-ui.com/' },
+            { name: 'shadcn/ui', url: 'https://ui.shadcn.com/' },
+        ]
+    },
+    {
+        key: 'data-privacy',
+        title: 'Data Privacy & GDPR',
+        categories: [SkillCategory.Concepts, SkillCategory.Security],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I treat privacy as a schema-level design constraint: data minimisation, export and erasure paths, pseudonymisation that preserves audit integrity, and regional data residency.',
+        link: 'https://gdpr.eu/',
+        relatedSkillKeys: ['security-audits', 'database-design', 'authentication', 'financial-ledgers'],
+        subSkills: [
+            { name: 'Right to Erasure', url: 'https://gdpr.eu/right-to-be-forgotten/' },
+            { name: 'Pseudonymisation', url: 'https://en.wikipedia.org/wiki/Pseudonymization' },
+            { name: 'Data Residency', url: 'https://en.wikipedia.org/wiki/Data_sovereignty' },
+        ]
+    },
+    {
+        key: 'geospatial',
+        title: 'Geospatial & Mapping',
+        categories: [SkillCategory.Concepts, SkillCategory.Frontend, SkillCategory.Databases],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I have built location-aware features with PostGIS queries on the back end and interactive maps on the front end.',
+        link: 'https://postgis.net/',
+        relatedSkillKeys: ['postgresql', 'react'],
+        subSkills: [
+            { name: 'PostGIS', url: 'https://postgis.net/' },
+            { name: 'Mapbox GL JS', url: 'https://docs.mapbox.com/mapbox-gl-js/' },
+            { name: 'Leaflet', url: 'https://leafletjs.com/' },
+            { name: 'D3 Geo', url: 'https://d3js.org/d3-geo' },
+            { name: 'TopoJSON', url: 'https://github.com/topojson/topojson' },
         ]
     }
 ] as readonly Skill[];

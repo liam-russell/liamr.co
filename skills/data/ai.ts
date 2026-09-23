@@ -16,6 +16,8 @@ const ai = [
             { name: 'Amazon Kiro', url: 'https://kiro.dev/' },
             { name: 'Cursor', url: 'https://cursor.sh/' },
             { name: 'Claude Code', url: 'https://docs.anthropic.com/en/docs/claude-code' },
+            { name: 'Claude Code Agent Skills', url: 'https://docs.claude.com/en/docs/claude-code/skills' },
+            { name: 'Claude Code Hooks', url: 'https://docs.claude.com/en/docs/claude-code/hooks' }
         ]
     },
     {

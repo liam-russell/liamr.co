@@ -49,6 +49,15 @@ import {
     siLetsencrypt,
     siMarkdown,
     siGithubcopilot,
+    siCloudflare,
+    siStripe,
+    siTerraform,
+    siFastify,
+    siElectron,
+    siDuckdb,
+    siDatadog,
+    siStorybook,
+    siCplusplus,
 } from 'simple-icons';
 import { deviconSvgs } from './devicon-svgs';
 
@@ -80,12 +89,15 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'sql': si(siPostgresql),
     'postgresql': si(siPostgresql),
     'cucumber': si(siCucumber),
+    'cplusplus': si(siCplusplus),
 
     // Frameworks
     'react': si(siReact),
     'nextjs': si(siNextdotjs),
     'angular': si(siAngular),
     'nodejs': si(siNodedotjs),
+    'fastify': si(siFastify),
+    'electron': si(siElectron),
     'express': si(siExpress),
     'astro': si(siAstro),
     'dotnet': si(siDotnet),
@@ -114,6 +126,10 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'redis': si(siRedis),
     'elasticsearch': si(siElasticsearch),
     'resend': si(siResend),
+    'cloudflare': si(siCloudflare),
+    'stripe': si(siStripe),
+    'datadog': si(siDatadog),
+    'duckdb': si(siDuckdb),
 
     // DevOps
     'docker': si(siDocker),
@@ -125,12 +141,14 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'sast': devicon('sonarqube', '4E9BCD'),
     'infrastructure-as-code': si(siPulumi),
     'logging': si(siOpentelemetry),
+    'terraform': si(siTerraform),
 
     // QA
     'jest': si(siJest),
     'vitest': si(siVitest),
     'selenium': si(siSelenium),
     'playwright': devicon('playwright', '2EAD33'),
+    'storybook': si(siStorybook),
 
     // Management
     'jira': si(siJira),

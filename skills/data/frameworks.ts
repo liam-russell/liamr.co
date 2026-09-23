@@ -20,6 +20,11 @@ const frameworks = [
         description: 'I have used Next.js to build multiple applications, including this one. I am familiar with both server-side rendering and static site generation and the benefits they bring.',
         link: 'https://nextjs.org/',
         relatedSkillKeys: ['react', 'drizzle', 'vercel', 'netlify', 'javascript', 'css', 'html', 'aws', 'serverless'],
+        subSkills: [
+            { name: 'vinext', url: 'https://vinext.io/' },
+            { name: 'Fumadocs', url: 'https://fumadocs.dev/' },
+            { name: 'nuqs', url: 'https://nuqs.dev/' }
+        ]
     },
     {
         key: 'react',
@@ -47,6 +52,11 @@ const frameworks = [
             { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
             { name: 'React Hook Form', url: 'https://react-hook-form.com/' },
             { name: 'React Compiler', url: 'https://react.dev/learn/react-compiler' },
+            { name: 'Recharts', url: 'https://recharts.org/' },
+            { name: 'Conform', url: 'https://conform.guide/' },
+            { name: 'Plate', url: 'https://platejs.org/' },
+            { name: 'Puck', url: 'https://puckeditor.com/' },
+            { name: 'Remotion', url: 'https://www.remotion.dev/' }
         ]
     },
     {
@@ -105,7 +115,9 @@ const frameworks = [
             { name: 'Webpack', url: 'https://webpack.js.org/' },
             { name: 'Babel', url: 'https://babeljs.io/' },
             { name: 'Vite', url: 'https://vitejs.dev/' },
-            { name: 'Bun', url: 'https://bun.sh/' }
+            { name: 'Bun', url: 'https://bun.sh/' },
+            { name: 'pnpm', url: 'https://pnpm.io/' },
+            { name: 'tsx', url: 'https://tsx.is/' }
         ]
     },
     {
@@ -184,6 +196,9 @@ const frameworks = [
             { name: 'ESLint', url: 'https://eslint.org/' },
             { name: 'Prettier', url: 'https://prettier.io/' },
             { name: 'StyleLint', url: 'https://stylelint.io/' },
+            { name: 'Oxlint', url: 'https://oxc.rs/docs/guide/usage/linter' },
+            { name: 'Knip', url: 'https://knip.dev/' },
+            { name: 'dependency-cruiser', url: 'https://github.com/sverweij/dependency-cruiser' }
         ]
     },
     {
@@ -242,6 +257,57 @@ const frameworks = [
             { name: 'App Host', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview' },
             { name: 'Service Defaults', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults' },
             { name: 'Aspire Dashboard', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard/overview' },
+        ]
+    },
+    {
+        key: 'fastify',
+        title: 'Fastify',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I use Fastify to build high-throughput, schema-first TypeScript APIs, splitting one deployable into scope-gated API surfaces and generating committed, drift-checked OpenAPI documents from the route schemas.',
+        link: 'https://fastify.dev/',
+        relatedSkillKeys: ['nodejs', 'typescript', 'openapi', 'kysely', 'api-design'],
+        subSkills: [
+            { name: 'Pino', url: 'https://getpino.io/' },
+            { name: '@fastify/swagger', url: 'https://github.com/fastify/fastify-swagger' },
+            { name: 'ws', url: 'https://github.com/websockets/ws' },
+        ]
+    },
+    {
+        key: 'kysely',
+        title: 'Kysely',
+        categories: [SkillCategory.Databases, SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Expert,
+        description: 'Kysely is my go-to for type-safe SQL in TypeScript. I use it as the data-access layer for multi-tenant PostgreSQL systems, with generated database types, transactions, row locking and raw SQL reserved for PostGIS and full-text search.',
+        link: 'https://kysely.dev/',
+        relatedSkillKeys: ['postgresql', 'sql', 'typescript', 'drizzle', 'data-migration', 'database-design'],
+        subSkills: [
+            { name: 'kysely-codegen', url: 'https://github.com/RobinBlomberg/kysely-codegen' },
+            { name: 'node-postgres', url: 'https://node-postgres.com/' },
+            { name: 'Postgres.js', url: 'https://github.com/porsager/postgres' },
+        ]
+    },
+    {
+        key: 'orpc',
+        title: 'oRPC',
+        categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I use oRPC to build end-to-end type-safe APIs that also publish an OpenAPI surface, with layered procedures that enforce authentication and organisation scoping before any business logic runs.',
+        link: 'https://orpc.unnoq.com/',
+        relatedSkillKeys: ['trpc', 'typescript', 'zod', 'openapi', 'api-design', 'multi-tenancy'],
+    },
+    {
+        key: 'electron',
+        title: 'Electron',
+        categories: [SkillCategory.Frontend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I have built a cross-platform desktop launcher with Electron, including auto-updates, a native credential store addon and hardware-bound device licensing.',
+        link: 'https://www.electronjs.org/',
+        relatedSkillKeys: ['nodejs', 'typescript', 'react', 'vite', 'cplusplus'],
+        subSkills: [
+            { name: 'electron-vite', url: 'https://electron-vite.org/' },
+            { name: 'electron-builder', url: 'https://www.electron.build/' },
+            { name: 'Velopack', url: 'https://velopack.io/' },
         ]
     }
 ] as readonly Skill[];

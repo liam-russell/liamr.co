@@ -57,6 +57,10 @@ const cloud = [
             { name: 'Bedrock - Managed LLM Platform', url: 'https://aws.amazon.com/bedrock/' },
             { name: 'Route 53 - DNS Service', url: 'https://aws.amazon.com/route53/' },
             { name: 'CloudFront - CDN', url: 'https://aws.amazon.com/cloudfront/' },
+            { name: 'Aurora - Serverless PostgreSQL', url: 'https://aws.amazon.com/rds/aurora/' },
+            { name: 'Batch - Container Batch Jobs', url: 'https://aws.amazon.com/batch/' },
+            { name: 'EventBridge Scheduler', url: 'https://aws.amazon.com/eventbridge/scheduler/' },
+            { name: 'KMS - Key Management Service', url: 'https://aws.amazon.com/kms/' }
         ]
     },
     {
@@ -142,6 +146,8 @@ const cloud = [
             { name: 'AWS ElastiCache', url: 'https://aws.amazon.com/elasticache/' },
             { name: 'Redis Pub/Sub', url: 'https://redis.io/docs/interact/pubsub/' },
             { name: 'Redis Streams', url: 'https://redis.io/docs/data-types/streams/' },
+            { name: 'Valkey', url: 'https://valkey.io/' },
+            { name: 'ioredis', url: 'https://github.com/redis/ioredis' }
         ]
     },
     {
@@ -190,6 +196,85 @@ const cloud = [
         description: 'I use Resend for transactional email delivery in TypeScript applications, taking advantage of its React-based email templating and developer-friendly API.',
         link: 'https://resend.com/',
         relatedSkillKeys: ['react', 'typescript', 'nodejs'],
+    },
+    {
+        key: 'cloudflare',
+        title: 'Cloudflare',
+        categories: [SkillCategory.Cloud, SkillCategory.Servers, SkillCategory.DevOps],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I deploy multi-app platforms to Cloudflare Workers, with R2 object storage, Workers KV, Zero Trust Access in front of staff-only surfaces and Email Service for transactional mail, all provisioned as code.',
+        link: 'https://www.cloudflare.com/',
+        relatedSkillKeys: ['serverless', 'vercel', 'dns-networking', 'infrastructure-as-code', 'nextjs'],
+        subSkills: [
+            { name: 'Workers', url: 'https://developers.cloudflare.com/workers/' },
+            { name: 'R2', url: 'https://developers.cloudflare.com/r2/' },
+            { name: 'Workers KV', url: 'https://developers.cloudflare.com/kv/' },
+            { name: 'Zero Trust Access', url: 'https://developers.cloudflare.com/cloudflare-one/policies/access/' },
+            { name: 'Email Service', url: 'https://developers.cloudflare.com/email-service/' },
+            { name: 'Wrangler', url: 'https://developers.cloudflare.com/workers/wrangler/' },
+        ]
+    },
+    {
+        key: 'stripe',
+        title: 'Stripe',
+        categories: [SkillCategory.Backend, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I integrate Stripe for both marketplace and subscription businesses: Connect for multi-organisation payouts, Checkout and the Customer Portal for billing, idempotent signature-verified webhooks, and a product catalogue provisioned with Terraform.',
+        link: 'https://stripe.com/',
+        relatedSkillKeys: ['webhooks', 'financial-ledgers', 'terraform', 'security-best-practices'],
+        subSkills: [
+            { name: 'Stripe Connect', url: 'https://docs.stripe.com/connect' },
+            { name: 'Stripe Checkout', url: 'https://docs.stripe.com/payments/checkout' },
+            { name: 'Stripe Billing', url: 'https://docs.stripe.com/billing' },
+            { name: 'Customer Portal', url: 'https://docs.stripe.com/customer-management' },
+            { name: 'Stripe Tax', url: 'https://docs.stripe.com/tax' },
+            { name: 'Stripe CLI', url: 'https://docs.stripe.com/stripe-cli' },
+        ]
+    },
+    {
+        key: 'datadog',
+        title: 'Datadog',
+        categories: [SkillCategory.Cloud, SkillCategory.DevOps],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I run production observability on Datadog, with APM tracing, log management, and monitors and paging policy defined in Terraform so every alert carries a priority and a reason to page.',
+        link: 'https://www.datadoghq.com/',
+        relatedSkillKeys: ['monitoring', 'logging', 'terraform', 'incident-response'],
+        subSkills: [
+            { name: 'APM (dd-trace)', url: 'https://docs.datadoghq.com/tracing/' },
+            { name: 'Log Management', url: 'https://docs.datadoghq.com/logs/' },
+            { name: 'Monitors', url: 'https://docs.datadoghq.com/monitors/' },
+            { name: 'Datadog On-Call', url: 'https://docs.datadoghq.com/service_management/on-call/' },
+            { name: 'RUM', url: 'https://docs.datadoghq.com/real_user_monitoring/' },
+        ]
+    },
+    {
+        key: 'duckdb',
+        title: 'DuckDB',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I use DuckDB as a serverless analytics engine over an S3 Parquet data lake, running scheduled validation and aggregation jobs in containers and pushing results back into PostgreSQL for low-latency serving.',
+        link: 'https://duckdb.org/',
+        relatedSkillKeys: ['aws', 'postgresql', 'sql', 'database-design'],
+        subSkills: [
+            { name: 'Apache Parquet', url: 'https://parquet.apache.org/' },
+            { name: 'AWS Batch', url: 'https://aws.amazon.com/batch/' },
+            { name: 'S3 Object Lock', url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html' },
+        ]
+    },
+    {
+        key: 'transactional-email',
+        title: 'Transactional Email',
+        categories: [SkillCategory.Backend, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I build transactional and lifecycle email with React Email templates, local capture in Mailpit during development, and delivery through AWS SES, Cloudflare Email Service or Resend.',
+        link: 'https://react.email/',
+        relatedSkillKeys: ['resend', 'aws', 'cloudflare', 'react'],
+        subSkills: [
+            { name: 'React Email', url: 'https://react.email/' },
+            { name: 'AWS SES', url: 'https://aws.amazon.com/ses/' },
+            { name: 'Loops', url: 'https://loops.so/' },
+            { name: 'Mailpit', url: 'https://mailpit.axllent.org/' },
+        ]
     }
 ] as readonly Skill[];
 

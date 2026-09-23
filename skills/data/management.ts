@@ -68,6 +68,11 @@ const management = [
         categories: [SkillCategory.Management],
         proficiency: SkillProficiency.Expert,
         description: 'I have experience in creating and maintaining technical documentation.',
+        subSkills: [
+            { name: 'Architecture Decision Records', url: 'https://adr.github.io/' },
+            { name: 'Fumadocs', url: 'https://fumadocs.dev/' },
+            { name: 'Mermaid', url: 'https://mermaid.js.org/' }
+        ]
     },
     {
         key: 'figma',

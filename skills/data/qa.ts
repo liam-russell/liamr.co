@@ -90,6 +90,19 @@ const qa = [
         link: 'https://en.wikipedia.org/wiki/End-to-end_testing',
         relatedSkillKeys: ['selenium', 'playwright', 'unit-testing', 'integration-testing']
     },
+    {
+        key: 'storybook',
+        title: 'Storybook',
+        categories: [SkillCategory.QA, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I use Storybook as a component workbench and test runner, with interaction tests run through Vitest and automated axe accessibility checks that fail the build rather than just reporting.',
+        link: 'https://storybook.js.org/',
+        relatedSkillKeys: ['react', 'vitest', 'accessibility-audits', 'design-systems'],
+        subSkills: [
+            { name: 'Storybook Vitest addon', url: 'https://storybook.js.org/docs/writing-tests/integrations/vitest-addon' },
+            { name: 'Accessibility addon', url: 'https://storybook.js.org/docs/writing-tests/accessibility-testing' },
+        ]
+    }
 ] as readonly Skill[];
 
 export default qa;

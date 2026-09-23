@@ -31,6 +31,9 @@ const devops = [
         subSkills: [
             { name: 'SonarQube', url: 'https://www.sonarqube.org/' },
             { name: 'Snyk', url: 'https://snyk.io/' },
+            { name: 'Semgrep', url: 'https://semgrep.dev/' },
+            { name: 'OSV-Scanner', url: 'https://google.github.io/osv-scanner/' },
+            { name: 'Gitleaks', url: 'https://gitleaks.io/' }
         ]
     },
     {
@@ -129,6 +132,8 @@ const devops = [
             { name: 'axe DevTools', url: 'https://www.deque.com/axe/' },
             { name: 'Lighthouse', url: 'https://developer.chrome.com/docs/lighthouse/' },
             { name: 'NVDA', url: 'https://www.nvaccess.org/' },
+            { name: 'vitest-axe', url: 'https://github.com/chaance/vitest-axe' },
+            { name: 'Storybook a11y addon', url: 'https://storybook.js.org/docs/writing-tests/accessibility-testing' }
         ]
     },
     {
@@ -144,6 +149,9 @@ const devops = [
             { name: 'CloudFormation', url: 'https://aws.amazon.com/cloudformation/' },
             { name: 'AWS SAM', url: 'https://aws.amazon.com/serverless/sam/' },
             { name: 'Pulumi', url: 'https://www.pulumi.com/' },
+            { name: 'Terraform', url: 'https://www.terraform.io/' },
+            { name: 'Terragrunt', url: 'https://terragrunt.gruntwork.io/' },
+            { name: 'Alchemy', url: 'https://alchemy.run/' }
         ]
     },
     {
@@ -172,6 +180,7 @@ const devops = [
             { name: 'LaunchDarkly', url: 'https://launchdarkly.com/' },
             { name: 'AWS AppConfig', url: 'https://docs.aws.amazon.com/appconfig/' },
             { name: 'Trunk-Based Development', url: 'https://trunkbaseddevelopment.com/' },
+            { name: 'OpenFeature', url: 'https://openfeature.dev/' }
         ]
     },
     {
@@ -187,6 +196,49 @@ const devops = [
             { name: 'OpenTelemetry', url: 'https://opentelemetry.io/' },
             { name: 'AWS CloudWatch Logs', url: 'https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/' },
             { name: 'Seq', url: 'https://datalust.co/seq' },
+            { name: 'Pino', url: 'https://getpino.io/' }
+        ]
+    },
+    {
+        key: 'terraform',
+        title: 'Terraform',
+        categories: [SkillCategory.DevOps, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I manage all infrastructure with Terraform, including third-party SaaS such as Vercel, Stripe, Datadog and LaunchDarkly, composed as reusable modules with thin per-environment roots and applied only from CI.',
+        link: 'https://www.terraform.io/',
+        relatedSkillKeys: ['infrastructure-as-code', 'aws', 'github-actions', 'datadog', 'stripe'],
+        subSkills: [
+            { name: 'Terragrunt', url: 'https://terragrunt.gruntwork.io/' },
+            { name: 'Terraform Test', url: 'https://developer.hashicorp.com/terraform/language/tests' },
+            { name: 'AWS Provider', url: 'https://registry.terraform.io/providers/hashicorp/aws/latest' },
+            { name: 'Vercel Provider', url: 'https://registry.terraform.io/providers/vercel/vercel/latest' },
+        ]
+    },
+    {
+        key: 'zero-downtime-deployments',
+        title: 'Zero-Downtime Deployments',
+        categories: [SkillCategory.DevOps, SkillCategory.Concepts],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I ship without downtime using blue/green container deployments, expand/contract database migrations and feature flags, so deploying code and launching a feature are separate decisions.',
+        link: 'https://martinfowler.com/bliki/BlueGreenDeployment.html',
+        relatedSkillKeys: ['cicd', 'data-migration', 'feature-flags', 'docker', 'aws'],
+        subSkills: [
+            { name: 'Blue/Green Deployments', url: 'https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html' },
+            { name: 'pgroll', url: 'https://github.com/xataio/pgroll' },
+        ]
+    },
+    {
+        key: 'incident-response',
+        title: 'Incident Response & On-Call',
+        categories: [SkillCategory.DevOps, SkillCategory.Management],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I set up on-call rotations, prioritised paging policy and runbooks, and publish customer-facing status updates, so the right person is woken for the right reasons.',
+        link: 'https://sre.google/sre-book/managing-incidents/',
+        relatedSkillKeys: ['datadog', 'monitoring', 'documentation'],
+        subSkills: [
+            { name: 'Datadog On-Call', url: 'https://docs.datadoghq.com/service_management/on-call/' },
+            { name: 'Instatus', url: 'https://instatus.com/' },
+            { name: 'Runbooks', url: 'https://en.wikipedia.org/wiki/Runbook' },
         ]
     }
 ] as readonly Skill[];
