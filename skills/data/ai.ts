@@ -89,6 +89,20 @@ const ai = [
             { name: 'Google AI Studio', url: 'https://aistudio.google.com/' },
         ]
     },
+    {
+        key: 'ai-native-engineering',
+        title: 'AI-Native Engineering Leadership',
+        categories: [SkillCategory.AI, SkillCategory.Management],
+        proficiency: SkillProficiency.Expert,
+        description: "I lead a team that ships almost entirely through AI agents. I write the agent skills, repo instructions and guardrails that make that safe, set review gates by risk, and run multi-agent workflows for large changes, so people who aren't engineers can ship real changes too.",
+        link: 'https://docs.claude.com/en/docs/claude-code/overview',
+        relatedSkillKeys: ['ai-assisted-development', 'ai-agents', 'mcp', 'engineering-process'],
+        subSkills: [
+            { name: 'Agent Skills', url: 'https://docs.claude.com/en/docs/claude-code/skills' },
+            { name: 'Claude Code Hooks', url: 'https://docs.claude.com/en/docs/claude-code/hooks' },
+            { name: 'Subagent Workflows', url: 'https://docs.claude.com/en/docs/claude-code/sub-agents' },
+        ]
+    }
 ] as readonly Skill[];
 
 export default ai;

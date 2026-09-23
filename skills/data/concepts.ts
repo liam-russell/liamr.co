@@ -497,7 +497,7 @@ const concepts = [
         key: 'device-licensing',
         title: 'Device Licensing & Attestation',
         categories: [SkillCategory.Security, SkillCategory.Backend],
-        proficiency: SkillProficiency.Proficient,
+        proficiency: SkillProficiency.Familiar,
         description: "I've designed hardware-bound licensing: KMS-signed JWTs tied to TPM 2.0 keys with proof-of-possession, transfer quotas and peppered hardware anchors, so licences are hard to copy but fair to move.",
         relatedSkillKeys: ['crypto', 'authentication', 'aws'],
         subSkills: [
@@ -518,7 +518,7 @@ const concepts = [
         key: 'multi-tenancy',
         title: 'Multi-Tenancy',
         categories: [SkillCategory.Concepts, SkillCategory.Backend, SkillCategory.Security],
-        proficiency: SkillProficiency.Expert,
+        proficiency: SkillProficiency.Proficient,
         description: 'I design multi-tenant SaaS platforms where organisation isolation is built into the schema, the API layer and the routing from day one, including per-tenant subdomains and cross-tenant platform administration kept behind its own audited boundary.',
         link: 'https://learn.microsoft.com/en-us/azure/architecture/guide/multitenant/overview',
         relatedSkillKeys: ['authentication', 'database-design', 'security-best-practices'],
@@ -531,7 +531,7 @@ const concepts = [
         key: 'financial-ledgers',
         title: 'Financial Ledgers',
         categories: [SkillCategory.Concepts, SkillCategory.Backend, SkillCategory.Security],
-        proficiency: SkillProficiency.Proficient,
+        proficiency: SkillProficiency.Familiar,
         description: 'I build append-only, hash-chained ledgers with double-entry accounting and integer-cents arithmetic, treating money and royalty records as accounting rather than analytics, and reconciling them against Stripe.',
         link: 'https://en.wikipedia.org/wiki/Double-entry_bookkeeping',
         relatedSkillKeys: ['stripe', 'database-design', 'crypto', 'postgresql'],
@@ -558,7 +558,7 @@ const concepts = [
         key: 'geospatial',
         title: 'Geospatial & Mapping',
         categories: [SkillCategory.Concepts, SkillCategory.Frontend, SkillCategory.Databases],
-        proficiency: SkillProficiency.Familiar,
+        proficiency: SkillProficiency.Proficient,
         description: 'I have built location-aware features with PostGIS queries on the back end and interactive maps on the front end.',
         link: 'https://postgis.net/',
         relatedSkillKeys: ['postgresql', 'react'],
@@ -568,6 +568,95 @@ const concepts = [
             { name: 'Leaflet', url: 'https://leafletjs.com/' },
             { name: 'D3 Geo', url: 'https://d3js.org/d3-geo' },
             { name: 'TopoJSON', url: 'https://github.com/topojson/topojson' },
+        ]
+    },
+    {
+        key: 'api-contracts',
+        title: 'API Contracts & SDK Generation',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend],
+        proficiency: SkillProficiency.Expert,
+        description: 'I run APIs contract-first: OpenAPI and AsyncAPI documents are generated from the code, committed and drift-checked in CI, and typed clients are generated from them, including a TypeScript client and a C++ SDK for a game engine. A breaking change shows up in review, not in production.',
+        link: 'https://www.openapis.org/',
+        relatedSkillKeys: ['openapi', 'asyncapi', 'api-design', 'rest', 'typescript'],
+        subSkills: [
+            { name: 'openapi-typescript', url: 'https://openapi-ts.dev/' },
+            { name: 'openapi-fetch', url: 'https://openapi-ts.dev/openapi-fetch/' },
+            { name: 'Contract Testing', url: 'https://martinfowler.com/bliki/ContractTest.html' },
+        ]
+    },
+    {
+        key: 'authorisation-architecture',
+        title: 'Authorisation Architecture',
+        categories: [SkillCategory.Concepts, SkillCategory.Security, SkillCategory.Backend],
+        proficiency: SkillProficiency.Expert,
+        description: 'I design authorisation in three layers from day one: role permissions attached to an organisation membership, OAuth scopes that can only narrow what a client may do, and tenant ownership of every resource. All three are decided in one policy decision point rather than scattered checks.',
+        link: 'https://www.osohq.com/academy/what-is-authorization',
+        relatedSkillKeys: ['authentication', 'oauth', 'multi-tenancy', 'security-best-practices'],
+        subSkills: [
+            { name: 'Policy Decision Point', url: 'https://csrc.nist.gov/glossary/term/policy_decision_point' },
+            { name: 'OAuth Scopes', url: 'https://oauth.net/2/scope/' },
+            { name: 'RBAC', url: 'https://en.wikipedia.org/wiki/Role-based_access_control' },
+        ]
+    },
+    {
+        key: 'real-time-architecture',
+        title: 'Real-Time Architecture',
+        categories: [SkillCategory.Concepts, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I design real-time systems as a separately scaled WebSocket service with pub/sub fan-out, per-subscription authorisation and in-place credential refresh. Delivery is deliberately at-most-once, with every live read backed by an HTTP equivalent so clients recover by re-fetching.',
+        link: 'https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern',
+        relatedSkillKeys: ['websockets', 'asyncapi', 'redis', 'horizontal-scaling'],
+        subSkills: [
+            { name: 'Pub/Sub Fan-out', url: 'https://valkey.io/topics/pubsub/' },
+            { name: 'AsyncAPI', url: 'https://www.asyncapi.com/' },
+        ]
+    },
+    {
+        key: 'capacity-planning',
+        title: 'Capacity Planning',
+        categories: [SkillCategory.Concepts, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I size systems against the load expected two years out, around a billion events a year with realistic peaks, while keeping the first-year bill lean, so growth needs configuration changes rather than a rewrite.',
+        link: 'https://sre.google/sre-book/software-engineering-in-sre/',
+        relatedSkillKeys: ['horizontal-scaling', 'performance-optimisation', 'aws', 'cloud-cost-optimisation'],
+    },
+    {
+        key: 'multi-app-topology',
+        title: 'Multi-App Platform Topology',
+        categories: [SkillCategory.Concepts, SkillCategory.Frontend, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I split platforms into separately deployed apps by host: marketing, auth, API, customer workspace, tenant storefronts, admin and docs. A single identity issuer serves them, the other apps are OIDC relying parties, and no app is reachable at two URLs.',
+        link: 'https://openid.net/developers/how-connect-works/',
+        relatedSkillKeys: ['openid-connect', 'multi-tenancy', 'nextjs', 'cloudflare'],
+        subSkills: [
+            { name: 'Host-based Routing', url: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Host' },
+            { name: 'OIDC Relying Parties', url: 'https://openid.net/specs/openid-connect-core-1_0.html' },
+        ]
+    },
+    {
+        key: 'cloud-cost-optimisation',
+        title: 'Cloud Cost Optimisation',
+        categories: [SkillCategory.Concepts, SkillCategory.Cloud, SkillCategory.DevOps],
+        proficiency: SkillProficiency.Proficient,
+        description: 'I keep cloud and CI spend deliberate: opt-in preview environments that tear themselves down, CI work grouped to cut suite runs, serverless and scale-to-zero defaults, and choosing boring managed services over self-hosted ones.',
+        link: 'https://www.finops.org/introduction/what-is-finops/',
+        relatedSkillKeys: ['aws', 'cicd', 'serverless', 'capacity-planning'],
+        subSkills: [
+            { name: 'FinOps', url: 'https://www.finops.org/' },
+            { name: 'AWS Cost Explorer', url: 'https://aws.amazon.com/aws-cost-management/aws-cost-explorer/' },
+        ]
+    },
+    {
+        key: 'threat-modelling',
+        title: 'Security Threat Modelling',
+        categories: [SkillCategory.Concepts, SkillCategory.Security],
+        proficiency: SkillProficiency.Familiar,
+        description: 'I review changes against how they could be attacked, for example account-enumeration oracles in sign-in copy, token and cookie scope creep, or trust in client-reported data. I adjust how closely I review based on what a change can actually affect.',
+        link: 'https://owasp.org/www-community/Threat_Modeling',
+        relatedSkillKeys: ['security-best-practices', 'owasp', 'authentication'],
+        subSkills: [
+            { name: 'STRIDE', url: 'https://en.wikipedia.org/wiki/STRIDE_model' },
+            { name: 'OWASP Threat Modeling', url: 'https://owasp.org/www-community/Threat_Modeling' },
         ]
     }
 ] as readonly Skill[];
