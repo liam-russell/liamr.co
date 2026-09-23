@@ -35,7 +35,7 @@ One homepage where the browser *is* the page, plus the existing detail route:
 
 ## The skills browser (the main event)
 
-Data available per skill: title, description, categories (13), proficiency (Learning / Familiar / Proficient / Expert), brand icon and colour, sub-skills, related skills, optional link. About 150 skills plus sub-skills.
+Data available per skill: title, description, categories (13), proficiency (Learning / Familiar / Proficient / Expert), brand icon and colour, sub-skills, related skills, optional link. About 145 skills plus sub-skills.
 
 ### Core interaction ideas (pick a direction, show it off)
 
@@ -94,4 +94,4 @@ Each lens maps to a set of categories and skills (we'll wire the mapping during 
 
 ## Note on data
 
-The skills data has already been updated with the missing skills from Liam's resume (Terraform, Fastify, Cloudflare, DuckDB, Better Auth, device licensing and more), so design for about 175 skills plus their sub-skills.
+The skills data has already been updated with the missing skills from Liam's resume (Terraform, Fastify, Cloudflare, DuckDB, Better Auth, device licensing and more), so design for about 145 skills plus their sub-skills.
