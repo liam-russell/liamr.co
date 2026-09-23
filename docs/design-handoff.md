@@ -6,7 +6,7 @@ A brief for Claude Design to redesign liamr.co. Paste this whole file in as the 
 
 ## 1. The ask
 
-Make liamr.co feel **current, crafted and a bit show-offy**, the portfolio of someone who builds platforms. Right now it reads as a skills directory with a name on top. It should read as **a person, what they're building now, and proof they can build it**.
+Make liamr.co feel **current, crafted and a bit show-offy**, the portfolio of a technical lead who still builds. Right now it reads as a skills directory with a name on top. It should read as **a person, what they're building now, and proof they can build it**.
 
 Keep what works:
 - Brand: Roboto Slab (display) + Nunito (body), blue → sky gradient accent, dark-first with a full light theme
@@ -23,7 +23,6 @@ Drop or replace:
 
 | Site says | Reality (resume, Sep 2026) |
 |---|---|
-| "Technical Lead" (title, meta, JSON-LD) | **Lead Platform Engineer at Beacon Games** since Jun 2026. Before that, Technical Lead at Symplicity |
 | "Currently: exploring LLM-powered developer tooling, modular monolith patterns in .NET, Next.js 16" | Leading a two-person team building a real-time multiplayer golf-sim platform in a TypeScript monorepo, and shipping side projects (snapbook.ing, SproutGit) |
 | Pitch leans on C#/.NET + AWS | Now mostly TypeScript platform work: Fastify, Next.js, Better Auth, Terraform, DuckDB, Cloudflare, Vercel. .NET is still a strength but no longer the headline |
 | No projects, no experience, no story | Resume has a strong 11-year arc and several shippable projects (below) |
@@ -35,10 +34,10 @@ Drop or replace:
 
 ### Positioning (hero)
 - **Name:** Liam Russell
-- **Role:** Lead Platform Engineer, Canberra, Australia (remote)
+- **Role:** Technical Lead, Canberra, Australia (remote). Keep "Technical Lead" as the headline title everywhere (hero, meta, JSON-LD). The Beacon Games job title only appears in the career timeline
 - **One-liner options** (pick or riff):
-  - "I build platforms: auth, data, infra and the interfaces on top."
-  - "Platform engineer and technical lead. 10+ years of shipping software people depend on."
+  - "Technical lead who still ships: architecture, platforms and the interfaces on top."
+  - "Technical lead. 10+ years of shipping software people depend on."
 - **Supporting line:** Architect of distributed systems on AWS and the edge, TypeScript and C#/.NET, and polished React/Next.js front ends. Lead teams, write decision records, and use AI to build faster without lowering the bar.
 
 ### Now (a live-feeling "currently" block)
@@ -52,7 +51,7 @@ Drop or replace:
 - **25-year-old** SaaS codebase modernised (CareerHub)
 - **{N}+ skills** (computed, as now)
 
-### Career arc (timeline, a good story: support desk → platform lead)
+### Career arc (timeline, a good story: support desk → technical lead)
 1. **Technical Support Analyst**, Symplicity / CareerHub · 2015–2017. Debugged the product, fixed recurring issues directly in the codebase, ran demos for universities
 2. **Full Stack Engineer**, Symplicity · 2017–2021. C#/.NET, React, TypeScript, serverless on AWS, Docker/ECS, CI/CD; worked async across UK, US, Brazil and Spain
 3. **Senior Software Engineer**, Symplicity · 2021–2025. Event-driven microservices on AWS (Lambda, SQS/SNS, DynamoDB), led front end of key features, championed security and IaC (CDK)
@@ -139,7 +138,7 @@ My lean: **A with the "related skills" glow, plus D's project filter.**
 - WCAG 2.2 AA: contrast, focus rings, keyboard access for every interactive element, semantic landmarks
 - Fast: aim for LCP < 1.5s, CLS ≈ 0; the homepage should be mostly server-rendered
 - Responsive from 360px to wide desktop; no horizontal scroll
-- Keep SEO bits: JSON-LD Person (update `jobTitle`), OG images, sitemap, `llms.txt`
+- Keep SEO bits: JSON-LD Person (`jobTitle` stays "Technical Lead"), OG images, sitemap, `llms.txt`
 
 ---
 
