@@ -57,10 +57,10 @@ const cloud = [
             { name: 'Bedrock - Managed LLM Platform', url: 'https://aws.amazon.com/bedrock/' },
             { name: 'Route 53 - DNS Service', url: 'https://aws.amazon.com/route53/' },
             { name: 'CloudFront - CDN', url: 'https://aws.amazon.com/cloudfront/' },
-            { name: 'Aurora - Serverless PostgreSQL', url: 'https://aws.amazon.com/rds/aurora/' },
-            { name: 'Batch - Container Batch Jobs', url: 'https://aws.amazon.com/batch/' },
-            { name: 'EventBridge Scheduler', url: 'https://aws.amazon.com/eventbridge/scheduler/' },
-            { name: 'KMS - Key Management Service', url: 'https://aws.amazon.com/kms/' }
+            { name: 'Aurora Serverless v2', url: 'https://aws.amazon.com/rds/aurora/serverless/' },
+            { name: 'KMS - Key Management Service', url: 'https://aws.amazon.com/kms/' },
+            { name: 'Batch - Scheduled Compute Jobs', url: 'https://aws.amazon.com/batch/' },
+            { name: 'EventBridge Scheduler', url: 'https://aws.amazon.com/eventbridge/scheduler/' }
         ]
     },
     {
@@ -88,7 +88,7 @@ const cloud = [
         proficiency: SkillProficiency.Proficient,
         description: 'I have used SST (Serverless Stack) to deploy Next.js applications to AWS, taking advantage of its infrastructure-as-code approach built on Pulumi and native AWS services.',
         link: 'https://sst.dev/',
-        relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'iac']
+        relatedSkillKeys: ['nextjs', 'aws', 'serverless', 'infrastructure-as-code']
     },
     {
         key: 'azure',
@@ -200,35 +200,69 @@ const cloud = [
     {
         key: 'cloudflare',
         title: 'Cloudflare',
-        categories: [SkillCategory.Cloud, SkillCategory.Servers, SkillCategory.DevOps],
+        categories: [SkillCategory.Cloud, SkillCategory.Servers],
         proficiency: SkillProficiency.Proficient,
-        description: 'I deploy multi-app platforms to Cloudflare Workers, with R2 object storage, Workers KV, Zero Trust Access in front of staff-only surfaces and Email Service for transactional mail, all provisioned as code.',
+        description: "I deploy full-stack apps to Cloudflare Workers and run DNS and edge caching through Cloudflare. I like the edge model: fast cold starts, global by default, and infrastructure that stays cheap as it scales.",
         link: 'https://www.cloudflare.com/',
-        relatedSkillKeys: ['serverless', 'vercel', 'dns-networking', 'infrastructure-as-code', 'nextjs'],
+        relatedSkillKeys: ['serverless', 'infrastructure-as-code', 'dns-networking', 'nextjs', 'caching'],
         subSkills: [
-            { name: 'Workers', url: 'https://developers.cloudflare.com/workers/' },
+            { name: 'Workers', url: 'https://workers.cloudflare.com/' },
+            { name: 'DNS', url: 'https://www.cloudflare.com/application-services/products/dns/' },
+            { name: 'Custom Hostnames (SSL for SaaS)', url: 'https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/' },
             { name: 'R2', url: 'https://developers.cloudflare.com/r2/' },
             { name: 'Workers KV', url: 'https://developers.cloudflare.com/kv/' },
             { name: 'Zero Trust Access', url: 'https://developers.cloudflare.com/cloudflare-one/policies/access/' },
             { name: 'Email Service', url: 'https://developers.cloudflare.com/email-service/' },
-            { name: 'Wrangler', url: 'https://developers.cloudflare.com/workers/wrangler/' },
+            { name: 'Wrangler', url: 'https://developers.cloudflare.com/workers/wrangler/' }
         ]
+    },
+    {
+        key: 'duckdb',
+        title: 'DuckDB',
+        categories: [SkillCategory.Databases],
+        proficiency: SkillProficiency.Proficient,
+        description: "I use DuckDB as an analytics engine over Parquet files in S3. It gives warehouse-style SQL without the warehouse bill, and I chose it over Snowflake after evaluating both.",
+        link: 'https://duckdb.org/',
+        relatedSkillKeys: ['data-lake', 'sql', 'aws'],
+    },
+    {
+        key: 'data-lake',
+        title: 'Data Lakes & Analytics Pipelines',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud, SkillCategory.Backend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I design data platforms that land events in an S3 Parquet lake, transform them in scheduled batch jobs, and serve the results from Postgres. The goal is cheap, queryable history without running a warehouse.",
+        relatedSkillKeys: ['duckdb', 'aws', 'postgresql', 'event-driven-architecture'],
+        subSkills: [
+            { name: 'Apache Parquet', url: 'https://parquet.apache.org/' },
+            { name: 'AWS Batch', url: 'https://aws.amazon.com/batch/' },
+            { name: 'Amazon S3', url: 'https://aws.amazon.com/s3/' },
+            { name: 'Snowflake (evaluated)', url: 'https://www.snowflake.com/' },
+        ]
+    },
+    {
+        key: 'supabase',
+        title: 'Supabase',
+        categories: [SkillCategory.Databases, SkillCategory.Cloud],
+        proficiency: SkillProficiency.Familiar,
+        description: "I've built with Supabase and know it well, including Row Level Security and its auth. For my own projects I now prefer plain Postgres with a type-safe query layer, which keeps architectural choices open.",
+        link: 'https://supabase.com/',
+        relatedSkillKeys: ['postgresql', 'authentication'],
     },
     {
         key: 'stripe',
         title: 'Stripe',
-        categories: [SkillCategory.Backend, SkillCategory.Cloud],
+        categories: [SkillCategory.Backend],
         proficiency: SkillProficiency.Proficient,
-        description: 'I integrate Stripe for both marketplace and subscription businesses: Connect for multi-organisation payouts, Checkout and the Customer Portal for billing, idempotent signature-verified webhooks, and a product catalogue provisioned with Terraform.',
+        description: "I integrate Stripe for payments in multi-tenant products: checkout, webhooks, and keeping billing state in sync with the app.",
         link: 'https://stripe.com/',
-        relatedSkillKeys: ['webhooks', 'financial-ledgers', 'terraform', 'security-best-practices'],
+        relatedSkillKeys: ['webhooks', 'api-design'],
         subSkills: [
             { name: 'Stripe Connect', url: 'https://docs.stripe.com/connect' },
             { name: 'Stripe Checkout', url: 'https://docs.stripe.com/payments/checkout' },
             { name: 'Stripe Billing', url: 'https://docs.stripe.com/billing' },
             { name: 'Customer Portal', url: 'https://docs.stripe.com/customer-management' },
             { name: 'Stripe Tax', url: 'https://docs.stripe.com/tax' },
-            { name: 'Stripe CLI', url: 'https://docs.stripe.com/stripe-cli' },
+            { name: 'Stripe CLI', url: 'https://docs.stripe.com/stripe-cli' }
         ]
     },
     {
@@ -245,20 +279,6 @@ const cloud = [
             { name: 'Monitors', url: 'https://docs.datadoghq.com/monitors/' },
             { name: 'Datadog On-Call', url: 'https://docs.datadoghq.com/service_management/on-call/' },
             { name: 'RUM', url: 'https://docs.datadoghq.com/real_user_monitoring/' },
-        ]
-    },
-    {
-        key: 'duckdb',
-        title: 'DuckDB',
-        categories: [SkillCategory.Databases, SkillCategory.Cloud],
-        proficiency: SkillProficiency.Familiar,
-        description: 'I use DuckDB as a serverless analytics engine over an S3 Parquet data lake, running scheduled validation and aggregation jobs in containers and pushing results back into PostgreSQL for low-latency serving.',
-        link: 'https://duckdb.org/',
-        relatedSkillKeys: ['aws', 'postgresql', 'sql', 'database-design'],
-        subSkills: [
-            { name: 'Apache Parquet', url: 'https://parquet.apache.org/' },
-            { name: 'AWS Batch', url: 'https://aws.amazon.com/batch/' },
-            { name: 'S3 Object Lock', url: 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html' },
         ]
     },
     {

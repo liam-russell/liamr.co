@@ -32,8 +32,9 @@ const devops = [
             { name: 'SonarQube', url: 'https://www.sonarqube.org/' },
             { name: 'Snyk', url: 'https://snyk.io/' },
             { name: 'Semgrep', url: 'https://semgrep.dev/' },
-            { name: 'OSV-Scanner', url: 'https://google.github.io/osv-scanner/' },
-            { name: 'Gitleaks', url: 'https://gitleaks.io/' }
+            { name: 'Gitleaks', url: 'https://github.com/gitleaks/gitleaks' },
+            { name: 'Microsoft Security DevOps', url: 'https://learn.microsoft.com/en-us/azure/defender-for-cloud/azure-devops-extension' },
+            { name: 'OSV-Scanner', url: 'https://google.github.io/osv-scanner/' }
         ]
     },
     {
@@ -150,8 +151,8 @@ const devops = [
             { name: 'AWS SAM', url: 'https://aws.amazon.com/serverless/sam/' },
             { name: 'Pulumi', url: 'https://www.pulumi.com/' },
             { name: 'Terraform', url: 'https://www.terraform.io/' },
-            { name: 'Terragrunt', url: 'https://terragrunt.gruntwork.io/' },
-            { name: 'Alchemy', url: 'https://alchemy.run/' }
+            { name: 'Alchemy', url: 'https://alchemy.run/' },
+            { name: 'Terragrunt', url: 'https://terragrunt.gruntwork.io/' }
         ]
     },
     {
@@ -204,14 +205,47 @@ const devops = [
         title: 'Terraform',
         categories: [SkillCategory.DevOps, SkillCategory.Cloud],
         proficiency: SkillProficiency.Proficient,
-        description: 'I manage all infrastructure with Terraform, including third-party SaaS such as Vercel, Stripe, Datadog and LaunchDarkly, composed as reusable modules with thin per-environment roots and applied only from CI.',
+        description: "I provision whole platforms in Terraform: ECS services, Aurora Serverless, batch jobs, KMS keys, Cloudflare and Vercel, organised as reusable modules so a new environment is a small, reviewable diff.",
         link: 'https://www.terraform.io/',
-        relatedSkillKeys: ['infrastructure-as-code', 'aws', 'github-actions', 'datadog', 'stripe'],
+        relatedSkillKeys: ['infrastructure-as-code', 'aws', 'cloudflare', 'vercel', 'cicd'],
         subSkills: [
             { name: 'Terragrunt', url: 'https://terragrunt.gruntwork.io/' },
             { name: 'Terraform Test', url: 'https://developer.hashicorp.com/terraform/language/tests' },
             { name: 'AWS Provider', url: 'https://registry.terraform.io/providers/hashicorp/aws/latest' },
-            { name: 'Vercel Provider', url: 'https://registry.terraform.io/providers/vercel/vercel/latest' },
+            { name: 'Vercel Provider', url: 'https://registry.terraform.io/providers/vercel/vercel/latest' }
+        ]
+    },
+    {
+        key: 'software-distribution',
+        title: 'Software Distribution & Signing',
+        categories: [SkillCategory.DevOps, SkillCategory.Security],
+        proficiency: SkillProficiency.Familiar,
+        description: "I've built desktop software delivery: a launcher with binary-delta patching, signed builds and manifests, and malware scanning in the release pipeline.",
+        relatedSkillKeys: ['cicd', 'crypto', 'release-management'],
+        subSkills: [
+            { name: 'Binary Delta Patching', url: 'https://en.wikipedia.org/wiki/Delta_update' },
+            { name: 'Code Signing', url: 'https://en.wikipedia.org/wiki/Code_signing' },
+        ]
+    },
+    {
+        key: 'release-management',
+        title: 'Release Management',
+        categories: [SkillCategory.DevOps, SkillCategory.Management],
+        proficiency: SkillProficiency.Proficient,
+        description: "I run release processes end to end: versioning, release notes, staged rollouts and rollback plans. I push for small, frequent releases over big quarterly drops.",
+        relatedSkillKeys: ['cicd', 'feature-flags', 'vc'],
+    },
+    {
+        key: 'incident-response',
+        title: 'Incident Response',
+        categories: [SkillCategory.DevOps, SkillCategory.Security],
+        proficiency: SkillProficiency.Proficient,
+        description: "I triage and resolve production incidents calmly, communicate clearly while they're happening, and follow up with blameless write-ups and fixes that stop them recurring.",
+        relatedSkillKeys: ['monitoring', 'logging', 'bug-triage'],
+        subSkills: [
+            { name: 'Datadog On-Call', url: 'https://docs.datadoghq.com/service_management/on-call/' },
+            { name: 'Instatus', url: 'https://instatus.com/' },
+            { name: 'Runbooks', url: 'https://en.wikipedia.org/wiki/Runbook' }
         ]
     },
     {
@@ -225,20 +259,6 @@ const devops = [
         subSkills: [
             { name: 'Blue/Green Deployments', url: 'https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-blue-green.html' },
             { name: 'pgroll', url: 'https://github.com/xataio/pgroll' },
-        ]
-    },
-    {
-        key: 'incident-response',
-        title: 'Incident Response & On-Call',
-        categories: [SkillCategory.DevOps, SkillCategory.Management],
-        proficiency: SkillProficiency.Proficient,
-        description: 'I set up on-call rotations, prioritised paging policy and runbooks, and publish customer-facing status updates, so the right person is woken for the right reasons.',
-        link: 'https://sre.google/sre-book/managing-incidents/',
-        relatedSkillKeys: ['datadog', 'monitoring', 'documentation'],
-        subSkills: [
-            { name: 'Datadog On-Call', url: 'https://docs.datadoghq.com/service_management/on-call/' },
-            { name: 'Instatus', url: 'https://instatus.com/' },
-            { name: 'Runbooks', url: 'https://en.wikipedia.org/wiki/Runbook' },
         ]
     }
 ] as readonly Skill[];

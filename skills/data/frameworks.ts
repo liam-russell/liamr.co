@@ -17,14 +17,17 @@ const frameworks = [
         title: 'Next.js',
         categories: [SkillCategory.Frontend, SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Expert,
-        description: 'I have used Next.js to build multiple applications, including this one. I am familiar with both server-side rendering and static site generation and the benefits they bring.',
-        link: 'https://nextjs.org/',
-        relatedSkillKeys: ['react', 'drizzle', 'vercel', 'netlify', 'javascript', 'css', 'html', 'aws', 'serverless'],
         subSkills: [
+            { name: 'App Router', url: 'https://nextjs.org/docs/app' },
+            { name: 'React Server Components', url: 'https://react.dev/reference/rsc/server-components' },
+            { name: 'Turbopack', url: 'https://nextjs.org/docs/app/api-reference/turbopack' },
             { name: 'vinext', url: 'https://vinext.io/' },
             { name: 'Fumadocs', url: 'https://fumadocs.dev/' },
             { name: 'nuqs', url: 'https://nuqs.dev/' }
-        ]
+        ],
+        description: 'I have used Next.js to build multiple applications, including this one. I am familiar with both server-side rendering and static site generation and the benefits they bring.',
+        link: 'https://nextjs.org/',
+        relatedSkillKeys: ['react', 'drizzle', 'vercel', 'netlify', 'javascript', 'css', 'html', 'aws', 'serverless'],
     },
     {
         key: 'react',
@@ -52,10 +55,12 @@ const frameworks = [
             { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
             { name: 'React Hook Form', url: 'https://react-hook-form.com/' },
             { name: 'React Compiler', url: 'https://react.dev/learn/react-compiler' },
+            { name: 'SWR', url: 'https://swr.vercel.app/' },
+            { name: 'Puck Visual Editor', url: 'https://puckeditor.com/' },
+            { name: 'Mapbox GL', url: 'https://docs.mapbox.com/mapbox-gl-js/' },
             { name: 'Recharts', url: 'https://recharts.org/' },
             { name: 'Conform', url: 'https://conform.guide/' },
             { name: 'Plate', url: 'https://platejs.org/' },
-            { name: 'Puck', url: 'https://puckeditor.com/' },
             { name: 'Remotion', url: 'https://www.remotion.dev/' }
         ]
     },
@@ -134,6 +139,9 @@ const frameworks = [
         title: 'tRPC',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Proficient,
+        subSkills: [
+            { name: 'oRPC', url: 'https://orpc.unnoq.com/' },
+        ],
         description: 'I have used tRPC to build end-to-end type-safe APIs in TypeScript, eliminating the need for code generation or manual type definitions between client and server.',
         link: 'https://trpc.io/',
         relatedSkillKeys: ['typescript', 'nodejs', 'nextjs', 'zod', 'react'],
@@ -252,7 +260,7 @@ const frameworks = [
         proficiency: SkillProficiency.Expert,
         description: 'I use .NET Aspire to orchestrate cloud-native distributed applications in development and production. Its opinionated approach to service defaults, telemetry, and local development experience aligns well with how I build modular .NET systems.',
         link: 'https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview',
-        relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'opentelemetry', 'microservices', 'modular-monolith'],
+        relatedSkillKeys: ['dotnet', 'csharp', 'docker', 'logging', 'microservices', 'modular-monolith'],
         subSkills: [
             { name: 'App Host', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview' },
             { name: 'Service Defaults', url: 'https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/service-defaults' },
@@ -264,37 +272,101 @@ const frameworks = [
         title: 'Fastify',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
         proficiency: SkillProficiency.Proficient,
-        description: 'I use Fastify to build high-throughput, schema-first TypeScript APIs, splitting one deployable into scope-gated API surfaces and generating committed, drift-checked OpenAPI documents from the route schemas.',
+        description: "I build TypeScript services on Fastify with OpenAPI contracts, so front ends get generated, fully typed clients and live sessions run over WebSockets.",
         link: 'https://fastify.dev/',
-        relatedSkillKeys: ['nodejs', 'typescript', 'openapi', 'kysely', 'api-design'],
+        relatedSkillKeys: ['nodejs', 'typescript', 'openapi', 'websockets', 'zod'],
         subSkills: [
             { name: 'Pino', url: 'https://getpino.io/' },
-            { name: '@fastify/swagger', url: 'https://github.com/fastify/fastify-swagger' },
-            { name: 'ws', url: 'https://github.com/websockets/ws' },
+            { name: '@fastify/swagger', url: 'https://github.com/fastify/fastify-swagger' }
+        ]
+    },
+    {
+        key: 'better-auth',
+        title: 'Better Auth',
+        categories: [SkillCategory.Backend, SkillCategory.Security, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: "I run Better Auth as a full OAuth 2 / OpenID Connect issuer: passkeys, MFA, device flows for game clients and TVs, and third-party services authenticating against it.",
+        link: 'https://www.better-auth.com/',
+        relatedSkillKeys: ['authentication', 'oauth', 'openid-connect', 'typescript'],
+        subSkills: [
+            { name: 'OIDC Provider', url: 'https://www.better-auth.com/docs/plugins/oidc-provider' },
+            { name: 'Passkeys', url: 'https://www.better-auth.com/docs/plugins/passkey' },
+            { name: 'Device Authorization', url: 'https://www.better-auth.com/docs/plugins/device-authorization' },
         ]
     },
     {
         key: 'kysely',
         title: 'Kysely',
-        categories: [SkillCategory.Databases, SkillCategory.Backend, SkillCategory.Frameworks],
-        proficiency: SkillProficiency.Expert,
-        description: 'Kysely is my go-to for type-safe SQL in TypeScript. I use it as the data-access layer for multi-tenant PostgreSQL systems, with generated database types, transactions, row locking and raw SQL reserved for PostGIS and full-text search.',
+        categories: [SkillCategory.Backend, SkillCategory.Databases, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Proficient,
+        description: "I use Kysely for type-safe SQL over Postgres with generated types. It's close to raw SQL, so there are no surprises in what hits the database.",
         link: 'https://kysely.dev/',
-        relatedSkillKeys: ['postgresql', 'sql', 'typescript', 'drizzle', 'data-migration', 'database-design'],
+        relatedSkillKeys: ['postgresql', 'typescript', 'sql', 'drizzle'],
         subSkills: [
             { name: 'kysely-codegen', url: 'https://github.com/RobinBlomberg/kysely-codegen' },
-            { name: 'node-postgres', url: 'https://node-postgres.com/' },
-            { name: 'Postgres.js', url: 'https://github.com/porsager/postgres' },
+            { name: 'Postgres.js', url: 'https://github.com/porsager/postgres' }
         ]
     },
     {
-        key: 'orpc',
-        title: 'oRPC',
+        key: 'effect',
+        title: 'Effect',
         categories: [SkillCategory.Backend, SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Familiar,
+        description: "I use Effect for typed errors, dependency injection and resilient workflows in TypeScript backends.",
+        link: 'https://effect.website/',
+        relatedSkillKeys: ['typescript', 'resilience', 'dependency-injection'],
+    },
+    {
+        key: 'design-systems',
+        title: 'Design Systems & Component Libraries',
+        categories: [SkillCategory.Frontend],
         proficiency: SkillProficiency.Proficient,
-        description: 'I use oRPC to build end-to-end type-safe APIs that also publish an OpenAPI surface, with layered procedures that enforce authentication and organisation scoping before any business logic runs.',
-        link: 'https://orpc.unnoq.com/',
-        relatedSkillKeys: ['trpc', 'typescript', 'zod', 'openapi', 'api-design', 'multi-tenancy'],
+        description: "I build component libraries and design systems with designers, from a branded Bootstrap derivative to Tailwind and Radix-based kits, documented and tested in Storybook.",
+        relatedSkillKeys: ['react', 'tailwindcss', 'figma', 'bootstrap', 'accessibility-audits'],
+        subSkills: [
+            { name: 'Storybook', url: 'https://storybook.js.org/' },
+            { name: 'Radix UI', url: 'https://www.radix-ui.com/' },
+            { name: 'HeroUI', url: 'https://www.heroui.com/' },
+            { name: 'Style Dictionary', url: 'https://styledictionary.com/' },
+            { name: 'Base UI', url: 'https://base-ui.com/' },
+            { name: 'Floating UI', url: 'https://floating-ui.com/' }
+        ]
+    },
+    {
+        key: 'i18n',
+        title: 'Internationalisation (i18n)',
+        categories: [SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I build apps ready for multiple languages from day one, with translation workflows that don't block releases.",
+        relatedSkillKeys: ['nextjs', 'react'],
+        subSkills: [
+            { name: 'next-intl', url: 'https://next-intl.dev/' },
+            { name: 'Crowdin', url: 'https://crowdin.com/' },
+            { name: 'ICU MessageFormat', url: 'https://unicode-org.github.io/icu/userguide/format_parse/messages/' },
+            { name: 'Luxon', url: 'https://moment.github.io/luxon/' },
+            { name: 'libphonenumber-js', url: 'https://github.com/catamphetamine/libphonenumber-js' }
+        ]
+    },
+    {
+        key: 'pdf-generation',
+        title: 'PDF & Print Output',
+        categories: [SkillCategory.Backend, SkillCategory.Frontend],
+        proficiency: SkillProficiency.Proficient,
+        description: "I generate print-ready PDFs, tickets and badges from code, from server-side PDF rendering to paged CSS layouts and SVG generation.",
+        relatedSkillKeys: ['css', 'html'],
+        subSkills: [
+            { name: 'PDFKit', url: 'https://pdfkit.org/' },
+            { name: 'paged.js', url: 'https://pagedjs.org/' },
+        ]
+    },
+    {
+        key: 'unreal-engine',
+        title: 'Unreal Engine SDK Integration',
+        categories: [SkillCategory.Frameworks],
+        proficiency: SkillProficiency.Familiar,
+        description: "I design platform SDKs for Unreal Engine games, so game clients can use auth, licensing and online services through a clean C++ interface.",
+        link: 'https://www.unrealengine.com/',
+        relatedSkillKeys: ['api-design'],
     },
     {
         key: 'electron',
@@ -303,7 +375,7 @@ const frameworks = [
         proficiency: SkillProficiency.Familiar,
         description: 'I have built a cross-platform desktop launcher with Electron, including auto-updates, a native credential store addon and hardware-bound device licensing.',
         link: 'https://www.electronjs.org/',
-        relatedSkillKeys: ['nodejs', 'typescript', 'react', 'vite', 'cplusplus'],
+        relatedSkillKeys: ['nodejs', 'typescript', 'react', 'vite'],
         subSkills: [
             { name: 'electron-vite', url: 'https://electron-vite.org/' },
             { name: 'electron-builder', url: 'https://www.electron.build/' },

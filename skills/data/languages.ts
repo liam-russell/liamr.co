@@ -52,7 +52,8 @@ const languages = [
             { name: 'AutoPrefixer', url: 'https://autoprefixer.github.io/' },
             { name: 'CSS Grid', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout' },
             { name: 'Flexbox', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout' },
-            { name: 'CSS Variables', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' }
+            { name: 'CSS Variables', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties' },
+            { name: 'CSS Modules', url: 'https://github.com/css-modules/css-modules' },
         ],
         relatedSkillKeys: ['react', 'angular', 'bootstrap', 'tailwindcss', 'html', 'javascript', 'nextjs'],
     },
@@ -113,23 +114,19 @@ const languages = [
             { name: 'AWS RDS for PostgreSQL', url: 'https://aws.amazon.com/rds/postgresql/' },
             { name: 'pgAdmin', url: 'https://www.pgadmin.org/' },
             { name: 'PostGIS', url: 'https://postgis.net/' },
-            { name: 'Neon', url: 'https://neon.tech/' },
-            { name: 'Amazon Aurora Serverless v2', url: 'https://aws.amazon.com/rds/aurora/serverless/' }
+            { name: 'Aurora Serverless v2 PostgreSQL', url: 'https://aws.amazon.com/rds/aurora/serverless/' },
+            { name: 'Kysely', url: 'https://kysely.dev/' },
+            { name: 'Neon', url: 'https://neon.tech/' }
         ]
     },
     {
-        key: 'cplusplus',
-        title: 'C++',
-        categories: [SkillCategory.Languages, SkillCategory.Backend],
-        proficiency: SkillProficiency.Familiar,
-        description: 'I have written C++ for Node.js native addons (N-API) and built a TypeScript-to-C++ generator that emits typed Unreal Engine client SDKs from OpenAPI specs, so I understand its build and linkage model well enough to keep generated code safe under unity builds.',
-        link: 'https://isocpp.org/',
-        relatedSkillKeys: ['typescript', 'nodejs', 'openapi'],
-        subSkills: [
-            { name: 'Node-API (N-API)', url: 'https://nodejs.org/api/n-api.html' },
-            { name: 'Unreal Engine', url: 'https://www.unrealengine.com/' },
-        ]
-    }
+        key: 'python',
+        title: 'Python',
+        categories: [SkillCategory.Languages],
+        proficiency: SkillProficiency.Learning,
+        description: "I'm learning Python and use it for scripting, data wrangling and tooling.",
+        link: 'https://www.python.org/',
+    },
 ] as readonly Skill[];
 
 export default languages;

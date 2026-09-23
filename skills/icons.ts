@@ -49,15 +49,21 @@ import {
     siLetsencrypt,
     siMarkdown,
     siGithubcopilot,
-    siCloudflare,
-    siStripe,
     siTerraform,
     siFastify,
-    siElectron,
+    siCloudflare,
     siDuckdb,
-    siDatadog,
+    siApacheparquet,
+    siSupabase,
+    siStripe,
+    siPython,
+    siUnrealengine,
+    siBetterauth,
+    siEffect,
     siStorybook,
-    siCplusplus,
+    siWebauthn,
+    siElectron,
+    siDatadog,
 } from 'simple-icons';
 import { deviconSvgs } from './devicon-svgs';
 
@@ -89,15 +95,12 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'sql': si(siPostgresql),
     'postgresql': si(siPostgresql),
     'cucumber': si(siCucumber),
-    'cplusplus': si(siCplusplus),
 
     // Frameworks
     'react': si(siReact),
     'nextjs': si(siNextdotjs),
     'angular': si(siAngular),
     'nodejs': si(siNodedotjs),
-    'fastify': si(siFastify),
-    'electron': si(siElectron),
     'express': si(siExpress),
     'astro': si(siAstro),
     'dotnet': si(siDotnet),
@@ -126,10 +129,6 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'redis': si(siRedis),
     'elasticsearch': si(siElasticsearch),
     'resend': si(siResend),
-    'cloudflare': si(siCloudflare),
-    'stripe': si(siStripe),
-    'datadog': si(siDatadog),
-    'duckdb': si(siDuckdb),
 
     // DevOps
     'docker': si(siDocker),
@@ -141,14 +140,12 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     'sast': devicon('sonarqube', '4E9BCD'),
     'infrastructure-as-code': si(siPulumi),
     'logging': si(siOpentelemetry),
-    'terraform': si(siTerraform),
 
     // QA
     'jest': si(siJest),
     'vitest': si(siVitest),
     'selenium': si(siSelenium),
     'playwright': devicon('playwright', '2EAD33'),
-    'storybook': si(siStorybook),
 
     // Management
     'jira': si(siJira),
@@ -171,6 +168,23 @@ const iconMap: Record<string, Omit<SkillIconData, 'initial'>> = {
     // AI
     'gemini-api': si(siGooglegemini),
     'vercel-ai-sdk': si(siVercel),
+
+    // Platform & data
+    'terraform': si(siTerraform),
+    'fastify': si(siFastify),
+    'electron': si(siElectron),
+    'datadog': si(siDatadog),
+    'cloudflare': si(siCloudflare),
+    'duckdb': si(siDuckdb),
+    'data-lake': si(siApacheparquet),
+    'supabase': si(siSupabase),
+    'stripe': si(siStripe),
+    'python': si(siPython),
+    'unreal-engine': si(siUnrealengine),
+    'better-auth': si(siBetterauth),
+    'effect': si(siEffect),
+    'design-systems': si(siStorybook),
+    'device-licensing': si(siWebauthn),
 };
 
 const fallbackColors = [
